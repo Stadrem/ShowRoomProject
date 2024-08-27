@@ -6,6 +6,7 @@ using System.IO;
 using System.Net;
 using UnityEngine;
 using UnityEngine.Networking;
+using static AccountDate;
 
 // HttpInfo 클래스 선언: HTTP 요청 관련 정보를 담는 클래스
 public class HttpInfo
@@ -171,6 +172,8 @@ public class HttpManager : MonoBehaviour
             if (info.onComplete != null)
             {
                 info.onComplete(webRequest.downloadHandler);
+
+                ParseUserInfo(webRequest.downloadHandler);
             }
         }
         //그렇지 않다면 (Error 라면)
@@ -179,5 +182,15 @@ public class HttpManager : MonoBehaviour
             //Error에 대한 이유 출력
             Debug.LogError("Net Error = " + webRequest.error);
         }
+    }
+
+    // 응답 데이터를 UserInfo 구조체로 변환하는 예시
+    void ParseUserInfo(DownloadHandler downloadHandler)
+    {
+        string json = downloadHandler.text;
+        UserInfo userInfo = JsonUtility.FromJson<UserInfo>(json);
+        Debug.Log("User ID: " + userInfo.userId);
+        Debug.Log("User Name: " + userInfo.userName);
+        // 필요한 다른 필드들도 출력 가능
     }
 }
