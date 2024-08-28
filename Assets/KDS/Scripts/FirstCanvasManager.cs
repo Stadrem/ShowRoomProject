@@ -19,23 +19,28 @@ public class FirstCanvasManager : MonoBehaviour
     public TMP_InputField logintId;
     public TMP_InputField loginPassword;
 
-    public GameObject JoinFullset;
-    public GameObject LoginFullset;
+    public GameObject joinFullset;
+    public GameObject loginFullset;
 
     public Animator warningAnim;
+
+    void Update()
+    {
+        RenderSettings.skybox.SetFloat("_Rotation", Time.time * 1);
+    }
 
     public void JoinFinishClick()
     {
         if(string.IsNullOrEmpty(texttId.text) || string.IsNullOrEmpty(textPassword.text) || string.IsNullOrEmpty(textName.text) || string.IsNullOrEmpty(textAge.text)) 
         {
             print("칸이 비었음");
-            warningAnim.SetTrigger("Blink");
+            HttpManager.GetInstance().Alert("빈칸을 채워주세요.");
             return;
         }
 
         JoinJsonConvert();
 
-        print("완료");
+        LoginPopUp();
     }
 
     public void LoginClick()
@@ -43,13 +48,11 @@ public class FirstCanvasManager : MonoBehaviour
         if (string.IsNullOrEmpty(logintId.text) || string.IsNullOrEmpty(loginPassword.text))
         {
             print("칸이 비었음");
-            warningAnim.SetTrigger("Blink");
+            HttpManager.GetInstance().Alert("아이디 및 비밀번호를 입력해주세요.");
             return;
         }
 
         LoginJsonConvert();
-
-        print("완료");
     }
 
     void JoinJsonConvert()
@@ -85,7 +88,7 @@ public class FirstCanvasManager : MonoBehaviour
         };
 
         // POST 요청을 위한 코루틴 실행
-        StartCoroutine(HttpManager.GetInstance().Post(info));
+        StartCoroutine(HttpManager.GetInstance().Register(info));
     }
 
     void LoginJsonConvert()
@@ -117,7 +120,7 @@ public class FirstCanvasManager : MonoBehaviour
         };
 
         // POST 요청을 위한 코루틴 실행
-        StartCoroutine(HttpManager.GetInstance().Post(info));
+        StartCoroutine(HttpManager.GetInstance().Login(info));
     }
 
     public void JoinPopUp()
@@ -125,8 +128,8 @@ public class FirstCanvasManager : MonoBehaviour
         logintId.text = "";
         loginPassword.text = "";
 
-        JoinFullset.SetActive(true);
-        LoginFullset.SetActive(false);
+        joinFullset.SetActive(true);
+        loginFullset.SetActive(false);
     }
 
     public void LoginPopUp()
@@ -136,7 +139,7 @@ public class FirstCanvasManager : MonoBehaviour
         textName.text = "";
         textAge.text = "";
 
-        JoinFullset.SetActive(false);
-        LoginFullset.SetActive(true);
+        joinFullset.SetActive(false);
+        loginFullset.SetActive(true);
     }
 }

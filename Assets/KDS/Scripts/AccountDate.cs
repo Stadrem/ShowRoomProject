@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 public class AccountDate : MonoBehaviour
 {
     //싱글톤 생성
-    static AccountDate instance;
+    public static AccountDate instance;
 
     // 싱글톤 인스턴스를 반환하는 메소드
     public static AccountDate GetInstance()
@@ -64,16 +64,20 @@ public class AccountDate : MonoBehaviour
         public string userPassword;
     }
 
-    public void InAccount()
+    UserInfo currentInfo = new UserInfo();
+
+    public void InAccount(string id, string name, int age, string gender, int familly)
     {
-        // 전송할 데이터 객체 생성
-        UserInfo currentInfo = new UserInfo();
-        currentInfo.userId = "";
-        currentInfo.userPassword = "";
-        currentInfo.userName = "";
-        currentInfo.userAge = Convert.ToInt32("");
-        currentInfo.userGender = "";
-        currentInfo.userFamilly = Convert.ToInt32("");
+        currentInfo.userId = id;
+        currentInfo.userName = name;
+        currentInfo.userAge = Convert.ToInt32(age);
+        currentInfo.userGender = gender;
+        currentInfo.userFamilly = Convert.ToInt32(familly);
+    }
+
+    private void Start()
+    {
+        
     }
 }
 
