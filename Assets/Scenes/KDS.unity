@@ -558,16 +558,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7545446985438227208, guid: 05d2dd5409d3dc4479a430cee30719d8,
-        type: 3}
-      propertyPath: m_Name
-      value: AIOutputChatFullset
-      objectReference: {fileID: 0}
-    - target: {fileID: 7863702972640282569, guid: 05d2dd5409d3dc4479a430cee30719d8,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerInputChatFullset
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -653,11 +643,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FirstCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 567397112679582039, guid: 7f7520d9beab83441b46d2a1d50835dd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5029127852729710011, guid: 7f7520d9beab83441b46d2a1d50835dd,
         type: 3}
@@ -759,6 +744,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8557722009316521837, guid: 7f7520d9beab83441b46d2a1d50835dd,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 8557722009316521837, guid: 7f7520d9beab83441b46d2a1d50835dd,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8557722009316521837, guid: 7f7520d9beab83441b46d2a1d50835dd,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -822,20 +823,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4887248633400386794, guid: 3cb7a4f5e241cc047949b61915998ee6,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5580100900622781461, guid: 3cb7a4f5e241cc047949b61915998ee6,
         type: 3}
       propertyPath: m_Name
       value: AccountDate
-      objectReference: {fileID: 0}
-    - target: {fileID: 5580100900622781461, guid: 3cb7a4f5e241cc047949b61915998ee6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

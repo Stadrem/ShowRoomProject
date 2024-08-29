@@ -653,7 +653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4046838300796632637
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1413,7 +1413,7 @@ GameObject:
   - component: {fileID: 6844236397163868737}
   - component: {fileID: 6922682530852868628}
   m_Layer: 5
-  m_Name: OutputChatFullset
+  m_Name: AIOutputChatFullset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1491,7 +1491,7 @@ GameObject:
   - component: {fileID: 8810060580792093157}
   - component: {fileID: 8280336056746519515}
   m_Layer: 5
-  m_Name: InputChatFullset
+  m_Name: PlayerInputChatFullset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
