@@ -558,6 +558,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7545446985438227208, guid: 05d2dd5409d3dc4479a430cee30719d8,
+        type: 3}
+      propertyPath: m_Name
+      value: AIOutputChatFullset
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863702972640282569, guid: 05d2dd5409d3dc4479a430cee30719d8,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerInputChatFullset
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -579,7 +589,7 @@ PrefabInstance:
     - target: {fileID: 567397112679582039, guid: 7f7520d9beab83441b46d2a1d50835dd,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5029127852729710011, guid: 7f7520d9beab83441b46d2a1d50835dd,
         type: 3}
@@ -753,6 +763,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AccountDate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580100900622781461, guid: 3cb7a4f5e241cc047949b61915998ee6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
