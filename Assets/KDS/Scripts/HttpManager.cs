@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using TMPro;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.Networking;
 using static AccountDate;
@@ -26,6 +28,10 @@ public class HttpInfo
 
 public class HttpManager : MonoBehaviour
 {
+
+    public GameObject alertFullset;
+    public TextMeshProUGUI alertText;
+
     //싱글톤 생성
     static HttpManager instance;
 
@@ -91,6 +97,81 @@ public class HttpManager : MonoBehaviour
             DoneRequest(webRequest, info);
         }
     }
+
+    /*
+    public IEnumerator Login(HttpInfo info)
+    {
+        // GET 요청 생성
+        using (UnityWebRequest webRequest = UnityWebRequest.Post(info.url, info.body, info.contentType))
+        {
+            // 요청 전송 및 응답 대기
+            yield return webRequest.SendWebRequest();
+
+            if (webRequest.result == UnityWebRequest.Result.Success)
+            {
+                ParseUserInfo(webRequest.downloadHandler);
+                Debug.Log("Login successful: " + webRequest.downloadHandler.text);
+            }
+            else
+            {
+                Debug.Log("Login failed: " + webRequest.error);
+            }
+        }
+    }
+    */
+
+    public IEnumerator Login(HttpInfo info)
+    {
+        // GET 요청 생성
+        using (UnityWebRequest webRequest = new UnityWebRequest(info.url, "POST"))
+        {
+            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(info.body);
+            webRequest.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            webRequest.downloadHandler = new DownloadHandlerBuffer();
+            webRequest.SetRequestHeader("Content-Type", info.contentType);
+
+            // 요청 전송 및 응답 대기
+            yield return webRequest.SendWebRequest();
+
+            if (webRequest.result == UnityWebRequest.Result.Success)
+            {
+                ParseUserInfo(webRequest.downloadHandler);
+                Debug.Log("Login successful: " + webRequest.downloadHandler.text);
+                Alert("로그인 성공!");
+            }
+            else
+            {
+                Debug.Log("Login failed: " + webRequest.error);
+                Alert("아이디 혹은 비밀번호가 틀렸습니다.");
+            }
+        }
+    }
+
+    public IEnumerator Register(HttpInfo info)
+    {
+        using (UnityWebRequest webRequest = new UnityWebRequest(info.url, "POST"))
+        {
+            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(info.body);
+            webRequest.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            webRequest.downloadHandler = new DownloadHandlerBuffer();
+            webRequest.SetRequestHeader("Content-Type", info.contentType);
+
+            // 요청 전송 및 응답 대기
+            yield return webRequest.SendWebRequest();
+
+            if (webRequest.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Registration successful: " + webRequest.downloadHandler.text);
+                Alert("회원 가입 성공");
+            }
+            else
+            {
+                Debug.Log("Registration failed: " + webRequest.error);
+                Alert("회원 가입 실패");
+            }
+        }
+    }
+
 
     // 파일 업로드를 form-data로 처리하는 코루틴
     public IEnumerator UploadFileByFormData(HttpInfo info)
@@ -172,8 +253,6 @@ public class HttpManager : MonoBehaviour
             if (info.onComplete != null)
             {
                 info.onComplete(webRequest.downloadHandler);
-
-                ParseUserInfo(webRequest.downloadHandler);
             }
         }
         //그렇지 않다면 (Error 라면)
@@ -191,6 +270,23 @@ public class HttpManager : MonoBehaviour
         UserInfo userInfo = JsonUtility.FromJson<UserInfo>(json);
         Debug.Log("User ID: " + userInfo.userId);
         Debug.Log("User Name: " + userInfo.userName);
+
+        AccountDate.instance.InAccount(userInfo.userId, userInfo.userName, userInfo.userAge, userInfo.userGender, userInfo.userFamilly);
         // 필요한 다른 필드들도 출력 가능
+    }
+
+    public void Alert(string text)
+    {
+        StartCoroutine(PopUpTime(text));
+    }
+
+    IEnumerator PopUpTime(string text)
+    {
+        alertText.text = text;
+        alertFullset.SetActive(true);
+
+        yield return new WaitForSeconds(2.0f);
+
+        alertFullset.SetActive(false);
     }
 }
