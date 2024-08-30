@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -33,8 +33,8 @@ public class FirstCanvasManager : MonoBehaviour
     {
         if(string.IsNullOrEmpty(texttId.text) || string.IsNullOrEmpty(textPassword.text) || string.IsNullOrEmpty(textName.text) || string.IsNullOrEmpty(textAge.text)) 
         {
-            print("Ä­ÀÌ ºñ¾úÀ½");
-            HttpManager.GetInstance().Alert("ºóÄ­À» Ã¤¿öÁÖ¼¼¿ä.");
+            print("ì¹¸ì´ ë¹„ì—ˆìŒ");
+            HttpManager.GetInstance().Alert("ë¹ˆì¹¸ì„ ì±„ì›Œì£¼ì„¸ìš”.", 2.0f);
             return;
         }
 
@@ -47,8 +47,8 @@ public class FirstCanvasManager : MonoBehaviour
     {
         if (string.IsNullOrEmpty(logintId.text) || string.IsNullOrEmpty(loginPassword.text))
         {
-            print("Ä­ÀÌ ºñ¾úÀ½");
-            HttpManager.GetInstance().Alert("¾ÆÀÌµğ ¹× ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+            print("ì¹¸ì´ ë¹„ì—ˆìŒ");
+            HttpManager.GetInstance().Alert("ì•„ì´ë”” ë° ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.", 2.0f);
             return;
         }
 
@@ -57,7 +57,7 @@ public class FirstCanvasManager : MonoBehaviour
 
     void JoinJsonConvert()
     {
-        // Àü¼ÛÇÒ µ¥ÀÌÅÍ °´Ã¼ »ı¼º
+        // ì „ì†¡í•  ë°ì´í„° ê°ì²´ ìƒì„±
         UserInfo userInfo = new UserInfo();
         userInfo.userId = texttId.text;
         userInfo.userPassword = textPassword.text;
@@ -66,60 +66,60 @@ public class FirstCanvasManager : MonoBehaviour
         userInfo.userGender = textGender.text;
         userInfo.userFamilly = Convert.ToInt32(textFamilly.text);
 
-        // HttpInfo °´Ã¼ »ı¼º
+        // HttpInfo ê°ì²´ ìƒì„±
         HttpInfo info = new HttpInfo();
 
-        // ¿äÃ»ÇÒ URL ¼³Á¤
+        // ìš”ì²­í•  URL ì„¤ì •
         info.url = "-";
 
-        // Àü¼ÛÇÒ µ¥ÀÌÅÍ¸¦ JSON Çü½ÄÀ¸·Î º¯È¯ÇÏ¿© ¼³Á¤
+        // ì „ì†¡í•  ë°ì´í„°ë¥¼ JSON í˜•ì‹ìœ¼ë¡œ ë³€í™˜í•˜ì—¬ ì„¤ì •
         info.body = JsonUtility.ToJson(userInfo);
 
         print(info);
 
-        // ÄÜÅÙÃ÷ Å¸ÀÔ ¼³Á¤
+        // ì½˜í…ì¸  íƒ€ì… ì„¤ì •
         info.contentType = "application/json";
 
-        //µ¨¸®°ÔÀÌÆ®¿¡ ±×³É ³Ö±â - ¶÷´Ù½Ä ¹æ½Ä  - Áö±İ ¿©±â¼± ¿¬»ê ´Ü°è ¾øÀ½
+        //ë¸ë¦¬ê²Œì´íŠ¸ì— ê·¸ëƒ¥ ë„£ê¸° - ëŒë‹¤ì‹ ë°©ì‹  - ì§€ê¸ˆ ì—¬ê¸°ì„  ì—°ì‚° ë‹¨ê³„ ì—†ìŒ
         info.onComplete = (DownloadHandler downloadHandler) =>
         {
-            // ¼­¹ö·ÎºÎÅÍ ¹ŞÀº ÀÀ´ä Ãâ·Â
+            // ì„œë²„ë¡œë¶€í„° ë°›ì€ ì‘ë‹µ ì¶œë ¥
             print(downloadHandler.text);
         };
 
-        // POST ¿äÃ»À» À§ÇÑ ÄÚ·çÆ¾ ½ÇÇà
+        // POST ìš”ì²­ì„ ìœ„í•œ ì½”ë£¨í‹´ ì‹¤í–‰
         StartCoroutine(HttpManager.GetInstance().Register(info));
     }
 
     void LoginJsonConvert()
     {
-        // Àü¼ÛÇÒ µ¥ÀÌÅÍ °´Ã¼ »ı¼º
+        // ì „ì†¡í•  ë°ì´í„° ê°ì²´ ìƒì„±
         UserAccount accountInfo = new UserAccount();
         accountInfo.userId = logintId.text;
         accountInfo.userPassword = loginPassword.text;
 
-        // HttpInfo °´Ã¼ »ı¼º
+        // HttpInfo ê°ì²´ ìƒì„±
         HttpInfo info = new HttpInfo();
 
-        // ¿äÃ»ÇÒ URL ¼³Á¤
+        // ìš”ì²­í•  URL ì„¤ì •
         info.url = "-";
 
-        // Àü¼ÛÇÒ µ¥ÀÌÅÍ¸¦ JSON Çü½ÄÀ¸·Î º¯È¯ÇÏ¿© ¼³Á¤
+        // ì „ì†¡í•  ë°ì´í„°ë¥¼ JSON í˜•ì‹ìœ¼ë¡œ ë³€í™˜í•˜ì—¬ ì„¤ì •
         info.body = JsonUtility.ToJson(accountInfo);
 
         print(info);
 
-        // ÄÜÅÙÃ÷ Å¸ÀÔ ¼³Á¤
+        // ì½˜í…ì¸  íƒ€ì… ì„¤ì •
         info.contentType = "application/json";
 
-        //µ¨¸®°ÔÀÌÆ®¿¡ ±×³É ³Ö±â - ¶÷´Ù½Ä ¹æ½Ä  - Áö±İ ¿©±â¼± ¿¬»ê ´Ü°è ¾øÀ½
+        //ë¸ë¦¬ê²Œì´íŠ¸ì— ê·¸ëƒ¥ ë„£ê¸° - ëŒë‹¤ì‹ ë°©ì‹  - ì§€ê¸ˆ ì—¬ê¸°ì„  ì—°ì‚° ë‹¨ê³„ ì—†ìŒ
         info.onComplete = (DownloadHandler downloadHandler) =>
         {
-            // ¼­¹ö·ÎºÎÅÍ ¹ŞÀº ÀÀ´ä Ãâ·Â
+            // ì„œë²„ë¡œë¶€í„° ë°›ì€ ì‘ë‹µ ì¶œë ¥
             print(downloadHandler.text);
         };
 
-        // POST ¿äÃ»À» À§ÇÑ ÄÚ·çÆ¾ ½ÇÇà
+        // POST ìš”ì²­ì„ ìœ„í•œ ì½”ë£¨í‹´ ì‹¤í–‰
         StartCoroutine(HttpManager.GetInstance().Login(info));
     }
 

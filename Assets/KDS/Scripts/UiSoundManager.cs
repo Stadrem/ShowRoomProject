@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,24 +7,26 @@ public class UiSoundManager : MonoBehaviour
     public static UiSoundManager instance;
 
     public AudioClip click;
+    public AudioClip notification;
+    public AudioClip keyboard;
 
     AudioSource audioSource;
 
     private void Awake()
     {
-        //instance °ªÀÌ nullÀÌ¸é
+        //instance ê°’ì´ nullì´ë©´
         if (instance == null)
         {
-            //ÀÌ ½ºÅ©¸³Æ®¸¦ instance¿¡ ´ãÀ½
+            //ì´ ìŠ¤í¬ë¦½íŠ¸ë¥¼ instanceì— ë‹´ìŒ
             instance = this;
 
-            //¾À ÀüÈ¯ÇØµµ À¯ÁöÇÏ´Â ÄÚµå
-            DontDestroyOnLoad(gameObject);
+            //ì”¬ ì „í™˜í•´ë„ ìœ ì§€í•˜ëŠ” ì½”ë“œ
+            //DontDestroyOnLoad(gameObject);
         }
-        //ÀÌ¹Ì instance¿¡ ¹«¾ğ°¡ °ªÀÌ µé¾îÀÖ´Ù¸é?
+        //ì´ë¯¸ instanceì— ë¬´ì–¸ê°€ ê°’ì´ ë“¤ì–´ìˆë‹¤ë©´?
         else
         {
-            //ÀÇµµÄ¡ ¾ÊÀº Áßº¹ Àû¿ëÀÏ ÅÂ´Ï ÀÌ °ÔÀÓ ¿ÀºêÁ§Æ® ÆÄ±«.
+            //ì˜ë„ì¹˜ ì•Šì€ ì¤‘ë³µ ì ìš©ì¼ íƒœë‹ˆ ì´ ê²Œì„ ì˜¤ë¸Œì íŠ¸ íŒŒê´´.
             Destroy(gameObject);
         }
     }
@@ -35,6 +37,14 @@ public class UiSoundManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    private void Update()
+    {
+        if (Input.anyKeyDown && !Input.GetButtonDown("Fire1"))
+        {
+            KeyClick();
+        }
+    }
+
     void PlaySound(AudioClip audios, float volume)
     {
         audioSource.PlayOneShot(audios, volume);
@@ -42,6 +52,16 @@ public class UiSoundManager : MonoBehaviour
 
     public void AudioClick()
     {
-        PlaySound(click, 0.5f);
+        PlaySound(click, 0.2f);
+    }
+
+    public void NotificationClick()
+    {
+        PlaySound(notification, 0.6f);
+    }
+
+    public void KeyClick()
+    {
+        PlaySound(keyboard, 0.25f);
     }
 }
