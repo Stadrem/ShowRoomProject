@@ -627,11 +627,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BillBoardIconUser
       objectReference: {fileID: 0}
-    - target: {fileID: 5635118362621304935, guid: 905777375d232b64ea376c9d89930c74,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -654,11 +649,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChatUi
-      objectReference: {fileID: 0}
-    - target: {fileID: 2425288413647007584, guid: 05d2dd5409d3dc4479a430cee30719d8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4046838300796632637, guid: 05d2dd5409d3dc4479a430cee30719d8,
         type: 3}
@@ -833,11 +823,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BillBoardIcon
       objectReference: {fileID: 0}
-    - target: {fileID: 8410591608894773683, guid: 213f0986c40b1844aaebc24410561325,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -859,7 +844,7 @@ PrefabInstance:
     - target: {fileID: 567397112679582039, guid: 7f7520d9beab83441b46d2a1d50835dd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4561159672061424112, guid: 7f7520d9beab83441b46d2a1d50835dd,
         type: 3}
@@ -998,6 +983,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameUiCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 652716136743493739, guid: b8e42554a31ba4d46a9911113154c414,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1439190419661144375, guid: b8e42554a31ba4d46a9911113154c414,
         type: 3}
