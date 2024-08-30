@@ -45,7 +45,7 @@ public class AccountDate : MonoBehaviour
         }
     }
 
-    // PostInfo 구조체 선언: 서버에서 가져온 데이터를 담기 위한 구조체
+    // 회원 가입시 보낼 정보
     [System.Serializable]
     public struct UserInfo
     {
@@ -57,6 +57,7 @@ public class AccountDate : MonoBehaviour
         public int userFamilly;
     }
 
+    //로그인 시 보낼 정보
     [System.Serializable]
     public struct UserAccount
     {
@@ -64,15 +65,20 @@ public class AccountDate : MonoBehaviour
         public string userPassword;
     }
 
-    UserInfo currentInfo = new UserInfo();
-
-    public void InAccount(string id, string name, int age, string gender, int familly)
+    [System.Serializable]
+    public struct UserLoginInfo
     {
-        currentInfo.userId = id;
+        public string userName;
+        public string userId;
+    }
+
+    UserLoginInfo currentInfo = new UserLoginInfo();
+
+    //로그인 후 정보 저장
+    public void InAccount(string token, string name)
+    {
+        currentInfo.userId = token;
         currentInfo.userName = name;
-        currentInfo.userAge = Convert.ToInt32(age);
-        currentInfo.userGender = gender;
-        currentInfo.userFamilly = Convert.ToInt32(familly);
     }
 
     private void Start()

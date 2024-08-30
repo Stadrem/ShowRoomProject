@@ -267,11 +267,11 @@ public class HttpManager : MonoBehaviour
     void ParseUserInfo(DownloadHandler downloadHandler)
     {
         string json = downloadHandler.text;
-        UserInfo userInfo = JsonUtility.FromJson<UserInfo>(json);
-        Debug.Log("User ID: " + userInfo.userId);
+        UserLoginInfo userInfo = JsonUtility.FromJson<UserLoginInfo>(json);
         Debug.Log("User Name: " + userInfo.userName);
+        Debug.Log("User Token: " + userInfo.userId);
 
-        AccountDate.instance.InAccount(userInfo.userId, userInfo.userName, userInfo.userAge, userInfo.userGender, userInfo.userFamilly);
+        AccountDate.instance.InAccount(userInfo.userId, userInfo.userName);
         // 필요한 다른 필드들도 출력 가능
     }
 

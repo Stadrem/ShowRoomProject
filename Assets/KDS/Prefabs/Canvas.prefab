@@ -303,7 +303,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: bca18161d7987c84887929e4b02292fa, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1
@@ -512,7 +512,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC774\uB984"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bca18161d7987c84887929e4b02292fa, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
   m_sharedMaterial: {fileID: -3547623860983256597, guid: bca18161d7987c84887929e4b02292fa,
     type: 2}
   m_fontSharedMaterials: []
@@ -577,7 +577,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &250294355180933622
@@ -810,8 +810,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC544\uC774\uB514"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bca18161d7987c84887929e4b02292fa, type: 2}
-  m_sharedMaterial: {fileID: -3547623860983256597, guid: bca18161d7987c84887929e4b02292fa,
+  m_fontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
+  m_sharedMaterial: {fileID: -6661855658047998243, guid: 8aecd68783abb954987fcb7eeb519029,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -972,7 +972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5029127852729710011
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1014,7 +1014,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 500
   m_TargetDisplay: 0
 --- !u!114 &3039041199405889741
 MonoBehaviour:
@@ -1078,8 +1078,6 @@ MonoBehaviour:
   loginPassword: {fileID: 7387044685941271569}
   joinFullset: {fileID: 3051350566033956282}
   loginFullset: {fileID: 6457771934278118065}
-  alertFullset: {fileID: 0}
-  alertText: {fileID: 0}
   warningAnim: {fileID: 0}
 --- !u!1 &568939816565104446
 GameObject:
@@ -2458,7 +2456,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: bca18161d7987c84887929e4b02292fa, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1
@@ -3051,8 +3049,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uBE44\uBC00\uBC88\uD638"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bca18161d7987c84887929e4b02292fa, type: 2}
-  m_sharedMaterial: {fileID: -3547623860983256597, guid: bca18161d7987c84887929e4b02292fa,
+  m_fontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
+  m_sharedMaterial: {fileID: -6661855658047998243, guid: 8aecd68783abb954987fcb7eeb519029,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5683,7 +5681,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uB098\uC774"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bca18161d7987c84887929e4b02292fa, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
   m_sharedMaterial: {fileID: -3547623860983256597, guid: bca18161d7987c84887929e4b02292fa,
     type: 2}
   m_fontSharedMaterials: []
@@ -5748,7 +5746,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5588534655068088489
@@ -6559,7 +6557,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uBE44\uBC00\uBC88\uD638"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bca18161d7987c84887929e4b02292fa, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
   m_sharedMaterial: {fileID: -3547623860983256597, guid: bca18161d7987c84887929e4b02292fa,
     type: 2}
   m_fontSharedMaterials: []
@@ -6624,7 +6622,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6430419847430256279
@@ -6694,7 +6692,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC544\uC774\uB514"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bca18161d7987c84887929e4b02292fa, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
   m_sharedMaterial: {fileID: -3547623860983256597, guid: bca18161d7987c84887929e4b02292fa,
     type: 2}
   m_fontSharedMaterials: []
@@ -6759,7 +6757,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6433459369094185820
@@ -7274,7 +7272,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: bca18161d7987c84887929e4b02292fa, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1
@@ -7581,7 +7579,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uAC00\uAD6C \uC778 \uC218"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bca18161d7987c84887929e4b02292fa, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
   m_sharedMaterial: {fileID: -3547623860983256597, guid: bca18161d7987c84887929e4b02292fa,
     type: 2}
   m_fontSharedMaterials: []
@@ -7646,7 +7644,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7270598858123628484
@@ -8676,7 +8674,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: bca18161d7987c84887929e4b02292fa, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1
@@ -9034,7 +9032,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC131\uBCC4"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bca18161d7987c84887929e4b02292fa, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
   m_sharedMaterial: {fileID: -3547623860983256597, guid: bca18161d7987c84887929e4b02292fa,
     type: 2}
   m_fontSharedMaterials: []
@@ -9099,7 +9097,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8552820668647880128
@@ -9399,7 +9397,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: bca18161d7987c84887929e4b02292fa, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1
@@ -9574,7 +9572,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: bca18161d7987c84887929e4b02292fa, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1
