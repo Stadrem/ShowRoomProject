@@ -655,6 +655,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChatUi
       objectReference: {fileID: 0}
+    - target: {fileID: 2425288413647007584, guid: 05d2dd5409d3dc4479a430cee30719d8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4046838300796632637, guid: 05d2dd5409d3dc4479a430cee30719d8,
         type: 3}
       propertyPath: m_Pivot.x
@@ -760,11 +765,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 704649228}
-    - target: {fileID: 5286223181414075040, guid: 05d2dd5409d3dc4479a430cee30719d8,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
