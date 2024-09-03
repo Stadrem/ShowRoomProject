@@ -8,9 +8,30 @@ using System;
 
 public class ConnectionManager : MonoBehaviourPunCallbacks
 {
+    public static ConnectionManager instance;
+
     public string setRoom = "main";
 
-    public int playerCount = 10;
+    public int playerCount = 5;
+
+    string userName;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            // 인스턴스 설정
+            instance = this;
+
+            // 씬 전환 시 객체 파괴 방지
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            // 이미 인스턴스가 존재하면 현재 객체를 파괴
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +54,10 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
 
         //접속을 서버에 요청
         PhotonNetwork.ConnectUsingSettings();
+
+        HttpManager.GetInstance().serverLodingOn();
+
+        HttpManager.GetInstance().Alert("서버 접속 요청 중", 1.0f);
     }
 
     public override void OnConnected()
@@ -58,17 +83,20 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         //Master 서버에 접속이 완료 되었음을 알려줌
         print(MethodInfo.GetCurrentMethod().Name + " is Call");
 
+        HttpManager.GetInstance().serverLodingOff();
+
         //서버의 로비로 들어간다.
         PhotonNetwork.JoinLobby();
     }
 
-    //
     public override void OnJoinedLobby()
     {
         base.OnJoinedLobby();
 
         //서버 로비에 들어갔음을 알려줌
         print(MethodInfo.GetCurrentMethod().Name + " is Call");
+
+        CreateRoom();
     }
 
     public void CreateRoom()
@@ -85,6 +113,8 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
     public void JoinRoom()
     {
         PhotonNetwork.JoinRoom(setRoom);
+
+        HttpManager.GetInstance().Alert("접속 성공", 1.0f);
     }
 
     public override void OnCreatedRoom()
@@ -93,6 +123,15 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
 
         //성공적으로 방이 개설되었음을 알려줌
         print(MethodInfo.GetCurrentMethod().Name + " is Call");
+
+        JoinRoom();
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        base.OnCreateRoomFailed(returnCode, message);
+
+        JoinRoom();
     }
 
     public override void OnJoinedRoom()
@@ -120,6 +159,8 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         base.OnPlayerEnteredRoom(newPlayer);
 
         string playerMsg = $"{newPlayer.NickName}님이 입장하셨습니다.";
+
+        StartCoroutine(SidePopUp(playerMsg, 5));
     }
 
     //룸에 있던 다른 플레이어가 퇴장했을 때의 콜백 함수
@@ -128,5 +169,18 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         base.OnPlayerLeftRoom(otherPlayer);
 
         string playerMsg = $"{otherPlayer.NickName}님이 퇴장하셨습니다.";
+
+        StartCoroutine(SidePopUp(playerMsg, 5));
+    }
+
+    IEnumerator SidePopUp(string msg, int time)
+    {
+        HttpManager.GetInstance().sideAlertText.text = msg;
+
+        HttpManager.GetInstance().sideAlertFullset.SetActive(true);
+
+        yield return new WaitForSeconds(time);
+
+        HttpManager.GetInstance().sideAlertFullset.SetActive(false);
     }
 }

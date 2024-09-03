@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0d7f04a5bf158469a9fe43f342a69f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameText: {fileID: 7161586240704694502}
 --- !u!1 &1071734506541550062
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,6 +368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3459449011581961537}
   - component: {fileID: 6646023432994744609}
+  - component: {fileID: 3076846929729223752}
   m_Layer: 0
   m_Name: BillBoardIconUser
   m_TagString: Untagged
@@ -398,6 +400,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5635118362621304935}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &3076846929729223752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635118362621304935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5696672166229470347
 GameObject:
   m_ObjectHideFlags: 0
