@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -7,21 +7,21 @@ using UnityEngine.Networking;
 
 public class AccountDate : MonoBehaviour
 {
-    //½Ì±ÛÅæ »ı¼º
+    //ì‹±ê¸€í†¤ ìƒì„±
     public static AccountDate instance;
 
-    // ½Ì±ÛÅæ ÀÎ½ºÅÏ½º¸¦ ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
+    // ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
     public static AccountDate GetInstance()
     {
         if (instance == null)
         {
-            // »õ·Î¿î °ÔÀÓ ¿ÀºêÁ§Æ® »ı¼º
+            // ìƒˆë¡œìš´ ê²Œì„ ì˜¤ë¸Œì íŠ¸ ìƒì„±
             GameObject go = new GameObject();
 
-            // ÀÌ¸§ ¼³Á¤
+            // ì´ë¦„ ì„¤ì •
             go.name = "HttpManager";
 
-            // HttpManager ÄÄÆ÷³ÍÆ®¸¦ Ãß°¡
+            // HttpManager ì»´í¬ë„ŒíŠ¸ë¥¼ ì¶”ê°€
             go.AddComponent<AccountDate>();
         }
 
@@ -32,32 +32,31 @@ public class AccountDate : MonoBehaviour
     {
         if (instance == null)
         {
-            // ÀÎ½ºÅÏ½º ¼³Á¤
+            // ì¸ìŠ¤í„´ìŠ¤ ì„¤ì •
             instance = this;
 
-            // ¾À ÀüÈ¯ ½Ã °´Ã¼ ÆÄ±« ¹æÁö
+            // ì”¬ ì „í™˜ ì‹œ ê°ì²´ íŒŒê´´ ë°©ì§€
             DontDestroyOnLoad(gameObject);
         }
         else
         {
-            // ÀÌ¹Ì ÀÎ½ºÅÏ½º°¡ Á¸ÀçÇÏ¸é ÇöÀç °´Ã¼¸¦ ÆÄ±«
+            // ì´ë¯¸ ì¸ìŠ¤í„´ìŠ¤ê°€ ì¡´ì¬í•˜ë©´ í˜„ì¬ ê°ì²´ë¥¼ íŒŒê´´
             Destroy(gameObject);
         }
     }
 
-    // È¸¿ø °¡ÀÔ½Ã º¸³¾ Á¤º¸
+    // íšŒì› ê°€ì…ì‹œ ë³´ë‚¼ ì •ë³´
     [System.Serializable]
     public struct UserInfo
     {
         public string userId;
         public string userPassword;
         public string userName;
-        public int userAge;
-        public string userGender;
+        public int userArea;
         public int userFamilly;
     }
 
-    //·Î±×ÀÎ ½Ã º¸³¾ Á¤º¸
+    //ë¡œê·¸ì¸ ì‹œ ë³´ë‚¼ ì •ë³´
     [System.Serializable]
     public struct UserAccount
     {
@@ -68,16 +67,16 @@ public class AccountDate : MonoBehaviour
     [System.Serializable]
     public struct UserLoginInfo
     {
-        public string userName;
         public string userId;
+        public string userName;
     }
 
-    UserLoginInfo currentInfo = new UserLoginInfo();
+    public UserLoginInfo currentInfo = new UserLoginInfo();
 
-    //·Î±×ÀÎ ÈÄ Á¤º¸ ÀúÀå
-    public void InAccount(string token, string name)
+    //ë¡œê·¸ì¸ í›„ ì •ë³´ ì €ì¥
+    public void InAccount(string Id, string name)
     {
-        currentInfo.userId = token;
+        currentInfo.userId = Id;
         currentInfo.userName = name;
     }
 
