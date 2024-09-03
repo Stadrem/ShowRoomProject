@@ -833,11 +833,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BillBoardIcon
       objectReference: {fileID: 0}
-    - target: {fileID: 8410591608894773683, guid: 213f0986c40b1844aaebc24410561325,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -855,11 +850,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FirstCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 567397112679582039, guid: 7f7520d9beab83441b46d2a1d50835dd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4561159672061424112, guid: 7f7520d9beab83441b46d2a1d50835dd,
         type: 3}
@@ -998,6 +988,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameUiCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 652716136743493739, guid: b8e42554a31ba4d46a9911113154c414,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1439190419661144375, guid: b8e42554a31ba4d46a9911113154c414,
         type: 3}

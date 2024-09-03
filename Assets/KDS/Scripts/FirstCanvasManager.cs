@@ -12,8 +12,7 @@ public class FirstCanvasManager : MonoBehaviour
     public TMP_InputField texttId;
     public TMP_InputField textPassword;
     public TMP_InputField textName;
-    public TMP_InputField textAge;
-    public TextMeshProUGUI textGender;
+    public TMP_InputField textArea;
     public TextMeshProUGUI textFamilly;
 
     public TMP_InputField logintId;
@@ -22,7 +21,8 @@ public class FirstCanvasManager : MonoBehaviour
     public GameObject joinFullset;
     public GameObject loginFullset;
 
-    public Animator warningAnim;
+    string loginUrl = "";
+    string joinUrl = "";
 
     void Update()
     {
@@ -31,7 +31,7 @@ public class FirstCanvasManager : MonoBehaviour
 
     public void JoinFinishClick()
     {
-        if(string.IsNullOrEmpty(texttId.text) || string.IsNullOrEmpty(textPassword.text) || string.IsNullOrEmpty(textName.text) || string.IsNullOrEmpty(textAge.text)) 
+        if(string.IsNullOrEmpty(texttId.text) || string.IsNullOrEmpty(textPassword.text) || string.IsNullOrEmpty(textName.text) || string.IsNullOrEmpty(textArea.text)) 
         {
             print("칸이 비었음");
             HttpManager.GetInstance().Alert("빈칸을 채워주세요.", 2.0f);
@@ -62,20 +62,19 @@ public class FirstCanvasManager : MonoBehaviour
         userInfo.userId = texttId.text;
         userInfo.userPassword = textPassword.text;
         userInfo.userName = textName.text;
-        userInfo.userAge = Convert.ToInt32(textAge.text);
-        userInfo.userGender = textGender.text;
+        userInfo.userArea = Convert.ToInt32(textArea.text);
         userInfo.userFamilly = Convert.ToInt32(textFamilly.text);
 
         // HttpInfo 객체 생성
         HttpInfo info = new HttpInfo();
 
         // 요청할 URL 설정
-        info.url = "-";
+        info.url = joinUrl;
 
         // 전송할 데이터를 JSON 형식으로 변환하여 설정
         info.body = JsonUtility.ToJson(userInfo);
 
-        print(info);
+        print(info.body);
 
         // 콘텐츠 타입 설정
         info.contentType = "application/json";
@@ -102,12 +101,12 @@ public class FirstCanvasManager : MonoBehaviour
         HttpInfo info = new HttpInfo();
 
         // 요청할 URL 설정
-        info.url = "-";
+        info.url = loginUrl;
 
         // 전송할 데이터를 JSON 형식으로 변환하여 설정
         info.body = JsonUtility.ToJson(accountInfo);
 
-        print(info);
+        print(info.body);
 
         // 콘텐츠 타입 설정
         info.contentType = "application/json";
@@ -137,7 +136,7 @@ public class FirstCanvasManager : MonoBehaviour
         texttId.text = "";
         textPassword.text = "";
         textName.text = "";
-        textAge.text = "";
+        textArea.text = "";
 
         joinFullset.SetActive(false);
         loginFullset.SetActive(true);
