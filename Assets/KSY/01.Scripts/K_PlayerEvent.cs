@@ -5,9 +5,10 @@ using UnityEngine;
 public class K_PlayerEvent : MonoBehaviour
 {
     public float maxDistance;
+
+
     void Start()
     {
-        
     }
 
     void Update()

@@ -10,7 +10,6 @@ public class K_Object : MonoBehaviour
     public float dist;
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         myUIPos = transform.GetChild(0);
         myUIPos.gameObject.SetActive(false);
         player = GameObject.FindWithTag("Player").transform;
