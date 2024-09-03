@@ -31,7 +31,7 @@ public class K_ChatBotData : MonoBehaviour
                 ans = JsonUtility.FromJson<ChatBotAns>(downloadHandler.text);
                 print(ans.answer);
             };
-            StartCoroutine(HttpManager.GetInstance().Post(info));
+            StartCoroutine(K_HttpManager.GetInstance().Post(info));
         }
     }
 

@@ -21,7 +21,7 @@ public class K_PlayerEvent : MonoBehaviour
             {
                 //OpenObjectUI(hitInfo.transform);
                 K_DoorOpenAnimTest doa = hitInfo.transform.GetComponent<K_DoorOpenAnimTest>();
-                doa.isOpen = !doa.isOpen;
+                if(doa != null) doa.isOpen = !doa.isOpen;
             }
         }
         

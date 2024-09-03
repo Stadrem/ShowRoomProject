@@ -24,7 +24,7 @@ public class HttpTest : MonoBehaviour
             HttpInfo info = new HttpInfo();
             info.url = "http://mtvs.helloworldlabs.kr:7771/api/string?parameter=안녕하세요";
             info.onComplete = OnComplete;
-            StartCoroutine(HttpManager.GetInstance().Get(info));
+            StartCoroutine(K_HttpManager.GetInstance().Get(info));
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -33,7 +33,7 @@ public class HttpTest : MonoBehaviour
             //info.url = "https://jsonplaceholder.typicode.com/albums";
             info.url = "https://ssl.pstatic.net/melona/libs/1506/1506331/b8145c5a724d3f2c9d2b_20240813152032478.jpg";
             info.onComplete = (downloadHandler) => { File.WriteAllBytes(Application.dataPath + "/image2.jpg", downloadHandler.data); };
-            StartCoroutine(HttpManager.GetInstance().Get(info));
+            StartCoroutine(K_HttpManager.GetInstance().Get(info));
         }
 
         //if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -59,7 +59,7 @@ public class HttpTest : MonoBehaviour
             info.contentType = "multipart/form-data";
             info.body = "C:\\Users\\Admin\\Downloads\\image.jpg";
             info.onComplete = (downloadHandler) => { File.WriteAllBytes(Application.dataPath + "/image5.jpg", downloadHandler.data); };
-            StartCoroutine(HttpManager.GetInstance().UploadFileByFormData(info));
+            StartCoroutine(K_HttpManager.GetInstance().UploadFileByFormData(info));
         }
         
         if (Input.GetKeyDown(KeyCode.Alpha5))
@@ -69,7 +69,7 @@ public class HttpTest : MonoBehaviour
             info.contentType = "image/jpg";
             info.body = "C:\\Users\\Admin\\Downloads\\image12.jpg";
             info.onComplete = (downloadHandler) => { File.WriteAllBytes(Application.dataPath + "/image6.jpg", downloadHandler.data); };
-            StartCoroutine(HttpManager.GetInstance().UploadFileByByte(info));
+            StartCoroutine(K_HttpManager.GetInstance().UploadFileByByte(info));
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha6))
@@ -87,7 +87,7 @@ public class HttpTest : MonoBehaviour
                 Image image = GameObject.Find("Image").GetComponent<Image>();
                 image.sprite = sprite;
             };
-            StartCoroutine(HttpManager.GetInstance().DownloadSprite(info));
+            StartCoroutine(K_HttpManager.GetInstance().DownloadSprite(info));
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha7))
@@ -100,7 +100,7 @@ public class HttpTest : MonoBehaviour
                 
                 myAudio.clip = handler.audioClip;
             };
-            StartCoroutine(HttpManager.GetInstance().DownloadAudio(info));
+            StartCoroutine(K_HttpManager.GetInstance().DownloadAudio(info));
         }
 
         

@@ -79,7 +79,7 @@ public class K_ProcessData : MonoBehaviour
             }
             if(action != null) action();
         };
-        StartCoroutine(HttpManager.GetInstance().Get(info));
+        StartCoroutine(K_HttpManager.GetInstance().Get(info));
     }
 
     void Update()
@@ -103,7 +103,7 @@ public class K_ProcessData : MonoBehaviour
                 }
                 if (action != null) action();
             };
-            StartCoroutine(HttpManager.GetInstance().Get(info));
+            StartCoroutine(K_HttpManager.GetInstance().Get(info));
         }
         //if (Input.GetKeyDown(KeyCode.Alpha4)) // Post 테스트 // 완료. // 이미지 보내기
         //{
@@ -138,7 +138,7 @@ public class K_ProcessData : MonoBehaviour
         //info.body = $"{Application.dataPath}/KSY/Test{GameManager_K.GetInstance().camShotCnt}.png";
         print("보낸 자료 : " + info.body);
         //GameManager_K.GetInstance().PicturePath(info.body);
-        StartCoroutine(HttpManager.GetInstance().UploadFileByByte(info));
+        StartCoroutine(K_HttpManager.GetInstance().UploadFileByByte(info));
         //if(buttonCs != null)
         //{
         //    buttonCs.noteText.text = "분석중입니다.";
