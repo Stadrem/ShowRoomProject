@@ -28,7 +28,6 @@ public class HttpInfo
 
 public class HttpManager : MonoBehaviour
 {
-
     public GameObject alertFullset;
     public TextMeshProUGUI alertText;
 
@@ -87,6 +86,7 @@ public class HttpManager : MonoBehaviour
             if (webRequest.result == UnityWebRequest.Result.Success)
             {
                 ParseUserInfo(webRequest.downloadHandler);
+
                 Debug.Log("Login successful: " + webRequest.downloadHandler.text);
                 Alert("로그인 성공!", 2.0f);
             }

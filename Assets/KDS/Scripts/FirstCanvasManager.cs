@@ -21,6 +21,9 @@ public class FirstCanvasManager : MonoBehaviour
     public GameObject joinFullset;
     public GameObject loginFullset;
 
+    string loginUrl = "";
+    string joinUrl = "";
+
     void Update()
     {
         RenderSettings.skybox.SetFloat("_Rotation", Time.time * 1);
@@ -66,7 +69,7 @@ public class FirstCanvasManager : MonoBehaviour
         HttpInfo info = new HttpInfo();
 
         // 요청할 URL 설정
-        info.url = "-";
+        info.url = joinUrl;
 
         // 전송할 데이터를 JSON 형식으로 변환하여 설정
         info.body = JsonUtility.ToJson(userInfo);
@@ -98,7 +101,7 @@ public class FirstCanvasManager : MonoBehaviour
         HttpInfo info = new HttpInfo();
 
         // 요청할 URL 설정
-        info.url = "-";
+        info.url = loginUrl;
 
         // 전송할 데이터를 JSON 형식으로 변환하여 설정
         info.body = JsonUtility.ToJson(accountInfo);
