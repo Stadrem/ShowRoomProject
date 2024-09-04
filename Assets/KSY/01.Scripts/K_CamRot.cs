@@ -15,7 +15,7 @@ public class K_CamRot : MonoBehaviour
         if (cam)
         {
             my -= Input.GetAxis("Mouse Y") * Time.deltaTime * rotSpeed;
-            my = Mathf.Clamp(my, -80f, 80f);
+            my = Mathf.Clamp(my, -40f, 40f);
             
         }
         else
