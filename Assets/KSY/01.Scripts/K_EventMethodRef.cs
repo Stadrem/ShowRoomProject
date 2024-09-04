@@ -22,6 +22,7 @@ public class K_EventMethodRef : MonoBehaviour
 
     public TMP_InputField input;
     public TMP_Text output;
+    public TMP_Dropdown items;
 
     void Start()
     {
@@ -30,13 +31,17 @@ public class K_EventMethodRef : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            print("Caption : " + items.captionText.text);
+        }
     }
 
     public void TransferInput()
     {
         HttpInfo info = new HttpInfo();
         info.url = "http://meta-ai.iptime.org:8989/ask";
+        
         ChatBot chat = new ChatBot();
         if (AccountDate.GetInstance().currentInfo.userId == null || AccountDate.GetInstance().currentInfo.userId == "")
         {
