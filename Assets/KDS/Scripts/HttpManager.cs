@@ -139,9 +139,9 @@ public class HttpManager : MonoBehaviour
         Debug.Log("User Name: " + userInfo.userName);
         Debug.Log("User ID: " + userInfo.userId);
 
-        AccountDate.instance.InAccount(userInfo.userId, userInfo.userName);
+        AccountDate.GetInstance().InAccount(userInfo.userId, userInfo.userName);
 
-        AccountDate.instance.InAccount("testUserId", "testUserName");
+        //AccountDate.instance.InAccount("testUserId", "testUserName");
         // 필요한 다른 필드들도 출력 가능
     }
 
