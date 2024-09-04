@@ -19,7 +19,7 @@ public class AccountDate : MonoBehaviour
             GameObject go = new GameObject();
 
             // 이름 설정
-            go.name = "HttpManager";
+            go.name = "AccountDate";
 
             // HttpManager 컴포넌트를 추가
             go.AddComponent<AccountDate>();
@@ -78,6 +78,9 @@ public class AccountDate : MonoBehaviour
     {
         currentInfo.userId = Id;
         currentInfo.userName = name;
+
+        currentInfo.userId = Id;
+        currentInfo.userName = "Test_User";
     }
 
     private void Start()
