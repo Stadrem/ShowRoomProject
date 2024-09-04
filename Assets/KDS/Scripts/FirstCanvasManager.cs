@@ -21,8 +21,8 @@ public class FirstCanvasManager : MonoBehaviour
     public GameObject joinFullset;
     public GameObject loginFullset;
 
-    string loginUrl = "";
-    string joinUrl = "";
+    string loginUrl = "http://125.132.216.190:12450/api/auth/login";
+    string joinUrl = "http://125.132.216.190:12450/api/auth/signup";
 
     void Update()
     {

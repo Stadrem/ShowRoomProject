@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using TMPro;
-using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.Networking;
 using static AccountDate;
@@ -29,6 +28,9 @@ public class HttpInfo
 public class HttpManager : MonoBehaviour
 {
     public GameObject alertFullset;
+    public GameObject serverFullset;
+    public GameObject sideAlertFullset;
+    public TMP_Text sideAlertText;
     public TextMeshProUGUI alertText;
 
     //싱글톤 생성
@@ -89,6 +91,8 @@ public class HttpManager : MonoBehaviour
 
                 Debug.Log("Login successful: " + webRequest.downloadHandler.text);
                 Alert("로그인 성공!", 2.0f);
+
+                ConnectionManager.instance.StartLogin();
             }
             else
             {
@@ -128,10 +132,13 @@ public class HttpManager : MonoBehaviour
     {
         string json = downloadHandler.text;
         UserLoginInfo userInfo = JsonUtility.FromJson<UserLoginInfo>(json);
+
         Debug.Log("User Name: " + userInfo.userName);
         Debug.Log("User ID: " + userInfo.userId);
 
         AccountDate.instance.InAccount(userInfo.userId, userInfo.userName);
+
+        AccountDate.instance.InAccount("testUserId", "testUserName");
         // 필요한 다른 필드들도 출력 가능
     }
 
@@ -150,6 +157,16 @@ public class HttpManager : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         alertFullset.SetActive(false);
+    }
+
+    public void serverLodingOn()
+    {
+        serverFullset.SetActive(true);
+    }
+
+    public void serverLodingOff()
+    {
+        serverFullset.SetActive(false);
     }
 
 
