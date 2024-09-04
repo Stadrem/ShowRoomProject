@@ -23,6 +23,9 @@ public class HttpInfo
 
     // 요청이 완료되면 호출될 델리게이트
     public Action<DownloadHandler> onComplete;
+
+    // 요청 후 에러뜨면 호출될 델리게이트
+    public Action<string> onError;
 }
 
 public class HttpManager : MonoBehaviour

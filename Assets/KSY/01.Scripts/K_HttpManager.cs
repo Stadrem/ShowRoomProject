@@ -226,7 +226,12 @@ public class K_HttpManager : MonoBehaviour
         else
         {
             // Error에 대한 이유를 출력.
-            Debug.LogError("Net Error : " + webRequest.error);  
+            Debug.LogError("Net Error : " + webRequest.error);
+
+            if (info.onError != null)
+            {
+                info.onError(webRequest.error);
+            }
         }
     }
 
