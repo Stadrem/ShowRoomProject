@@ -38,9 +38,11 @@ public class K_EventMethodRef : MonoBehaviour
         }
     }
 
+    
+
     public void TransferInput()
     {
-        HttpInfo info = new HttpInfo();
+        K_HttpInfo info = new K_HttpInfo();
         info.url = "http://125.132.216.190:12450/api/talks";
         
         ChatBotInput chat = new ChatBotInput();
@@ -58,6 +60,7 @@ public class K_EventMethodRef : MonoBehaviour
         input.text = "처리중입니다...";
         output.text = "처리중입니다...";
         input.interactable = false;
+        info.token = AccountDate.GetInstance().response.accessToken;
         info.body = JsonUtility.ToJson(chat);
         info.contentType = "application/json";
         info.onComplete = (downloadHandler) => {

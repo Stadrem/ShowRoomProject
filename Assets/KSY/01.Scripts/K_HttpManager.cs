@@ -43,8 +43,13 @@ public class K_HttpInfo
     // contentType
     public string contentType = "";
 
+    public string token = "";
+
     // 통신 성공 후 호출되는 함수 담을 변수
     public Action<DownloadHandler> onComplete;
+
+    // 요청 후 에러뜨면 호출될 델리게이트
+    public Action<string> onError;
 }
 
 public class K_HttpManager : MonoBehaviour
@@ -79,7 +84,7 @@ public class K_HttpManager : MonoBehaviour
     
     
     // GET : 서버에게 데이터를 조회 요청.
-    public IEnumerator Get(HttpInfo info)
+    public IEnumerator Get(K_HttpInfo info)
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(info.url))
         {
@@ -114,10 +119,12 @@ public class K_HttpManager : MonoBehaviour
     }
 
     // 서버에게 내가 보내는 데이터를 생성해줘
-    public IEnumerator Post(HttpInfo info)
+    public IEnumerator Post(K_HttpInfo info)
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Post(info.url, info.body, info.contentType))
         {
+            webRequest.SetRequestHeader("Bearer", info.token);
+
             // 서버에 요청 보내기
             yield return webRequest.SendWebRequest(); // 응답이 오고 난 이후에 시행되게 함.
 
@@ -128,7 +135,7 @@ public class K_HttpManager : MonoBehaviour
     }
 
     // 파일 업로드 (form-data)
-    public IEnumerator UploadFileByFormData(HttpInfo info)
+    public IEnumerator UploadFileByFormData(K_HttpInfo info)
     {
         // info.data에는 파일의 위치
         // info.data에 있는 파일을 byte 배열로 읽어오자.
@@ -169,7 +176,7 @@ public class K_HttpManager : MonoBehaviour
     }
 
     // 파일 업로드
-    public IEnumerator UploadFileByByte(HttpInfo info)
+    public IEnumerator UploadFileByByte(K_HttpInfo info)
     {
         byte[] data = File.ReadAllBytes(info.body);
 
@@ -190,7 +197,7 @@ public class K_HttpManager : MonoBehaviour
         }
     }
     
-    public IEnumerator DownloadSprite(HttpInfo info)
+    public IEnumerator DownloadSprite(K_HttpInfo info)
     {
         using(UnityWebRequest webRequest = UnityWebRequestTexture.GetTexture(info.url))
         {
@@ -200,7 +207,7 @@ public class K_HttpManager : MonoBehaviour
         }
     }
     
-    public IEnumerator DownloadAudio(HttpInfo info)
+    public IEnumerator DownloadAudio(K_HttpInfo info)
     {
         using (UnityWebRequest webRequest = UnityWebRequestMultimedia.GetAudioClip(info.url, AudioType.WAV))
         {
@@ -211,7 +218,7 @@ public class K_HttpManager : MonoBehaviour
     }
 
 
-    void DoneRequest(UnityWebRequest webRequest, HttpInfo info)
+    void DoneRequest(UnityWebRequest webRequest, K_HttpInfo info)
     {
         // 만약에 결과가 정상이라면
         if (webRequest.result == UnityWebRequest.Result.Success)
