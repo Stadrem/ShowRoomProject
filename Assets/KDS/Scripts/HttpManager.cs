@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Net;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 using static AccountDate;
 
 // HttpInfo 클래스 선언: HTTP 요청 관련 정보를 담는 클래스
@@ -35,6 +37,10 @@ public class HttpManager : MonoBehaviour
     public GameObject sideAlertFullset;
     public TMP_Text sideAlertText;
     public TextMeshProUGUI alertText;
+
+    public Toggle debugCheck;
+
+    public FirstCanvasManager fcm;
 
     //싱글톤 생성
     static HttpManager instance;
@@ -65,7 +71,7 @@ public class HttpManager : MonoBehaviour
             instance = this;
 
             // 씬 전환 시 객체 파괴 방지
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -95,7 +101,14 @@ public class HttpManager : MonoBehaviour
                 Debug.Log("Login successful: " + webRequest.downloadHandler.text);
                 Alert("로그인 성공!", 2.0f);
 
-                ConnectionManager.instance.StartLogin();
+                if(debugCheck.isOn == true)
+                {
+                    ConnectionManager.instance.StartLogin();
+                }
+                else
+                {
+                    PhotonNetwork.LoadLevel(2);
+                }
             }
             else
             {
@@ -114,6 +127,8 @@ public class HttpManager : MonoBehaviour
             webRequest.downloadHandler = new DownloadHandlerBuffer();
             webRequest.SetRequestHeader("Content-Type", info.contentType);
 
+            Alert("회원 가입 중...", 2.0f);
+
             // 요청 전송 및 응답 대기
             yield return webRequest.SendWebRequest();
 
@@ -121,6 +136,8 @@ public class HttpManager : MonoBehaviour
             {
                 Debug.Log("Registration successful: " + webRequest.downloadHandler.text);
                 Alert("회원 가입 성공", 2.0f);
+
+                fcm.LoginPopUp();
             }
             else
             {
