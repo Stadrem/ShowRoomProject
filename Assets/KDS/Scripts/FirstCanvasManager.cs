@@ -39,8 +39,6 @@ public class FirstCanvasManager : MonoBehaviour
         }
 
         JoinJsonConvert();
-
-        LoginPopUp();
     }
 
     public void LoginClick()

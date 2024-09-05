@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/Main.unity
     guid: 10eb8646a6006334ebc1de0577fa7116
+  - enabled: 1
+    path: Assets/KDS/Scenes/KDS2.unity
+    guid: b92e51b1967beaa4192526731fcccf83
   m_configObjects: {}
