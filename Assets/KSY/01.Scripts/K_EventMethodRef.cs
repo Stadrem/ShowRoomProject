@@ -6,10 +6,12 @@ using UnityEngine;
 public class K_EventMethodRef : MonoBehaviour
 {
     [System.Serializable]
-    public class ChatBot
+    public class ChatBotInput
     {
         public string user_id;
         public string question;
+        public string area_size;
+        public string housemate_num;
     }
 
     [System.Serializable]
@@ -39,12 +41,14 @@ public class K_EventMethodRef : MonoBehaviour
     public void TransferInput()
     {
         HttpInfo info = new HttpInfo();
-        info.url = "http://meta-ai.iptime.org:8989/ask";
+        info.url = "http://125.132.216.190:12450/api/talks";
         
-        ChatBot chat = new ChatBot();
+        ChatBotInput chat = new ChatBotInput();
         if (AccountDate.GetInstance().currentInfo.userId == null || AccountDate.GetInstance().currentInfo.userId == "")
         {
             chat.user_id = "woosub";
+            chat.area_size = "8평";
+            chat.housemate_num = "13";
         }
         else
         {
