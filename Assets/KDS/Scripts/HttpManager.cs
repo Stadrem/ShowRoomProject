@@ -134,6 +134,7 @@ public class HttpManager : MonoBehaviour
     void ParseUserInfo(DownloadHandler downloadHandler)
     {
         string json = downloadHandler.text;
+        print(downloadHandler.text);
         UserLoginInfo userInfo = JsonUtility.FromJson<UserLoginInfo>(json);
 
         Debug.Log("User Name: " + userInfo.userName);
