@@ -13,8 +13,6 @@ public class GameUiCanvas : MonoBehaviour
 
     public GameObject namePlatePrefab;
 
-    GameObject[] plates = new GameObject[5];
-
     private void Awake()
     {
         if (instance == null)
@@ -72,8 +70,16 @@ public class GameUiCanvas : MonoBehaviour
 
     public void MakeNamePlate(string name)
     {
-        for(int i = 0; i < PhotonNetwork.CurrentRoom.Players.Count; i++)
+        //기존의 방 정보를 삭제함.
+        for (int i = 0; i < list_Name.transform.childCount; i++)
         {
+            Destroy(list_Name.transform.GetChild(i).gameObject);
+        }
+
+        for (int i = 0; i < PhotonNetwork.CurrentRoom.Players.Count; i++)
+        {
+            GameObject[] plates = new GameObject[5];
+
             GameObject plate = Instantiate(namePlatePrefab, list_Name.transform);
 
             NamePlate np = plate.GetComponent<NamePlate>();

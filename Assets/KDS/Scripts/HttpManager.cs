@@ -34,8 +34,6 @@ public class HttpManager : MonoBehaviour
 {
     public GameObject alertFullset;
     public GameObject serverFullset;
-    public GameObject sideAlertFullset;
-    public TMP_Text sideAlertText;
     public TextMeshProUGUI alertText;
 
     public Toggle debugCheck;
@@ -99,7 +97,7 @@ public class HttpManager : MonoBehaviour
                 ParseUserInfo(webRequest.downloadHandler);
 
                 Debug.Log("Login successful: " + webRequest.downloadHandler.text);
-                Alert("로그인 성공!", 2.0f);
+                Alert("로그인 성공!", 1.0f);
 
                 if(debugCheck.isOn == true)
                 {
@@ -113,7 +111,14 @@ public class HttpManager : MonoBehaviour
             else
             {
                 Debug.Log("Login failed: " + webRequest.error);
-                Alert("아이디 혹은 비밀번호가 틀렸습니다.", 2.0f);
+                if(webRequest.error == "HTTP/1.1 409 Conflict")
+                {
+                    Alert("비밀번호가 틀렸습니다.", 2.0f);
+                }
+                else
+                {
+                    Alert("아이디 혹은 비밀번호가 틀렸습니다.", 2.0f);
+                }
             }
         }
     }
@@ -142,7 +147,14 @@ public class HttpManager : MonoBehaviour
             else
             {
                 Debug.Log("Registration failed: " + webRequest.error);
-                Alert("회원 가입 실패", 2.0f);
+                if (webRequest.error == "HTTP/1.1 500 Internal Server Error")
+                {
+                    Alert("중복된 아이디 입니다.", 2.0f);
+                }
+                else
+                {
+                    Alert("회원 가입 실패", 2.0f);
+                }
             }
         }
     }
@@ -152,12 +164,13 @@ public class HttpManager : MonoBehaviour
     {
         string json = downloadHandler.text;
         print(downloadHandler.text);
-        UserLoginInfo userInfo = JsonUtility.FromJson<UserLoginInfo>(json);
+        AccountSet accountSet = JsonUtility.FromJson<AccountSet>(json);
 
-        Debug.Log("User Name: " + userInfo.userName);
-        Debug.Log("User ID: " + userInfo.userId);
+        Debug.Log("User grantType: " + accountSet.response.grantType);
+        Debug.Log("User IDaccessToken " + accountSet.response.accessToken);
+        Debug.Log("User accessTokenValidTime: " + accountSet.response.accessTokenValidTime);
 
-        AccountDate.GetInstance().InAccount(userInfo.userId, userInfo.userName);
+        AccountDate.GetInstance().InAccount(accountSet.response.grantType, accountSet.response.accessToken, accountSet.response.accessTokenValidTime, accountSet.response.refreshToken, accountSet.response.refreshTokenValidTime);
 
         //AccountDate.instance.InAccount("testUserId", "testUserName");
         // 필요한 다른 필드들도 출력 가능
