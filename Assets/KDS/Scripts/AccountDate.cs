@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -65,6 +66,38 @@ public class AccountDate : MonoBehaviour
     }
 
     [System.Serializable]
+    public struct Response
+    {
+        public string grantType;
+        public string accessToken;
+        public string accessTokenValidTime;
+        public string refreshToken;
+        public string refreshTokenValidTime;
+    }
+
+    [System.Serializable]
+    public struct AccountSet
+    {
+        public bool success;
+        public Response response;
+        public string error;
+    }
+
+    public Response response = new Response();
+
+    //로그인 후 정보 저장
+    public void InAccount(string grantType, string accessToken, string accessTokenValidTime, string refreshToken, string refreshTokenValidTime)
+    {
+        response.grantType = grantType;
+        response.accessToken = accessToken;
+        response.accessTokenValidTime = accessTokenValidTime;
+        response.refreshToken = refreshToken;
+        response.refreshTokenValidTime = refreshTokenValidTime;
+
+        print("토큰 입력 완료 : " + response.accessToken);
+    }
+
+    [System.Serializable]
     public struct UserLoginInfo
     {
         public string userId;
@@ -72,16 +105,6 @@ public class AccountDate : MonoBehaviour
     }
 
     public UserLoginInfo currentInfo = new UserLoginInfo();
-
-    //로그인 후 정보 저장
-    public void InAccount(string Id, string name)
-    {
-        currentInfo.userId = Id;
-        currentInfo.userName = name;
-
-        currentInfo.userId = Id;
-        currentInfo.userName = "Test_User";
-    }
 
     private void Start()
     {

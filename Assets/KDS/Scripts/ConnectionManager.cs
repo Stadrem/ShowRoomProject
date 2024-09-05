@@ -113,8 +113,6 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
     public void JoinRoom()
     {
         PhotonNetwork.JoinRoom(setRoom);
-
-        HttpManager.GetInstance().Alert("접속 성공", 1.0f);
     }
 
     public override void OnCreatedRoom()
@@ -162,8 +160,6 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
 
         string playerMsg = $"{newPlayer.NickName}님이 입장하셨습니다.";
 
-        StartCoroutine(SidePopUp(playerMsg, 5));
-
         GameUiCanvas.instance.StartPlate();
     }
 
@@ -174,17 +170,6 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
 
         string playerMsg = $"{otherPlayer.NickName}님이 퇴장하셨습니다.";
 
-        StartCoroutine(SidePopUp(playerMsg, 5));
-    }
-
-    IEnumerator SidePopUp(string msg, int time)
-    {
-        HttpManager.GetInstance().sideAlertText.text = msg;
-
-        HttpManager.GetInstance().sideAlertFullset.SetActive(true);
-
-        yield return new WaitForSeconds(time);
-
-        HttpManager.GetInstance().sideAlertFullset.SetActive(false);
+        GameUiCanvas.instance.StartPlate();
     }
 }

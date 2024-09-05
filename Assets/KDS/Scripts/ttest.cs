@@ -8,9 +8,6 @@ using UnityEngine;
 public class ttest : MonoBehaviour
 {
     GameObject player;
-    public TMP_Text[] text = new TMP_Text[5];
-
-    PhotonView pv;
 
     // Start is called before the first frame update
     void Start()
