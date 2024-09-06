@@ -166,10 +166,6 @@ public class HttpManager : MonoBehaviour
         print(downloadHandler.text);
         AccountSet accountSet = JsonUtility.FromJson<AccountSet>(json);
 
-        Debug.Log("User grantType: " + accountSet.response.grantType);
-        Debug.Log("User IDaccessToken " + accountSet.response.accessToken);
-        Debug.Log("User accessTokenValidTime: " + accountSet.response.accessTokenValidTime);
-
         AccountDate.GetInstance().InAccount(accountSet.response.grantType, accountSet.response.accessToken, accountSet.response.accessTokenValidTime, accountSet.response.refreshToken, accountSet.response.refreshTokenValidTime);
 
         //AccountDate.instance.InAccount("testUserId", "testUserName");
