@@ -166,7 +166,7 @@ public class HttpManager : MonoBehaviour
         print(downloadHandler.text);
         AccountSet accountSet = JsonUtility.FromJson<AccountSet>(json);
 
-        AccountDate.GetInstance().InAccount(accountSet.response.grantType, accountSet.response.accessToken, accountSet.response.accessTokenValidTime, accountSet.response.refreshToken, accountSet.response.refreshTokenValidTime);
+        AccountDate.GetInstance().InAccount(accountSet.response.userId, accountSet.response.userName, accountSet.response.grantType, accountSet.response.accessToken, accountSet.response.accessTokenValidTime, accountSet.response.refreshToken, accountSet.response.refreshTokenValidTime);
 
         //AccountDate.instance.InAccount("testUserId", "testUserName");
         // 필요한 다른 필드들도 출력 가능

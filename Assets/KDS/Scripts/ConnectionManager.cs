@@ -49,13 +49,15 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
     {
         //접속을 위한 설정
         PhotonNetwork.GameVersion = "1.0.0";
-        PhotonNetwork.NickName = AccountDate.instance.currentInfo.userName;
+        PhotonNetwork.NickName = AccountDate.instance.response.userName;
         PhotonNetwork.AutomaticallySyncScene = true;
 
         //접속을 서버에 요청
         PhotonNetwork.ConnectUsingSettings();
 
         HttpManager.GetInstance().serverLodingOn();
+
+        print("닉네임 설정 : " + PhotonNetwork.NickName);
 
         HttpManager.GetInstance().Alert("서버 접속 요청 중", 1.0f);
     }

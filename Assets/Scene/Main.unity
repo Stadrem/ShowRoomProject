@@ -135,6 +135,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUiCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 652716136743493739, guid: b8e42554a31ba4d46a9911113154c414,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3017106362507410322, guid: b8e42554a31ba4d46a9911113154c414,
         type: 3}
       propertyPath: m_Pivot.x
@@ -346,12 +351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae2fc57b0049d94ba885f97997cf4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &421894075
 MonoBehaviour:
   m_ObjectHideFlags: 0
