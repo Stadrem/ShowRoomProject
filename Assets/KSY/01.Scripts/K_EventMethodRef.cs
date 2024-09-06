@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Rendering.CameraUI;
 
 public class K_EventMethodRef : MonoBehaviour
 {
     [System.Serializable]
     public class ChatBotInput
     {
-        public string user_id;
         public string question;
+        public string member_id;
         public string area_size;
         public string housemate_num;
     }
@@ -17,7 +18,13 @@ public class K_EventMethodRef : MonoBehaviour
     [System.Serializable]
     public class ChatBotAns
     {
-        public string answer;
+        public int id;
+        public string memberName;
+        public string question;
+        public string createdAt;
+        public int member_id;
+        public string area_size;
+        public string housemate_num;
     }
     public ChatBotAns ans;
 
@@ -48,13 +55,18 @@ public class K_EventMethodRef : MonoBehaviour
         ChatBotInput chat = new ChatBotInput();
         if (AccountDate.GetInstance().currentInfo.userId == null || AccountDate.GetInstance().currentInfo.userId == "")
         {
-            chat.user_id = "woosub";
+            print("userId가 null이거나 빔.");
+            chat.member_id = "0";
             chat.area_size = "8평";
             chat.housemate_num = "13";
         }
         else
         {
-            chat.user_id = AccountDate.instance.currentInfo.userId;
+            //chat.member_id = AccountDate.instance.currentInfo.userId;
+            chat.member_id = "0";
+            chat.area_size = "8평";
+            chat.housemate_num = "13";
+            print("흠");
         }
         chat.question = input.text;
         input.text = "처리중입니다...";
@@ -62,12 +74,19 @@ public class K_EventMethodRef : MonoBehaviour
         input.interactable = false;
         info.token = AccountDate.GetInstance().response.accessToken;
         info.body = JsonUtility.ToJson(chat);
+        Debug.Log(info.body);
         info.contentType = "application/json";
         info.onComplete = (downloadHandler) => {
             print(downloadHandler.text);
             ans = JsonUtility.FromJson<ChatBotAns>(downloadHandler.text);
-            print(ans.answer);
-            output.text = ans.answer;
+            print(ans.question);
+            output.text = ans.question;
+            input.text = "";
+            input.interactable = true;
+        };
+        info.onError = (error) => { 
+            print(error);
+            output.text = "실패했습니다.";
             input.text = "";
             input.interactable = true;
         };
