@@ -17,9 +17,9 @@ public class K_ChatBotData : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            HttpInfo info = new HttpInfo();
+            K_HttpInfo info = new K_HttpInfo();
             info.url = "http://meta-ai.iptime.org:8989/ask";
-            ChatBot chat = new ChatBot();
+            ChatBotInput chat = new ChatBotInput();
             chat.user_id = "woosub";
             chat.question = "BESPOKE 냉장고 소비전력 알려줘";
             info.body = JsonUtility.ToJson(chat);

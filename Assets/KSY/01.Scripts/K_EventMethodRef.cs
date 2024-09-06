@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static UnityEditor.Rendering.CameraUI;
 
 public class K_EventMethodRef : MonoBehaviour
 {
     [System.Serializable]
-    public class ChatBot
+    public class ChatBotInput
     {
         public string user_id;
         public string question;
+        public string area_size;
+        public string housemate_num;
     }
 
     [System.Serializable]
@@ -22,6 +23,7 @@ public class K_EventMethodRef : MonoBehaviour
 
     public TMP_InputField input;
     public TMP_Text output;
+    public TMP_Dropdown items;
 
     void Start()
     {
@@ -30,17 +32,25 @@ public class K_EventMethodRef : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            print("Caption : " + items.captionText.text);
+        }
     }
+
+    
 
     public void TransferInput()
     {
-        HttpInfo info = new HttpInfo();
-        info.url = "http://meta-ai.iptime.org:8989/ask";
-        ChatBot chat = new ChatBot();
+        K_HttpInfo info = new K_HttpInfo();
+        info.url = "http://125.132.216.190:12450/api/talks";
+        
+        ChatBotInput chat = new ChatBotInput();
         if (AccountDate.GetInstance().currentInfo.userId == null || AccountDate.GetInstance().currentInfo.userId == "")
         {
             chat.user_id = "woosub";
+            chat.area_size = "8평";
+            chat.housemate_num = "13";
         }
         else
         {
@@ -50,6 +60,7 @@ public class K_EventMethodRef : MonoBehaviour
         input.text = "처리중입니다...";
         output.text = "처리중입니다...";
         input.interactable = false;
+        info.token = AccountDate.GetInstance().response.accessToken;
         info.body = JsonUtility.ToJson(chat);
         info.contentType = "application/json";
         info.onComplete = (downloadHandler) => {
@@ -63,8 +74,13 @@ public class K_EventMethodRef : MonoBehaviour
         StartCoroutine(K_HttpManager.GetInstance().Post(info));
     }
 
-    public void Close(GameObject gameObject)
+    public void InActive(GameObject gameObject)
     {
         gameObject.SetActive(false);
+    }
+
+    public void Active(GameObject gameObject)
+    {
+        gameObject.SetActive(true);
     }
 }

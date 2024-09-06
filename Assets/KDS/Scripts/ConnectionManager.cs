@@ -36,7 +36,7 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        Screen.SetResolution(640, 480, false);
+        //Screen.SetResolution(640, 480, false);
     }
 
     // Update is called once per frame
@@ -49,13 +49,15 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
     {
         //접속을 위한 설정
         PhotonNetwork.GameVersion = "1.0.0";
-        PhotonNetwork.NickName = AccountDate.instance.currentInfo.userName;
+        PhotonNetwork.NickName = AccountDate.instance.response.userName;
         PhotonNetwork.AutomaticallySyncScene = true;
 
         //접속을 서버에 요청
         PhotonNetwork.ConnectUsingSettings();
 
         HttpManager.GetInstance().serverLodingOn();
+
+        print("닉네임 설정 : " + PhotonNetwork.NickName);
 
         HttpManager.GetInstance().Alert("서버 접속 요청 중", 1.0f);
     }
@@ -113,8 +115,6 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
     public void JoinRoom()
     {
         PhotonNetwork.JoinRoom(setRoom);
-
-        HttpManager.GetInstance().Alert("접속 성공", 1.0f);
     }
 
     public override void OnCreatedRoom()
@@ -143,6 +143,8 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
 
         //방에 입장한 친구들은 모두 1번 씬으로 이동
         PhotonNetwork.LoadLevel(1);
+
+        //GameUiCanvas.GetInstance().MakeNamePlate(AccountDate.GetInstance().currentInfo.userName);
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
@@ -160,7 +162,7 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
 
         string playerMsg = $"{newPlayer.NickName}님이 입장하셨습니다.";
 
-        StartCoroutine(SidePopUp(playerMsg, 5));
+        GameUiCanvas.instance.StartPlate();
     }
 
     //룸에 있던 다른 플레이어가 퇴장했을 때의 콜백 함수
@@ -170,17 +172,6 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
 
         string playerMsg = $"{otherPlayer.NickName}님이 퇴장하셨습니다.";
 
-        StartCoroutine(SidePopUp(playerMsg, 5));
-    }
-
-    IEnumerator SidePopUp(string msg, int time)
-    {
-        HttpManager.GetInstance().sideAlertText.text = msg;
-
-        HttpManager.GetInstance().sideAlertFullset.SetActive(true);
-
-        yield return new WaitForSeconds(time);
-
-        HttpManager.GetInstance().sideAlertFullset.SetActive(false);
+        GameUiCanvas.instance.StartPlate();
     }
 }
