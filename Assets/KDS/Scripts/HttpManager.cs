@@ -88,7 +88,7 @@ public class HttpManager : MonoBehaviour
             webRequest.downloadHandler = new DownloadHandlerBuffer();
             webRequest.SetRequestHeader("Content-Type", info.contentType);
 
-            Alert("로그인중...", 4.0f);
+            Alert("로그인중...", 99.0f);
             // 요청 전송 및 응답 대기
             yield return webRequest.SendWebRequest();
 
@@ -96,7 +96,6 @@ public class HttpManager : MonoBehaviour
             {
                 ParseUserInfo(webRequest.downloadHandler);
 
-                Debug.Log("Login successful: " + webRequest.downloadHandler.text);
                 Alert("로그인 성공!", 1.0f);
 
                 if(debugCheck.isOn == true)
@@ -159,17 +158,14 @@ public class HttpManager : MonoBehaviour
         }
     }
 
-    // 응답 데이터를 UserInfo 구조체로 변환하는 예시
+    // 로그인시 반환 받은 토큰 및 계정 정보를 받아내는 함수
     void ParseUserInfo(DownloadHandler downloadHandler)
     {
         string json = downloadHandler.text;
-        print(downloadHandler.text);
+
         AccountSet accountSet = JsonUtility.FromJson<AccountSet>(json);
 
         AccountDate.GetInstance().InAccount(accountSet.response.userId, accountSet.response.userName, accountSet.response.grantType, accountSet.response.accessToken, accountSet.response.accessTokenValidTime, accountSet.response.refreshToken, accountSet.response.refreshTokenValidTime);
-
-        //AccountDate.instance.InAccount("testUserId", "testUserName");
-        // 필요한 다른 필드들도 출력 가능
     }
 
     public void Alert(string text, float time)

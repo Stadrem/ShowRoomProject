@@ -76,17 +76,15 @@ public class GameUiCanvas : MonoBehaviour
             Destroy(list_Name.transform.GetChild(i).gameObject);
         }
 
-        for (int i = 0; i < PhotonNetwork.CurrentRoom.Players.Count; i++)
+        // 모든 플레이어의 닉네임을 표시함.
+        foreach (var player in PhotonNetwork.CurrentRoom.Players.Values)
         {
-            GameObject[] plates = new GameObject[5];
-
             GameObject plate = Instantiate(namePlatePrefab, list_Name.transform);
 
             NamePlate np = plate.GetComponent<NamePlate>();
 
-            np.NewNamePlate(name);
-
-            plates[i] = plate;
+            // 각 플레이어의 닉네임을 사용함.
+            np.NewNamePlate(player.NickName); 
         }
     }
 }

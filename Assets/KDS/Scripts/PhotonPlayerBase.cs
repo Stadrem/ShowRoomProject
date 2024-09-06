@@ -5,16 +5,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ttest : MonoBehaviour
+public class PhotonPlayerBase : MonoBehaviour
 {
     GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        //print(PhotonNetwork.PlayerList);
-
-        player = PhotonNetwork.Instantiate("Capsule", new Vector3(0,0,0), Quaternion.identity);
+        player = PhotonNetwork.Instantiate("Player", new Vector3(0, 0, 0), Quaternion.identity);
     }
 
     // Update is called once per frame
