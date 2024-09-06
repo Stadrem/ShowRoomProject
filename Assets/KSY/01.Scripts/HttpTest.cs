@@ -21,7 +21,7 @@ public class HttpTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            HttpInfo info = new HttpInfo();
+            K_HttpInfo info = new K_HttpInfo();
             info.url = "http://mtvs.helloworldlabs.kr:7771/api/string?parameter=안녕하세요";
             info.onComplete = OnComplete;
             StartCoroutine(K_HttpManager.GetInstance().Get(info));
@@ -29,7 +29,7 @@ public class HttpTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            HttpInfo info = new HttpInfo();
+            K_HttpInfo info = new K_HttpInfo();
             //info.url = "https://jsonplaceholder.typicode.com/albums";
             info.url = "https://ssl.pstatic.net/melona/libs/1506/1506331/b8145c5a724d3f2c9d2b_20240813152032478.jpg";
             info.onComplete = (downloadHandler) => { File.WriteAllBytes(Application.dataPath + "/image2.jpg", downloadHandler.data); };
@@ -54,7 +54,7 @@ public class HttpTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            HttpInfo info = new HttpInfo();
+            K_HttpInfo info = new K_HttpInfo();
             info.url = "http://mtvs.helloworldlabs.kr:7771/api/file";
             info.contentType = "multipart/form-data";
             info.body = "C:\\Users\\Admin\\Downloads\\image.jpg";
@@ -64,7 +64,7 @@ public class HttpTest : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            HttpInfo info = new HttpInfo();
+            K_HttpInfo info = new K_HttpInfo();
             info.url = "http://mtvs.helloworldlabs.kr:7771/api/byte";
             info.contentType = "image/jpg";
             info.body = "C:\\Users\\Admin\\Downloads\\image12.jpg";
@@ -74,7 +74,7 @@ public class HttpTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            HttpInfo info = new HttpInfo();
+            K_HttpInfo info = new K_HttpInfo();
             info.url = "https://ssl.pstatic.net/melona/libs/1506/1506331/b8145c5a724d3f2c9d2b_20240813152032478.jpg";
             info.onComplete = (downloadHandler) => {
                 // 다운로드된 데이터를 Texture2D로 변환.
@@ -92,7 +92,7 @@ public class HttpTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            HttpInfo info = new HttpInfo();
+            K_HttpInfo info = new K_HttpInfo();
             info.url = "오디오url";
             info.contentType = "오디오타입";
             info.onComplete = (downloadHandler) => {

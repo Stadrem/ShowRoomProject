@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class K_Object : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class K_Object : MonoBehaviour
     Transform player;
     Vector3 dir;
     public float dist;
+    public UnityEvent action;
     void Start()
     {
         myUIPos = transform.GetChild(0);

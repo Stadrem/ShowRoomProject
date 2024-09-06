@@ -92,6 +92,7 @@ public class K_PlayerMove : MonoBehaviour
         v = Input.GetAxisRaw("Vertical");
         h = Input.GetAxisRaw("Horizontal");
         dir = new Vector3(h, 0, v);
+        if (myAnim == null) myAnim = GetComponentInChildren<Animator>();
         if(dir.magnitude > 0)
         {
             myAnim?.SetBool("Move", true);

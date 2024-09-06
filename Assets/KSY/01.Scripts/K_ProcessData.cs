@@ -60,7 +60,7 @@ public class K_ProcessData : MonoBehaviour
 
     public void ShowTotalPoints()
     {
-        HttpInfo info = new HttpInfo();
+        K_HttpInfo info = new K_HttpInfo();
         info.url = "http://192.168.1.17:8080/points/all";
         info.onComplete = (downloadHandler) =>
         {
@@ -86,7 +86,7 @@ public class K_ProcessData : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha2)) // Get 테스트
         {
-            HttpInfo info = new HttpInfo();
+            K_HttpInfo info = new K_HttpInfo();
             info.url = "http://192.168.1.17:8080/points/all";
             info.onComplete = (downloadHandler) => 
             { 
@@ -131,7 +131,7 @@ public class K_ProcessData : MonoBehaviour
 
     public void TransferData()
     {
-        HttpInfo info = new HttpInfo();
+        K_HttpInfo info = new K_HttpInfo();
         info.url = "http://192.168.1.17:8080/api/image";
         info.onComplete = OnComplete;
         info.contentType = "image/png";
