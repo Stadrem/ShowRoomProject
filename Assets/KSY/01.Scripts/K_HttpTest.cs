@@ -62,46 +62,46 @@ public class K_HttpTest : MonoBehaviour
             StartCoroutine(K_HttpManager.GetInstance().UploadFileByFormData(info));
         }
         
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            K_HttpInfo info = new K_HttpInfo();
-            info.url = "http://mtvs.helloworldlabs.kr:7771/api/byte";
-            info.contentType = "image/jpg";
-            info.body = "C:\\Users\\Admin\\Downloads\\image12.jpg";
-            info.onComplete = (downloadHandler) => { File.WriteAllBytes(Application.dataPath + "/image6.jpg", downloadHandler.data); };
-            StartCoroutine(K_HttpManager.GetInstance().UploadFileByByte(info));
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha5))
+        //{
+        //    K_HttpInfo info = new K_HttpInfo();
+        //    info.url = "http://mtvs.helloworldlabs.kr:7771/api/byte";
+        //    info.contentType = "image/jpg";
+        //    info.body = "C:\\Users\\Admin\\Downloads\\image12.jpg";
+        //    info.onComplete = (downloadHandler) => { File.WriteAllBytes(Application.dataPath + "/image6.jpg", downloadHandler.data); };
+        //    StartCoroutine(K_HttpManager.GetInstance().UploadFileByByte(info));
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            K_HttpInfo info = new K_HttpInfo();
-            info.url = "https://ssl.pstatic.net/melona/libs/1506/1506331/b8145c5a724d3f2c9d2b_20240813152032478.jpg";
-            info.onComplete = (downloadHandler) => {
-                // 다운로드된 데이터를 Texture2D로 변환.
-                DownloadHandlerTexture handler = downloadHandler as DownloadHandlerTexture; // as를 써주면 변환이 안될경우 null값을 반환해주기 때문에 안전.
-                Texture2D texture = handler.texture;
+        //if (Input.GetKeyDown(KeyCode.Alpha6))
+        //{
+        //    K_HttpInfo info = new K_HttpInfo();
+        //    info.url = "https://ssl.pstatic.net/melona/libs/1506/1506331/b8145c5a724d3f2c9d2b_20240813152032478.jpg";
+        //    info.onComplete = (downloadHandler) => {
+        //        // 다운로드된 데이터를 Texture2D로 변환.
+        //        DownloadHandlerTexture handler = downloadHandler as DownloadHandlerTexture; // as를 써주면 변환이 안될경우 null값을 반환해주기 때문에 안전.
+        //        Texture2D texture = handler.texture;
                 
-                // texture를 이용해서 Sprite로 변환.
-                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+        //        // texture를 이용해서 Sprite로 변환.
+        //        Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
 
-                Image image = GameObject.Find("Image").GetComponent<Image>();
-                image.sprite = sprite;
-            };
-            StartCoroutine(K_HttpManager.GetInstance().DownloadSprite(info));
-        }
+        //        Image image = GameObject.Find("Image").GetComponent<Image>();
+        //        image.sprite = sprite;
+        //    };
+        //    StartCoroutine(K_HttpManager.GetInstance().DownloadSprite(info));
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            K_HttpInfo info = new K_HttpInfo();
-            info.url = "오디오url";
-            info.contentType = "오디오타입";
-            info.onComplete = (downloadHandler) => {
-                DownloadHandlerAudioClip handler = downloadHandler as DownloadHandlerAudioClip;
+        //if (Input.GetKeyDown(KeyCode.Alpha7))
+        //{
+        //    K_HttpInfo info = new K_HttpInfo();
+        //    info.url = "오디오url";
+        //    info.contentType = "오디오타입";
+        //    info.onComplete = (downloadHandler) => {
+        //        DownloadHandlerAudioClip handler = downloadHandler as DownloadHandlerAudioClip;
                 
-                myAudio.clip = handler.audioClip;
-            };
-            StartCoroutine(K_HttpManager.GetInstance().DownloadAudio(info));
-        }
+        //        myAudio.clip = handler.audioClip;
+        //    };
+        //    StartCoroutine(K_HttpManager.GetInstance().DownloadAudio(info));
+        //}
 
         
     }
