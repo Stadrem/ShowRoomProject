@@ -74,8 +74,13 @@ public class K_EventMethodRef : MonoBehaviour
         StartCoroutine(K_HttpManager.GetInstance().Post(info));
     }
 
-    public void Close(GameObject gameObject)
+    public void InActive(GameObject gameObject)
     {
         gameObject.SetActive(false);
+    }
+
+    public void Active(GameObject gameObject)
+    {
+        gameObject.SetActive(true);
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class HttpTest : MonoBehaviour
+public class K_HttpTest : MonoBehaviour
 {
     void Start()
     {
