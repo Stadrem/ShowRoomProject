@@ -68,6 +68,8 @@ public class AccountDate : MonoBehaviour
     [System.Serializable]
     public struct Response
     {
+        public string userId;
+        public string userName;
         public string grantType;
         public string accessToken;
         public string accessTokenValidTime;
@@ -86,8 +88,10 @@ public class AccountDate : MonoBehaviour
     public Response response = new Response();
 
     //로그인 후 정보 저장
-    public void InAccount(string grantType, string accessToken, string accessTokenValidTime, string refreshToken, string refreshTokenValidTime)
+    public void InAccount(string userId, string userName, string grantType, string accessToken, string accessTokenValidTime, string refreshToken, string refreshTokenValidTime)
     {
+        response.userId = userId;
+        response.userName = userName;
         response.grantType = grantType;
         response.accessToken = accessToken;
         response.accessTokenValidTime = accessTokenValidTime;
