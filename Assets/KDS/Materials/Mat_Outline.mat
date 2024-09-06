@@ -118,7 +118,7 @@ Material:
     - _NormalPower: 1
     - _OcclusionStrength: 1
     - _OutlineScale: 1.1
-    - _OutlineThickness: 0.03
+    - _OutlineThickness: 0
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
