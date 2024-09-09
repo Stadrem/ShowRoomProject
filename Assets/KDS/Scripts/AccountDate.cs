@@ -98,19 +98,4 @@ public class AccountDate : MonoBehaviour
         response.refreshToken = refreshToken;
         response.refreshTokenValidTime = refreshTokenValidTime;
     }
-
-    [System.Serializable]
-    public struct UserLoginInfo
-    {
-        public string userId;
-        public string userName;
-    }
-
-    public UserLoginInfo currentInfo = new UserLoginInfo();
-
-    private void Start()
-    {
-        
-    }
 }
-

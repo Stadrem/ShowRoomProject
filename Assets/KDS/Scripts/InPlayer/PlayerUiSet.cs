@@ -10,12 +10,10 @@ public class PlayerUiSet : MonoBehaviour
 
     public TMP_Text text_Player;
 
-    public Canvas ui;
-
     // Start is called before the first frame update
     void Start()
     {
-        pv = GetComponent<PhotonView>();
+        pv = GetComponentInParent<PhotonView>();
 
         print(pv.Owner.NickName);
 
@@ -26,6 +24,6 @@ public class PlayerUiSet : MonoBehaviour
     void Update()
     {
         //항상 메인 카메라에 보이도록 회전 처리
-        ui.transform.forward = Camera.main.transform.forward;
+        transform.forward = Camera.main.transform.forward;
     }
 }
