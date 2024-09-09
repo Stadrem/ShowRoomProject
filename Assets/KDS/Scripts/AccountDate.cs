@@ -97,8 +97,6 @@ public class AccountDate : MonoBehaviour
         response.accessTokenValidTime = accessTokenValidTime;
         response.refreshToken = refreshToken;
         response.refreshTokenValidTime = refreshTokenValidTime;
-
-        print("토큰 입력 완료 : " + response.accessToken);
     }
 
     [System.Serializable]
