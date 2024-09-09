@@ -17,14 +17,19 @@ public class PhotonPlayerBase : MonoBehaviour
 
     IEnumerator SpawnPlayer()
     {
+        Debug.Log("코루틴 시작");
         //룸에 입장이 완료될 때까지 기다린다.
         yield return new WaitUntil(() => { return PhotonNetwork.InRoom; });
+        Debug.Log("입장 완료");
 
         //약간 무작위 공간에 생성
         Vector2 randomPos = Random.insideUnitCircle * 2.0f;
         Vector3 initPosition = new Vector3(randomPos.x, 0.0f, randomPos.y);
+        Debug.Log("변수 생성");
 
         //포톤 네트워크 전용 생성기
         player = PhotonNetwork.Instantiate("Player", initPosition, Quaternion.identity);
+
+        Debug.Log("플레이어 생성완료");
     }
 }
