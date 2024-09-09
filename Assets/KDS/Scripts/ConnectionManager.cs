@@ -5,16 +5,22 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Reflection;
 using System;
+using UnityEngine.UI;
+using TMPro;
 
 public class ConnectionManager : MonoBehaviourPunCallbacks
 {
     public static ConnectionManager instance;
 
-    public string setRoom = "main";
+    public string setRoom = "";
 
     public int playerCount = 5;
 
     string userName;
+
+    public GameObject firstCanvas;
+    public GameObject secondCanvas;
+    public TMP_InputField joinCodeText;
 
     private void Awake()
     {
@@ -98,23 +104,45 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         //서버 로비에 들어갔음을 알려줌
         print(MethodInfo.GetCurrentMethod().Name + " is Call");
 
-        CreateRoom();
+        firstCanvas.SetActive(false);
+        secondCanvas.SetActive(true);
+
+        //CreateRoom();
     }
 
     public void CreateRoom()
     {
-        //나의 룸을 만든다.
-        RoomOptions roomOpt = new RoomOptions();
-        roomOpt.MaxPlayers = playerCount;
-        roomOpt.IsOpen = true;
-        roomOpt.IsVisible = true;
+        setRoom = joinCodeText.text;
 
-        PhotonNetwork.CreateRoom(setRoom, roomOpt, TypedLobby.Default);
+        if (setRoom == "")
+        {
+            HttpManager.GetInstance().Alert("초대 코드를 입력해주세요.", 2.0f);
+        }
+        else
+        {
+            //나의 룸을 만든다.
+            RoomOptions roomOpt = new RoomOptions();
+            roomOpt.MaxPlayers = playerCount;
+            roomOpt.IsOpen = true;
+            roomOpt.IsVisible = true;
+
+            PhotonNetwork.CreateRoom(setRoom, roomOpt, TypedLobby.Default);
+        }
+
     }
 
     public void JoinRoom()
     {
-        PhotonNetwork.JoinRoom(setRoom);
+        setRoom = joinCodeText.text;
+
+        if (setRoom == "")
+        {
+            HttpManager.GetInstance().Alert("초대 코드를 입력해주세요.", 2.0f);
+        }
+        else
+        {
+            PhotonNetwork.JoinRoom(setRoom);
+        }
     }
 
     public override void OnCreatedRoom()
