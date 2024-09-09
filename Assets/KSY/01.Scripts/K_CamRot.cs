@@ -1,15 +1,25 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class K_CamRot : MonoBehaviour
+[RequireComponent(typeof(PhotonView))]
+public class K_CamRot : MonoBehaviourPun
 {
     public bool cam;
     public float rotSpeed;
     float my;
     float mx;
     public K_PlayerMove playerMove;
-
+    private void Start()
+    {
+        if(cam && transform.childCount == 0 && photonView.IsMine)
+        {
+            Camera.main.transform.parent = gameObject.transform;
+            Camera.main.transform.localPosition = Vector3.zero;
+            Camera.main.transform.localRotation = Quaternion.identity;
+        }
+    }
     void Update()
     {
         if (playerMove.currState == K_PlayerMove.PlayerState.Click) return;
