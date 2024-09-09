@@ -68,7 +68,7 @@ public class K_EventMethodRef : MonoBehaviour
         K_HttpInfo info = new K_HttpInfo();
         ChatBotInput chat = new ChatBotInput();
         ChatBotInput_AI chatAI = new ChatBotInput_AI();
-        if (AccountDate.GetInstance().currentInfo.userId == null || AccountDate.GetInstance().currentInfo.userId == "")
+        if (AccountDate.GetInstance().response.userId == null || AccountDate.GetInstance().response.userId == "")
         {
             print("userId가 null이거나 빔.");
             chat.member_id = "0";
