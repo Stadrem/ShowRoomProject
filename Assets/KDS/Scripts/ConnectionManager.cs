@@ -181,6 +181,11 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
 
         //룸에 입장이 실패 원인을 출력
         Debug.LogError("Disconnected from Room - " + message);
+
+        if(message == "Game does not exist")
+        {
+            HttpManager.GetInstance().Alert("방이 없습니다.", 2.0f);
+        }
     }
 
     //룸에 다른 플레이어가 입장했을 때의 콜백 함수
