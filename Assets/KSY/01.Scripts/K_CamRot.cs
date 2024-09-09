@@ -8,10 +8,11 @@ public class K_CamRot : MonoBehaviour
     public float rotSpeed;
     float my;
     float mx;
-
+    public K_PlayerMove playerMove;
 
     void Update()
     {
+        if (playerMove.currState == K_PlayerMove.PlayerState.Click) return;
         if (cam)
         {
             my -= Input.GetAxis("Mouse Y") * Time.deltaTime * rotSpeed;

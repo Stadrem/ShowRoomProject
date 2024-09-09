@@ -78,9 +78,11 @@ public class K_PlayerMove : MonoBehaviour
         switch (currState)
         {
             case PlayerState.Move:
+                Cursor.lockState = CursorLockMode.Locked;
                 break;
             case PlayerState.Click:
-            myAnim.SetBool("Move", false);
+                if(myAnim!=null) myAnim.SetBool("Move", false);
+                Cursor.lockState = CursorLockMode.Confined;
                 break;
             default:
                 break;
@@ -123,5 +125,10 @@ public class K_PlayerMove : MonoBehaviour
         GameObject go = Instantiate(bodyObject, myBody);
         go.transform.localPosition = Vector3.zero;
         myAnim = GetComponentInChildren<Animator>();
+    }
+
+    public void ChangeToMove()
+    {
+        ChangeState(PlayerState.Move);
     }
 }
