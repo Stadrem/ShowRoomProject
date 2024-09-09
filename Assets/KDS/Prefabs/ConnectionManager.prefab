@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6460944105838753119}
   - component: {fileID: 1341458557977286483}
   m_Layer: 0
-  m_Name: PhotonManager
+  m_Name: ConnectionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

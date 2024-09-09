@@ -2,6 +2,7 @@
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameUiCanvas : MonoBehaviour
@@ -12,6 +13,8 @@ public class GameUiCanvas : MonoBehaviour
     public GameObject list_Name;
 
     public GameObject namePlatePrefab;
+
+    public TMP_Text joinCodeText;
 
     private void Awake()
     {
@@ -34,6 +37,8 @@ public class GameUiCanvas : MonoBehaviour
     void Start()
     {
         StartPlate();
+
+        joinCodeText.text = ConnectionManager.instance.setRoom;
     }
 
     // Update is called once per frame
