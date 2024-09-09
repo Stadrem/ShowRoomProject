@@ -21,7 +21,7 @@ public class UiSoundManager : MonoBehaviour
             instance = this;
 
             //씬 전환해도 유지하는 코드
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         //이미 instance에 무언가 값이 들어있다면?
         else
