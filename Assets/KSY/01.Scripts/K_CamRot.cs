@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PhotonView))]
+
 public class K_CamRot : MonoBehaviourPun
 {
     public bool cam;
