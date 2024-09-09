@@ -135,6 +135,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUiCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1439190419661144375, guid: b8e42554a31ba4d46a9911113154c414,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439190419661144375, guid: b8e42554a31ba4d46a9911113154c414,
+        type: 3}
+      propertyPath: m_Navigation.m_WrapAround
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3017106362507410322, guid: b8e42554a31ba4d46a9911113154c414,
         type: 3}
       propertyPath: m_Pivot.x
@@ -233,6 +243,46 @@ PrefabInstance:
     - target: {fileID: 3017106362507410322, guid: b8e42554a31ba4d46a9911113154c414,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5367294472592808786, guid: b8e42554a31ba4d46a9911113154c414,
+        type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5987704933225890798, guid: b8e42554a31ba4d46a9911113154c414,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795134338960992276, guid: b8e42554a31ba4d46a9911113154c414,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795134338960992276, guid: b8e42554a31ba4d46a9911113154c414,
+        type: 3}
+      propertyPath: m_Navigation.m_WrapAround
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270392525591553418, guid: b8e42554a31ba4d46a9911113154c414,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270392525591553418, guid: b8e42554a31ba4d46a9911113154c414,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270392525591553418, guid: b8e42554a31ba4d46a9911113154c414,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8648126091898709230, guid: b8e42554a31ba4d46a9911113154c414,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

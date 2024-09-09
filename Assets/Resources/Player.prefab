@@ -145,7 +145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_Player: {fileID: 4675485826134548780}
-  ui: {fileID: 8521505475626038693}
 --- !u!1001 &6996471357424270753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -282,9 +281,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!223 &8521505475626038693 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 1682672485009164292, guid: caef7ebb193eaad4f95514075c918da0,
-    type: 3}
-  m_PrefabInstance: {fileID: 6996471357424270753}
-  m_PrefabAsset: {fileID: 0}
