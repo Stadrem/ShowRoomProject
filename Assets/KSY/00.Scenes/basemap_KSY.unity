@@ -1399,15 +1399,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ans:
     id: 0
-    memberName: 
-    question: 
     createdAt: 
     member_id: 0
+    member_name: 
+    answer: 
     area_size: 
     housemate_num: 
+  ansAI:
+    answer: 
   input: {fileID: 4136181884131221478}
   output: {fileID: 1257199100}
   items: {fileID: 329806993}
+  ToAI: 1
 --- !u!1 &650692871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,10 +1859,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ans:
     id: 0
-    memberName: 
-    question: 
     createdAt: 
     member_id: 0
+    member_name: 
+    answer: 
     area_size: 
     housemate_num: 
 --- !u!4 &1043826027
