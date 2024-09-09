@@ -7,8 +7,6 @@ using UnityEngine;
 
 public class PhotonPlayerBase : MonoBehaviour
 {
-    GameObject player;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +23,6 @@ public class PhotonPlayerBase : MonoBehaviour
         Vector3 initPosition = new Vector3(randomPos.x, 0.0f, randomPos.y);
 
         //포톤 네트워크 전용 생성기
-        player = PhotonNetwork.Instantiate("Player", initPosition, Quaternion.identity);
+        GameObject player = PhotonNetwork.Instantiate("Player", initPosition, Quaternion.identity);
     }
 }
