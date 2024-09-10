@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class K_PlayerMove : MonoBehaviour
+[RequireComponent(typeof(PhotonView))]
+public class K_PlayerMove : MonoBehaviourPun
 {
     public enum PlayerState
     {
@@ -31,6 +33,7 @@ public class K_PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if (!photonView.IsMine) return;
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             SetAvatar(bodys[0]);
@@ -61,6 +64,7 @@ public class K_PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!photonView.IsMine) return;
         switch (currState)
         {
             case PlayerState.Move:
@@ -91,6 +95,7 @@ public class K_PlayerMove : MonoBehaviour
 
     void Move()
     {
+        
         v = Input.GetAxisRaw("Vertical");
         h = Input.GetAxisRaw("Horizontal");
         dir = new Vector3(h, 0, v);

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PhotonView))]
+
 public class K_CamRot : MonoBehaviourPun
 {
     public bool cam;
@@ -23,6 +23,7 @@ public class K_CamRot : MonoBehaviourPun
     void Update()
     {
         if (playerMove.currState == K_PlayerMove.PlayerState.Click) return;
+        if (!photonView.IsMine) return;
         if (cam)
         {
             my -= Input.GetAxis("Mouse Y") * Time.deltaTime * rotSpeed;
