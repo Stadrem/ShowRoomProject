@@ -41,6 +41,8 @@ public class HttpManager : MonoBehaviour
 
     public FirstCanvasManager fcm;
 
+    public ConnectionManager cm;
+
     //싱글톤 생성
     static HttpManager instance;
 
@@ -87,7 +89,7 @@ public class HttpManager : MonoBehaviour
 
             AccountDate.GetInstance().InAccount(name);
 
-            ConnectionManager.instance.StartLogin();
+            cm.StartLogin();
         }
         else
         {
@@ -111,7 +113,7 @@ public class HttpManager : MonoBehaviour
 
                     if (debugCheck.isOn == true)
                     {
-                        ConnectionManager.instance.StartLogin();
+                        cm.StartLogin();
                     }
                     else
                     {

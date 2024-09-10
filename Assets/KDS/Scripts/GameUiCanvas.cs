@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GameUiCanvas : MonoBehaviour
+public class GameUiCanvas : MonoBehaviourPunCallbacks
 {
     //싱글톤 생성
     public static GameUiCanvas instance;
@@ -38,7 +38,7 @@ public class GameUiCanvas : MonoBehaviour
     {
         StartPlate();
 
-        joinCodeText.text = ConnectionManager.instance.setRoom;
+        joinCodeText.text = AccountDate.instance.joinCode;
     }
 
     // Update is called once per frame
@@ -91,5 +91,25 @@ public class GameUiCanvas : MonoBehaviour
             // 각 플레이어의 닉네임을 사용함.
             np.NewNamePlate(player.NickName); 
         }
+    }
+
+    //룸에 다른 플레이어가 입장했을 때의 콜백 함수
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        base.OnPlayerEnteredRoom(newPlayer);
+
+        string playerMsg = $"{newPlayer.NickName}님이 입장하셨습니다.";
+
+        StartPlate();
+    }
+
+    //룸에 있던 다른 플레이어가 퇴장했을 때의 콜백 함수
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        base.OnPlayerLeftRoom(otherPlayer);
+
+        string playerMsg = $"{otherPlayer.NickName}님이 퇴장하셨습니다.";
+
+        StartPlate();
     }
 }

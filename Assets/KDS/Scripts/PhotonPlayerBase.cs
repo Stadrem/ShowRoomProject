@@ -23,14 +23,19 @@ public class PhotonPlayerBase : MonoBehaviour
         yield return new WaitUntil(() => { return PhotonNetwork.InRoom; });
         Debug.Log("입장 완료");
 
-        //약간 무작위 공간에 생성
-        Vector2 randomPos = Random.insideUnitCircle * 3.0f;
-        Vector3 initPosition = new Vector3(randomPos.x, 0.0f, randomPos.y);
-        Debug.Log("변수 생성");
+        // 현재 클라이언트가 로컬 플레이어를 소유하고 있는지 확인
+        if (PhotonNetwork.IsConnected && PhotonNetwork.LocalPlayer != null)
+        {
 
-        //포톤 네트워크 전용 생성기
-        GameObject player = PhotonNetwork.Instantiate("Player", initPosition, Quaternion.identity);
+            //약간 무작위 공간에 생성
+            Vector2 randomPos = Random.insideUnitCircle * 3.0f;
+            Vector3 initPosition = new Vector3(randomPos.x, 0.0f, randomPos.y);
+            Debug.Log("변수 생성");
 
-        Debug.Log("플레이어 생성완료");
+            //포톤 네트워크 전용 생성기
+            GameObject player = PhotonNetwork.Instantiate("Player", initPosition, Quaternion.identity);
+
+            Debug.Log("플레이어 생성완료");
+        }
     }
 }

@@ -19,7 +19,7 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
 
     GameObject player;
 
-    Animator myAnim;
+    public Animator myAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,6 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
         kpm = GetComponentInParent<K_PlayerMove>();
         pv = GetComponentInParent<PhotonView>();
         player = transform.parent.gameObject;
-        myAnim = GetComponentInParent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,20 +34,28 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
     {
         if (!pv.IsMine)
         {
-            h = Input.GetAxis("Horizontal");
-            v = Input.GetAxis("Vertical");
-
             player.transform.position = Vector3.Lerp(player.transform.position, myPos, Time.deltaTime * trackingSpeed);
             player.transform.rotation = Quaternion.Lerp(player.transform.rotation, myRot, Time.deltaTime * trackingSpeed);
 
             h = Mathf.Lerp(prevH, h, Time.deltaTime * 100);
             v = Mathf.Lerp(prevV, v, Time.deltaTime * 100);
 
-            myAnim.SetFloat("Horizontal", h);
-            myAnim.SetFloat("Vertical", v);
+            if(h != 0 || v != 0)
+            {
+                myAnim.SetBool("Move", true);
+            }
+            else
+            {
+                myAnim.SetBool("Move", false);
+            }
 
             prevH = h;
             prevV = v;
+        }
+        else
+        {
+            h = Input.GetAxis("Horizontal");
+            v = Input.GetAxis("Vertical");
         }
     }
 

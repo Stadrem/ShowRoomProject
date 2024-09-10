@@ -10,8 +10,6 @@ using TMPro;
 
 public class ConnectionManager : MonoBehaviourPunCallbacks
 {
-    public static ConnectionManager instance;
-
     public string setRoom = "";
 
     public int playerCount = 5;
@@ -21,35 +19,6 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
     public GameObject firstCanvas;
     public GameObject secondCanvas;
     public TMP_InputField joinCodeText;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            // 인스턴스 설정
-            instance = this;
-
-            // 씬 전환 시 객체 파괴 방지
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            // 이미 인스턴스가 존재하면 현재 객체를 파괴
-            Destroy(gameObject);
-        }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Screen.SetResolution(640, 480, false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void StartLogin()
     {
@@ -126,6 +95,8 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
             roomOpt.IsOpen = true;
             roomOpt.IsVisible = true;
 
+            AccountDate.GetInstance().joinCode = setRoom;
+
             PhotonNetwork.CreateRoom(setRoom, roomOpt, TypedLobby.Default);
         }
 
@@ -141,6 +112,8 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         }
         else
         {
+            AccountDate.GetInstance().joinCode = setRoom;
+
             PhotonNetwork.JoinRoom(setRoom);
         }
     }
@@ -186,25 +159,5 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         {
             HttpManager.GetInstance().Alert("방이 없습니다.", 2.0f);
         }
-    }
-
-    //룸에 다른 플레이어가 입장했을 때의 콜백 함수
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        base.OnPlayerEnteredRoom(newPlayer);
-
-        string playerMsg = $"{newPlayer.NickName}님이 입장하셨습니다.";
-
-        GameUiCanvas.instance.StartPlate();
-    }
-
-    //룸에 있던 다른 플레이어가 퇴장했을 때의 콜백 함수
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        base.OnPlayerLeftRoom(otherPlayer);
-
-        string playerMsg = $"{otherPlayer.NickName}님이 퇴장하셨습니다.";
-
-        GameUiCanvas.instance.StartPlate();
     }
 }

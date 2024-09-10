@@ -103,4 +103,6 @@ public class AccountDate : MonoBehaviour
     {
         response.userName = userName;
     }
+
+    public string joinCode; 
 }
