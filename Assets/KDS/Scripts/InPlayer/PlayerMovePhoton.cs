@@ -10,7 +10,7 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
     K_PlayerMove kpm;
     PhotonView pv;
 
-    float h, v, prevH, prevV = 0;
+    public float h, v, prevH, prevV = 0;
 
     float trackingSpeed = 50;
 
@@ -40,7 +40,10 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
             h = Mathf.Lerp(prevH, h, Time.deltaTime * 100);
             v = Mathf.Lerp(prevV, v, Time.deltaTime * 100);
 
-            if(h != 0 || v != 0)
+            prevH = h;
+            prevV = v;
+
+            if (Mathf.Abs( h) >  0.1f || Mathf.Abs(v) > 0.1f)
             {
                 myAnim.SetBool("Move", true);
             }
@@ -48,9 +51,6 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
             {
                 myAnim.SetBool("Move", false);
             }
-
-            prevH = h;
-            prevV = v;
         }
         else
         {
