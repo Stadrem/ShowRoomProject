@@ -678,6 +678,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AccountDate
       objectReference: {fileID: 0}
+    - target: {fileID: 9149267247477040658, guid: 3cb7a4f5e241cc047949b61915998ee6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
