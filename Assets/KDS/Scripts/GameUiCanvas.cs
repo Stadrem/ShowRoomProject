@@ -16,6 +16,8 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
 
     public TMP_Text joinCodeText;
 
+    public TMP_Dropdown avatarDropdown;
+
     private void Awake()
     {
         if (instance == null)
@@ -111,5 +113,10 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
         string playerMsg = $"{otherPlayer.NickName}님이 퇴장하셨습니다.";
 
         StartPlate();
+    }
+
+    public void SelectButton() // SelectButton을 누름으로써 값 테스트.    
+    { 
+        Debug.Log("Dropdown Value: " + avatarDropdown.value); 
     }
 }
