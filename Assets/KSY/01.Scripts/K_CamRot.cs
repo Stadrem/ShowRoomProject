@@ -13,15 +13,20 @@ public class K_CamRot : MonoBehaviourPun
     public K_PlayerMove playerMove;
     private void Start()
     {
-        if(cam && transform.childCount == 0 && photonView.IsMine)
-        {
-            Camera.main.transform.parent = gameObject.transform;
-            Camera.main.transform.localPosition = Vector3.zero;
-            Camera.main.transform.localRotation = Quaternion.identity;
-        }
+        //if(cam && transform.childCount == 0 && photonView.IsMine)
+        //{
+        //    Camera.main.transform.parent = gameObject.transform;
+        //    Camera.main.transform.localPosition = Vector3.zero;
+        //    Camera.main.transform.localRotation = Quaternion.identity;
+        //}
     }
     void Update()
     {
+        if (cam && photonView.IsMine)
+        {
+            Camera.main.transform.position = transform.position;
+            Camera.main.transform.rotation = transform.rotation;
+        }
         if (playerMove.currState == K_PlayerMove.PlayerState.Click) return;
         if (!photonView.IsMine) return;
         if (cam)

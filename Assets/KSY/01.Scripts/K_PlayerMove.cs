@@ -52,8 +52,8 @@ public class K_PlayerMove : MonoBehaviourPun
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            if (myBody.childCount > 0) Destroy(myBody.GetChild(0).gameObject);
-            print(myBody.childCount);
+            if (currState == PlayerState.Move) ChangeState(PlayerState.Click);
+            else if (currState == PlayerState.Click) ChangeState(PlayerState.Move);
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
