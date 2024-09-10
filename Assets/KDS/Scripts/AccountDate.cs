@@ -104,5 +104,6 @@ public class AccountDate : MonoBehaviour
         response.userName = userName;
     }
 
+    //방 코드 저장
     public string joinCode; 
 }
