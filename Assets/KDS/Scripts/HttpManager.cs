@@ -87,7 +87,7 @@ public class HttpManager : MonoBehaviour
 
             AccountDate.GetInstance().InAccount(name);
 
-            PhotonNetwork.LoadLevel(2);
+            ConnectionManager.instance.StartLogin();
         }
         else
         {
