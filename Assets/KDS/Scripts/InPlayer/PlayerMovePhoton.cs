@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class PlayerMovePhoton : MonoBehaviour, IPunObservable
 {
@@ -36,8 +35,8 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
     {
         if (!pv.IsMine)
         {
-            //h = kpm.h;
-            //v = kpm.v;
+            h = Input.GetAxis("Horizontal");
+            v = Input.GetAxis("Vertical");
 
             player.transform.position = Vector3.Lerp(player.transform.position, myPos, Time.deltaTime * trackingSpeed);
             player.transform.rotation = Quaternion.Lerp(player.transform.rotation, myRot, Time.deltaTime * trackingSpeed);

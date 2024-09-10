@@ -37,6 +37,7 @@ public class HttpManager : MonoBehaviour
     public TextMeshProUGUI alertText;
 
     public Toggle debugCheck;
+    public Toggle debugCheck2;
 
     public FirstCanvasManager fcm;
 
@@ -80,43 +81,54 @@ public class HttpManager : MonoBehaviour
 
     public IEnumerator Login(HttpInfo info)
     {
-        // GET 요청 생성
-        using (UnityWebRequest webRequest = new UnityWebRequest(info.url, "POST"))
+        if (debugCheck2.isOn == true)
         {
-            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(info.body);
-            webRequest.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            webRequest.downloadHandler = new DownloadHandlerBuffer();
-            webRequest.SetRequestHeader("Content-Type", info.contentType);
+            string name = "유저" + UnityEngine.Random.Range(0, 100);
 
-            Alert("로그인중...", 99.0f);
-            // 요청 전송 및 응답 대기
-            yield return webRequest.SendWebRequest();
+            AccountDate.GetInstance().InAccount(name);
 
-            if (webRequest.result == UnityWebRequest.Result.Success)
+            PhotonNetwork.LoadLevel(2);
+        }
+        else
+        {
+            // GET 요청 생성
+            using (UnityWebRequest webRequest = new UnityWebRequest(info.url, "POST"))
             {
-                ParseUserInfo(webRequest.downloadHandler);
+                byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(info.body);
+                webRequest.uploadHandler = new UploadHandlerRaw(bodyRaw);
+                webRequest.downloadHandler = new DownloadHandlerBuffer();
+                webRequest.SetRequestHeader("Content-Type", info.contentType);
 
-                Alert("로그인 성공!", 1.0f);
+                Alert("로그인중...", 99.0f);
+                // 요청 전송 및 응답 대기
+                yield return webRequest.SendWebRequest();
 
-                if(debugCheck.isOn == true)
+                if (webRequest.result == UnityWebRequest.Result.Success)
                 {
-                    ConnectionManager.instance.StartLogin();
+                    ParseUserInfo(webRequest.downloadHandler);
+
+                    Alert("로그인 성공!", 1.0f);
+
+                    if (debugCheck.isOn == true)
+                    {
+                        ConnectionManager.instance.StartLogin();
+                    }
+                    else
+                    {
+                        PhotonNetwork.LoadLevel(2);
+                    }
                 }
                 else
                 {
-                    PhotonNetwork.LoadLevel(2);
-                }
-            }
-            else
-            {
-                Debug.Log("Login failed: " + webRequest.error);
-                if(webRequest.error == "HTTP/1.1 409 Conflict")
-                {
-                    Alert("비밀번호가 틀렸습니다.", 2.0f);
-                }
-                else
-                {
-                    Alert("아이디 혹은 비밀번호가 틀렸습니다.", 2.0f);
+                    Debug.Log("Login failed: " + webRequest.error);
+                    if (webRequest.error == "HTTP/1.1 409 Conflict")
+                    {
+                        Alert("비밀번호가 틀렸습니다.", 2.0f);
+                    }
+                    else
+                    {
+                        Alert("아이디 혹은 비밀번호가 틀렸습니다.", 2.0f);
+                    }
                 }
             }
         }

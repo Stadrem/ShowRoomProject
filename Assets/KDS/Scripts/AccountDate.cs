@@ -98,4 +98,9 @@ public class AccountDate : MonoBehaviour
         response.refreshToken = refreshToken;
         response.refreshTokenValidTime = refreshTokenValidTime;
     }
+
+    public void InAccount(string userName)
+    {
+        response.userName = userName;
+    }
 }
