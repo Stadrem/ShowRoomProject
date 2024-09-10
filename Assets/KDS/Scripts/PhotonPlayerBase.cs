@@ -1,9 +1,7 @@
-﻿using Photon.Pun;
-using Photon.Realtime;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using Photon.Pun;
 
 public class PhotonPlayerBase : MonoBehaviour
 {
@@ -13,6 +11,11 @@ public class PhotonPlayerBase : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnPlayer());
+
+        //OnPhotonSerializeView에서 데이터 전송 빈도 수 설정하기 (per seconds)
+        PhotonNetwork.SerializationRate = 30;
+        //대부분의 데이터 전송 빈도 수 설정하기 (per seconds)
+        PhotonNetwork.SendRate = 30;
     }
 
     IEnumerator SpawnPlayer()
@@ -23,7 +26,7 @@ public class PhotonPlayerBase : MonoBehaviour
         Debug.Log("입장 완료");
 
         //약간 무작위 공간에 생성
-        Vector2 randomPos = Random.insideUnitCircle * 2.0f;
+        Vector2 randomPos = Random.insideUnitCircle * 3.0f;
         Vector3 initPosition = new Vector3(randomPos.x, 0.0f, randomPos.y);
         Debug.Log("변수 생성");
 
