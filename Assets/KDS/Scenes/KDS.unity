@@ -983,6 +983,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 567397112679582039, guid: 7f7520d9beab83441b46d2a1d50835dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4561159672061424112, guid: 7f7520d9beab83441b46d2a1d50835dd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
