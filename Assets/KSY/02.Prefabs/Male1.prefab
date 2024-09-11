@@ -81,7 +81,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ce7ada3ba0c71894abdb4b55dfda3a21,
         type: 3}
       propertyPath: m_Name
-      value: Remy
+      value: Male1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: ce7ada3ba0c71894abdb4b55dfda3a21,
         type: 3}
@@ -89,7 +89,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 24a0ba0f54995b64cb4b4fc384bbbc8e, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -9200210366883936642, guid: ce7ada3ba0c71894abdb4b55dfda3a21, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce7ada3ba0c71894abdb4b55dfda3a21, type: 3}
