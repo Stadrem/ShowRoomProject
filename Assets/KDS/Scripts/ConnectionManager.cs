@@ -61,6 +61,7 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         print(MethodInfo.GetCurrentMethod().Name + " is Call");
 
         HttpManager.GetInstance().serverLodingOff();
+        HttpManager.GetInstance().Alert("환영합니다!", 3.0f);
 
         //서버의 로비로 들어간다.
         PhotonNetwork.JoinLobby();
