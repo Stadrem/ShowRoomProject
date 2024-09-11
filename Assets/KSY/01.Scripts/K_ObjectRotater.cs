@@ -6,6 +6,9 @@ public class K_ObjectRotater : MonoBehaviour
 {
     public bool canRotate;
     public float speed = 200f;
+
+    float x;
+    float y;
     void Start()
     {
         
@@ -23,7 +26,11 @@ public class K_ObjectRotater : MonoBehaviour
         }
         if (canRotate)
         {
-            
+            x = -Input.GetAxis("Mouse X") * Time.deltaTime * speed;
+            y = Input.GetAxis("Mouse Y") * Time.deltaTime * speed;
+
+            transform.Rotate(0, x, 0, Space.World);
+            transform.Rotate(y, 0, 0, Space.World);
         }
     }
 }
