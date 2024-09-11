@@ -18,6 +18,14 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
 
     public TMP_Dropdown avatarDropdown;
 
+    public GameObject iconMicOFF;
+
+    public GameObject iconMicON;
+
+    public PhotonPlayerBase ppb;
+
+    public PhotonView pv; 
+
     private void Awake()
     {
         if (instance == null)
@@ -41,12 +49,21 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
         StartPlate();
 
         joinCodeText.text = AccountDate.instance.joinCode;
+
+        StartCoroutine(StartDelay());
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //만약 V키를 누르면 음성 활성화함
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            //iconMicON이 활성화되어 있으면 비활성화하고, 비활성화되어 있으면 활성화. iconMicOFF도 반대로 동작.
+            bool isActive = iconMicON.activeSelf;
+            iconMicON.SetActive(!isActive);
+            iconMicOFF.SetActive(isActive);
+        }
     }
 
     public void GameExit()
@@ -115,8 +132,41 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
         StartPlate();
     }
 
-    public void SelectButton() // SelectButton을 누름으로써 값 테스트.    
+    public void DropSelectButton()
+    {
+        pv.GetComponentInChildren<PlayerMovePhoton>().RPC_SelectButton((int)avatarDropdown.value);
+    }
+
+    /*
+    public void RPC_SelectButton()
+    {
+        if (pv.IsMine)
+        {
+            pv.RPC("SelectButton", RpcTarget.All, (int)avatarDropdown.value);
+        }
+    }
+
+    [PunRPC]
+    public void SelectButton(int value) // SelectButton을 누름으로써 값 테스트.    
     { 
-        Debug.Log("Dropdown Value: " + avatarDropdown.value); 
+        Debug.Log("Dropdown Value: " + value);
+
+        //아바타 설정있는 스크립트 불러오기 -> 캐릭터에 붙어있는 스크립트
+        K_PlayerMove kpm = ppb.player.GetComponent<K_PlayerMove>();
+
+        //아바타 변경 함수
+        kpm.SetAvatar(kpm.bodys[value]);
+    }
+    */
+
+    IEnumerator StartDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        ppb = GameObject.Find("PhotonPlayerBase").GetComponent<PhotonPlayerBase>();
+
+        pv = ppb.player.GetComponent<PhotonView>();
+
+
     }
 }
