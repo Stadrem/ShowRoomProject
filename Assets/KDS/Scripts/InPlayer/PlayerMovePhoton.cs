@@ -8,19 +8,19 @@ using UnityEngine;
 
 public class PlayerMovePhoton : MonoBehaviour, IPunObservable
 {
-    public K_PlayerMove kpm;
-    public PhotonView pv;
+    K_PlayerMove kpm;
+    PhotonView pv;
 
-    public float h, v, prevH, prevV = 0;
+    float h, v, prevH, prevV = 0;
 
     float trackingSpeed = 50;
 
     Vector3 myPos;
     Quaternion myRot;
 
-    public GameObject player;
+    GameObject player;
 
-    public Animator myAnim;
+    Animator myAnim;
 
     public GameObject iconRec;
 
@@ -40,6 +40,8 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
     // Update is called once per frame
     void Update()
     {
+        if (myAnim == null) myAnim = transform.GetChild(0).GetComponentInChildren<Animator>();
+
         //타인의 캐릭터 이동 처리
         if (!pv.IsMine)
         {
@@ -52,13 +54,14 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
             prevH = h;
             prevV = v;
 
+            
             if (Mathf.Abs( h) >  0.1f || Mathf.Abs(v) > 0.1f)
             {
-                myAnim.SetBool("Move", true);
+                myAnim?.SetBool("Move", true);
             }
             else
             {
-                myAnim.SetBool("Move", false);
+                myAnim?.SetBool("Move", false);
             }
         }
         //내 캐릭터라면 이동 값 저장

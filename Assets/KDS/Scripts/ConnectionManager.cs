@@ -30,11 +30,9 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         //접속을 서버에 요청
         PhotonNetwork.ConnectUsingSettings();
 
-        HttpManager.GetInstance().serverLodingOn();
+        HttpManager.GetInstance().Alert("서버 접속 요청 중", 30.0f);
 
         print("닉네임 설정 : " + PhotonNetwork.NickName);
-
-        HttpManager.GetInstance().Alert("서버 접속 요청 중", 1.0f);
     }
 
     public override void OnConnected()
@@ -60,8 +58,7 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         //Master 서버에 접속이 완료 되었음을 알려줌
         print(MethodInfo.GetCurrentMethod().Name + " is Call");
 
-        HttpManager.GetInstance().serverLodingOff();
-        HttpManager.GetInstance().Alert("환영합니다!", 3.0f);
+        HttpManager.GetInstance().Alert("쇼륨에 오신 것을 환영합니다!", 2.0f);
 
         //서버의 로비로 들어간다.
         PhotonNetwork.JoinLobby();

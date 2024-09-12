@@ -18,13 +18,18 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
 
     public TMP_Dropdown avatarDropdown;
 
+    public TMP_InputField input_chat;
+
+    public TMP_Text Text_chatContent;
+
     public GameObject iconMicOFF;
 
     public GameObject iconMicON;
 
     public PhotonPlayerBase ppb;
 
-    public PhotonView pv; 
+    public PhotonView pv;
+
 
     private void Awake()
     {
@@ -165,8 +170,6 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
 
         ppb = GameObject.Find("PhotonPlayerBase").GetComponent<PhotonPlayerBase>();
 
-        pv = ppb.player.GetComponent<PhotonView>();
-
-
+        pv = ppb.pv;
     }
 }

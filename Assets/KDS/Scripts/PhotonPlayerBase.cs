@@ -7,6 +7,8 @@ public class PhotonPlayerBase : MonoBehaviour
 {
     public GameObject player;
 
+    public PhotonView pv;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,8 @@ public class PhotonPlayerBase : MonoBehaviour
 
             //포톤 네트워크 전용 생성기
             player = PhotonNetwork.Instantiate("Player", initPosition, Quaternion.identity);
+
+            pv = player.GetComponent<PhotonView>();
 
             Debug.Log("플레이어 생성완료");
         }
