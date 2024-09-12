@@ -227,6 +227,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &325233673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 325233675}
+  - component: {fileID: 325233674}
+  m_Layer: 0
+  m_Name: ChatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &325233674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325233673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bce4a035a40f074aa0edc5ad212b3e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text_chat: {fileID: 0}
+  text_chatContent: {fileID: 0}
+  input_chat: {fileID: 0}
+--- !u!4 &325233675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325233673}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.202431, y: 0.9999999, z: 0.12268461}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &421894070
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,18 +958,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1697381171 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7442835566409898565, guid: 552937ec3efd902478b7d0e33b983e45,
-    type: 3}
-  m_PrefabInstance: {fileID: 5933919979434768332}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bce4a035a40f074aa0edc5ad212b3e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1787987573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1100,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1697381171}
+      objectReference: {fileID: 0}
     - target: {fileID: 2532388176133403315, guid: 3a87d12e8add2974c9620de04b7a6fd9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -1319,3 +1354,4 @@ SceneRoots:
   - {fileID: 614755470}
   - {fileID: 1875896358}
   - {fileID: 1611996315}
+  - {fileID: 325233675}
