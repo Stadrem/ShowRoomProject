@@ -44,12 +44,10 @@ public class CsvTest : MonoBehaviour
         }
         for(int i = 0; i< 11; i++)
         {
-            array[i].go = new string[75];
             for (int j = 0; j < 74; j++)
             {
                 input2[i, j] = input[i][j];
                 
-                array[i].go[j] = input2[i,j];
             }
         }
         for(int i = 0; i< 11; i++)

@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class K_EventMethodRef : MonoBehaviour
 {
@@ -38,7 +40,29 @@ public class K_EventMethodRef : MonoBehaviour
     {
         public string answer;
     }
-    
+
+    [System.Serializable]
+    public class RefrigeratorData
+    {
+        public string productName; // 제품명
+        public string productType; // 제품 타입
+        public string installationType; // 설치 타입
+        public string dimensions; // 크기
+        public double weight; // 무게
+        public int totalCapacity; // 전체 용량
+        public int fridgeCapacity; // 냉장실 용량
+        public int freezerCapacity; // 냉동실 용량
+        public string energyEfficiencyRating;// 소비 효율 등급
+        public double powerConsumption; // 소비전력
+    }
+
+    [System.Serializable]
+    public struct RefriArray
+    {
+        public List<RefrigeratorData> data;
+    }
+
+
     public ChatBotAns ans;
     public ChatBotAns_AI ansAI;
     public TMP_InputField input;
@@ -58,8 +82,26 @@ public class K_EventMethodRef : MonoBehaviour
         {
             print("Caption : " + items.captionText.text);
         }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            GetRefriData();
+            //print("refriArray 1번 : " + refriArray.data[1]);
+        }
     }
-
+    RefriArray refriArray;
+    public void GetRefriData()
+    {
+        K_HttpInfo info = new K_HttpInfo();
+        info.url = "http://125.132.216.190:12450/api/refrigerators";
+        info.onComplete = (downloadHandler) =>
+        {
+            string jsonData = "{ \"data\" : " + downloadHandler.text + "}";
+            print(downloadHandler.text);
+            refriArray = JsonUtility.FromJson<RefriArray>(jsonData);
+            print("refriArray 0번 : " + refriArray.data[0].productName);
+        };
+        StartCoroutine(K_HttpManager.GetInstance().Get(info));
+    }
     
 
     public void TransferInput()
