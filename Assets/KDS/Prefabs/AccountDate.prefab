@@ -148,14 +148,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   response:
+    userId: 
+    userName: 
     grantType: 
     accessToken: 
     accessTokenValidTime: 
     refreshToken: 
     refreshTokenValidTime: 
-  currentInfo:
-    userId: 
-    userName: 
+  joinCode: 
 --- !u!1 &6196519852796634175
 GameObject:
   m_ObjectHideFlags: 0

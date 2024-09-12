@@ -118,12 +118,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3635756102940087946}
   m_SourcePrefab: {fileID: 100100000, guid: 3289af6d1c0574b4fba6031ed90b2938, type: 3}
---- !u!95 &65462203613826765 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5431667814660728438, guid: 3289af6d1c0574b4fba6031ed90b2938,
-    type: 3}
-  m_PrefabInstance: {fileID: 5443084615115581627}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7446783308979428232 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3229627839420396339, guid: 3289af6d1c0574b4fba6031ed90b2938,
@@ -274,14 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d8c72b1b3cc4845ac15dd63e96b8fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kpm: {fileID: 0}
-  pv: {fileID: 0}
-  h: 0
-  v: 0
-  prevH: 0
-  prevV: 0
-  player: {fileID: 0}
-  myAnim: {fileID: 65462203613826765}
   iconRec: {fileID: 4915713689600682688}
   voiceView: {fileID: 0}
 --- !u!1001 &7509804482400689298
@@ -296,6 +282,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerName
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511875571732319084, guid: caef7ebb193eaad4f95514075c918da0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4679986980691869083, guid: caef7ebb193eaad4f95514075c918da0,
         type: 3}
@@ -380,7 +371,7 @@ PrefabInstance:
     - target: {fileID: 4679986980691869083, guid: caef7ebb193eaad4f95514075c918da0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.892
+      value: 1.853
       objectReference: {fileID: 0}
     - target: {fileID: 4679986980691869083, guid: caef7ebb193eaad4f95514075c918da0,
         type: 3}
@@ -396,11 +387,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8045287961453246936, guid: caef7ebb193eaad4f95514075c918da0,
-        type: 3}
-      propertyPath: m_Name
-      value: text_Chat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

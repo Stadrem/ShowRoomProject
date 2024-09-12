@@ -58,7 +58,7 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         //Master 서버에 접속이 완료 되었음을 알려줌
         print(MethodInfo.GetCurrentMethod().Name + " is Call");
 
-        HttpManager.GetInstance().Alert("환영합니다!", 5.0f);
+        HttpManager.GetInstance().Alert("쇼륨에 오신 것을 환영합니다!", 2.0f);
 
         //서버의 로비로 들어간다.
         PhotonNetwork.JoinLobby();

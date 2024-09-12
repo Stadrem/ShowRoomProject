@@ -10,6 +10,10 @@ public class PlayerUiSet : MonoBehaviour
 
     public TMP_Text text_Player;
 
+    public GameObject talkPivot;
+
+    public TMP_Text text_Chat;
+
     // Start is called before the first frame update
     void Start()
     {

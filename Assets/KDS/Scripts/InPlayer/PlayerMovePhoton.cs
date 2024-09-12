@@ -8,19 +8,19 @@ using UnityEngine;
 
 public class PlayerMovePhoton : MonoBehaviour, IPunObservable
 {
-    public K_PlayerMove kpm;
-    public PhotonView pv;
+    K_PlayerMove kpm;
+    PhotonView pv;
 
-    public float h, v, prevH, prevV = 0;
+    float h, v, prevH, prevV = 0;
 
     float trackingSpeed = 50;
 
     Vector3 myPos;
     Quaternion myRot;
 
-    public GameObject player;
+    GameObject player;
 
-    public Animator myAnim;
+    Animator myAnim;
 
     public GameObject iconRec;
 
