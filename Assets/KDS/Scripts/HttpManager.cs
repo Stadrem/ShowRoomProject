@@ -33,7 +33,6 @@ public class HttpInfo
 public class HttpManager : MonoBehaviour
 {
     public GameObject alertFullset;
-    public GameObject serverFullset;
     public TextMeshProUGUI alertText;
 
     public Toggle debugCheck;
@@ -198,17 +197,6 @@ public class HttpManager : MonoBehaviour
 
         alertFullset.SetActive(false);
     }
-
-    public void serverLodingOn()
-    {
-        serverFullset.SetActive(true);
-    }
-
-    public void serverLodingOff()
-    {
-        serverFullset.SetActive(false);
-    }
-
 
     /*
     //GET : 서버에게 데이터를 조회 요청
