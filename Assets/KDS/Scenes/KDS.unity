@@ -542,11 +542,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HttpManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1385595732014741069, guid: 488bb96c15c2e654fbe45699412e7258,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4076364310508822247, guid: 488bb96c15c2e654fbe45699412e7258,
         type: 3}
       propertyPath: cm
