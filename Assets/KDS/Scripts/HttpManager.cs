@@ -45,6 +45,8 @@ public class HttpManager : MonoBehaviour
     //싱글톤 생성
     static HttpManager instance;
 
+    public ParticleSystem fireWorks;
+
     // 싱글톤 인스턴스를 반환하는 메소드
     public static HttpManager GetInstance()
     {
@@ -108,8 +110,6 @@ public class HttpManager : MonoBehaviour
                 {
                     ParseUserInfo(webRequest.downloadHandler);
 
-                    Alert("로그인 성공!", 1.0f);
-
                     if (debugCheck.isOn == true)
                     {
                         cm.StartLogin();
@@ -152,7 +152,8 @@ public class HttpManager : MonoBehaviour
             if (webRequest.result == UnityWebRequest.Result.Success)
             {
                 Debug.Log("Registration successful: " + webRequest.downloadHandler.text);
-                Alert("회원 가입 성공", 2.0f);
+                Alert("회원 가입 성공!", 2.0f);
+                fireWorks.Play();
 
                 fcm.LoginPopUp();
             }

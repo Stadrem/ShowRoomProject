@@ -29,6 +29,8 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
 
     bool isTalking = false;
 
+    public ParticleSystem changeEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -111,6 +113,8 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
         kpm.SetAvatar(kpm.bodys[value]);
 
         myAnim = GetComponentInChildren<Animator>();
+
+        changeEffect.Play();
     }
 
     public void RPC_TalkPopUp(string value)

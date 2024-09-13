@@ -60,6 +60,8 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
 
         HttpManager.GetInstance().Alert("쇼룸에 오신 것을 환영합니다!", 2.0f);
 
+        HttpManager.GetInstance().fireWorks.Play();
+
         //서버의 로비로 들어간다.
         PhotonNetwork.JoinLobby();
     }

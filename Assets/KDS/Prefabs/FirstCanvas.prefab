@@ -955,6 +955,7 @@ GameObject:
   - component: {fileID: 3039041199405889741}
   - component: {fileID: 5352992880745396757}
   - component: {fileID: 4488352079407067317}
+  - component: {fileID: 2199254640611680211}
   m_Layer: 5
   m_Name: FirstCanvas
   m_TagString: Untagged
@@ -1066,6 +1067,14 @@ MonoBehaviour:
   loginPassword: {fileID: 7387044685941271569}
   joinFullset: {fileID: 3051350566033956282}
   loginFullset: {fileID: 6457771934278118065}
+--- !u!222 &2199254640611680211
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567397112679582039}
+  m_CullTransparentMesh: 1
 --- !u!1 &568939816565104446
 GameObject:
   m_ObjectHideFlags: 0
@@ -6163,7 +6172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 906fe43cd231a5d4d885a608b0ce5756, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -7760,7 +7769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 906fe43cd231a5d4d885a608b0ce5756, type: 2}
   m_Color: {r: 0.8522012, g: 0.92398924, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
