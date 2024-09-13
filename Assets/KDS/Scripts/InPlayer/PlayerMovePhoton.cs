@@ -10,6 +10,7 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
 {
     K_PlayerMove kpm;
     PhotonView pv;
+    public PlayerUiSet playerUiSet;
 
     float h, v, prevH, prevV = 0;
 
@@ -24,7 +25,7 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
 
     public GameObject iconRec;
 
-    public PhotonVoiceView voiceView;
+    PhotonVoiceView voiceView;
 
     bool isTalking = false;
 
@@ -102,6 +103,33 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
         kpm.SetAvatar(kpm.bodys[value]);
 
         myAnim = GetComponentInChildren<Animator>();
+    }
+
+    public void RPC_TalkPopUp(string value)
+    {
+        if (pv.IsMine)
+        {
+            pv.RPC("TalkPopUp", RpcTarget.All, value);
+        }
+    }
+
+    [PunRPC]
+    void TalkPopUp(string receiveMessage)
+    {
+        StartCoroutine(ChatPopUp(receiveMessage));
+    }
+
+    IEnumerator ChatPopUp(string text)
+    {
+        playerUiSet.talkPivot.SetActive(true);
+
+        playerUiSet.text_Chat.text = text;
+
+        yield return new WaitForSeconds(2);
+
+        playerUiSet.talkPivot.SetActive(false);
+
+        playerUiSet.text_Chat.text = "";
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

@@ -116,10 +116,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uACBD\uACE0\uC54C\uB9BC\uD14D\uC2A4\uD2B8\uACBD\uACE0\uC54C\uB9BC\uD14D\uC2A4\uD2B8\uACBD\uACE0\uC54C\uB9BC\uD14D\uC2A4\uD2B8\uACBD\uACE0\uC54C\uB9BC\uD14D\uC2A4\uD2B8\uACBD\uACE0\uC54C\uB9BC\uD14D\uC2A4\uD2B8"
+  m_text: "\uC1FC\uB8F8\uC5D0 \uC624\uC2E0 \uAC83\uC744 \uD658\uC601\uD569\uB2C8\uB2E4!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ca1514eece4026340815aaf5a4e53829, type: 2}
-  m_sharedMaterial: {fileID: 4312371701463251312, guid: ca1514eece4026340815aaf5a4e53829,
+  m_fontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
+  m_sharedMaterial: {fileID: -6661855658047998243, guid: 8aecd68783abb954987fcb7eeb519029,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3031823236468502354

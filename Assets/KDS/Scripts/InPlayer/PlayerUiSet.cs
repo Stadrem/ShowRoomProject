@@ -22,6 +22,8 @@ public class PlayerUiSet : MonoBehaviour
         print(pv.Owner.NickName);
 
         text_Player.text = pv.Owner.NickName;
+
+        text_Chat.text = "";
     }
 
     // Update is called once per frame

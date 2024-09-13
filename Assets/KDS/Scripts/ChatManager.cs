@@ -11,9 +11,8 @@ using UnityEngine;
 public class ChatManager : MonoBehaviourPun, IOnEventCallback
 {
     PhotonPlayerBase ppb;
+    PlayerMovePhoton pmp;
     PlayerUiSet pus;
-    GameObject talkPivot;
-    public TMP_Text text_chat;
     public TMP_Text text_chatContent;
     public TMP_InputField input_chat;
 
@@ -28,7 +27,7 @@ public class ChatManager : MonoBehaviourPun, IOnEventCallback
     // Start is called before the first frame update
     void Start()
     {
-        ppb = GetComponent<PhotonPlayerBase>();
+        ppb = GameObject.Find("PhotonPlayerBase").GetComponent<PhotonPlayerBase>();
 
         input_chat = GameUiCanvas.instance.input_chat;
 
@@ -39,7 +38,6 @@ public class ChatManager : MonoBehaviourPun, IOnEventCallback
         text_chatContent.text = "";
 
         StartCoroutine(Delay());
-
     }
 
     public void SendMyMessage(string msg)
@@ -49,6 +47,8 @@ public class ChatManager : MonoBehaviourPun, IOnEventCallback
         msg = input_chat.text;
         if (input_chat.text.Length > 0)
         {
+            pmp.RPC_TalkPopUp(input_chat.text);
+
             Debug.Log("채팅 전송");
             //이벤트에 보낼 채팅 내용
             object[] sendContent = new object[] {PhotonNetwork.NickName, msg };
@@ -64,7 +64,7 @@ public class ChatManager : MonoBehaviourPun, IOnEventCallback
             input_chat.text = "";
         }
     }
-
+    
     //Raise 콜백 함수, 같은 룸의 다른 사용자로부터 이벤트가 왔을 때 실행되는 함수
     public void OnEvent(EventData photonEvent)
     {
@@ -75,11 +75,9 @@ public class ChatManager : MonoBehaviourPun, IOnEventCallback
             //받은 내용을 "닉네임: 채팅 내용" 형식으로 ScrollView의 text에 전달.
             object[] receiveObejct = (object[])photonEvent.CustomData;
 
-            string receiveMessage = $"\n{receiveObejct[0].ToString()}: {receiveObejct[1].ToString()}";
+            string receiveMessage = $"\n<color=green>{receiveObejct[0].ToString()}</color>: {receiveObejct[1].ToString()}";
 
-            StopAllCoroutines();
-
-            StartCoroutine(ChatPopUp(receiveMessage, 2f));
+            text_chatContent.text += receiveMessage;
         }
     }
 
@@ -93,22 +91,6 @@ public class ChatManager : MonoBehaviourPun, IOnEventCallback
     {
         yield return new WaitForSeconds(1.0f);
         pus = ppb.player.GetComponentInChildren<PlayerUiSet>();
-        talkPivot = pus.talkPivot;
-        text_chat = pus.text_Chat;
-
-        text_chat.text = "";
-    }
-
-    public IEnumerator ChatPopUp(string text, float time)
-    {
-        talkPivot.SetActive(true);
-
-        text_chat.text = text;
-
-        text_chatContent.text += text;
-
-        yield return new WaitForSeconds(time);
-
-        talkPivot.SetActive(false);
+        pmp = ppb.player.GetComponent<PlayerMovePhoton>();
     }
 }
