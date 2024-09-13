@@ -55,8 +55,7 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
             prevH = h;
             prevV = v;
 
-            
-            if (Mathf.Abs( h) >  0.1f || Mathf.Abs(v) > 0.1f)
+            if (Mathf.Abs(h) > 0.1f || Mathf.Abs(v) > 0.1f)
             {
                 myAnim?.SetBool("Move", true);
             }
@@ -72,6 +71,9 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
             v = Input.GetAxis("Vertical");
         }
 
+        myAnim.SetFloat("h", h);
+        myAnim.SetFloat("v", v);
+
         //현재 말을 하고 있다면 보이스 아이콘을 활성화
         if (pv.IsMine)
         {
@@ -80,6 +82,12 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
         else
         {
             iconRec.SetActive(isTalking);
+        }
+
+        //만약 V키를 누르면 음성 활성화함
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            RPC_TalkAnim();
         }
     }
 
@@ -117,6 +125,22 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
     void TalkPopUp(string receiveMessage)
     {
         StartCoroutine(ChatPopUp(receiveMessage));
+
+        myAnim.SetTrigger("Talk");
+    }
+
+    public void RPC_TalkAnim()
+    {
+        if (pv.IsMine)
+        {
+            pv.RPC("TalkAnim", RpcTarget.All);
+        }
+    }
+
+    [PunRPC]
+    void TalkAnim()
+    {
+        myAnim.SetTrigger("Talk");
     }
 
     IEnumerator ChatPopUp(string text)
