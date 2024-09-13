@@ -4,63 +4,64 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
+[System.Serializable]
+public class ChatBotInput
+{
+    public string question;
+    public string member_id;
+    public string area_size;
+    public string housemate_num;
+}
+
+[System.Serializable]
+public class ChatBotAns
+{
+    public int id;
+    public string createdAt;
+    public string member_id;
+    public string member_name;
+    public string answer;
+    public string area_size;
+    public string housemate_num;
+}
+[System.Serializable]
+public class ChatBotInput_AI
+{
+    public string user_id;
+    public string question;
+    public string area_size;
+    public string housemate_num;
+}
+[System.Serializable]
+public class ChatBotAns_AI
+{
+    public string answer;
+}
+
+[System.Serializable]
+public class RefrigeratorData
+{
+    public string productName; // 제품명
+    public string productType; // 제품 타입
+    public string installationType; // 설치 타입
+    public string dimensions; // 크기
+    public double weight; // 무게
+    public int totalCapacity; // 전체 용량
+    public int fridgeCapacity; // 냉장실 용량
+    public int freezerCapacity; // 냉동실 용량
+    public string energyEfficiencyRating;// 소비 효율 등급
+    public double powerConsumption; // 소비전력
+}
+
+[System.Serializable]
+public struct RefriArray
+{
+    public List<RefrigeratorData> data;
+}
 
 public class K_EventMethodRef : MonoBehaviour
 {
-    [System.Serializable]
-    public class ChatBotInput
-    {
-        public string question;
-        public string member_id;
-        public string area_size;
-        public string housemate_num;
-    }
-
-    [System.Serializable]
-    public class ChatBotAns
-    {
-        public int id;
-        public string createdAt;
-        public string member_id;
-        public string member_name;
-        public string answer;
-        public string area_size;
-        public string housemate_num;
-    }
-    [System.Serializable]
-    public class ChatBotInput_AI
-    {
-        public string user_id;
-        public string question;
-        public string area_size;
-        public string housemate_num;
-    }
-    [System.Serializable]
-    public class ChatBotAns_AI
-    {
-        public string answer;
-    }
-
-    [System.Serializable]
-    public class RefrigeratorData
-    {
-        public string productName; // 제품명
-        public string productType; // 제품 타입
-        public string installationType; // 설치 타입
-        public string dimensions; // 크기
-        public double weight; // 무게
-        public int totalCapacity; // 전체 용량
-        public int fridgeCapacity; // 냉장실 용량
-        public int freezerCapacity; // 냉동실 용량
-        public string energyEfficiencyRating;// 소비 효율 등급
-        public double powerConsumption; // 소비전력
-    }
-
-    [System.Serializable]
-    public struct RefriArray
-    {
-        public List<RefrigeratorData> data;
-    }
+    
 
 
     public ChatBotAns ans;
@@ -88,7 +89,8 @@ public class K_EventMethodRef : MonoBehaviour
             //print("refriArray 1번 : " + refriArray.data[1]);
         }
     }
-    RefriArray refriArray;
+    public K_ScriptableObjTest scriptableObj;
+    public RefriArray refriArray;
     public void GetRefriData()
     {
         K_HttpInfo info = new K_HttpInfo();
@@ -99,10 +101,19 @@ public class K_EventMethodRef : MonoBehaviour
             print(downloadHandler.text);
             refriArray = JsonUtility.FromJson<RefriArray>(jsonData);
             print("refriArray 0번 : " + refriArray.data[0].productName);
+            foreach(var c in refriArray.data)
+            {
+                scriptableObj.dic.Add(c.productName, c);
+            }
+            scriptableObj.SetData();
         };
         StartCoroutine(K_HttpManager.GetInstance().Get(info));
     }
     
+    public void SaveDataToScriptableObj()
+    {
+
+    }
 
     public void TransferInput()
     {

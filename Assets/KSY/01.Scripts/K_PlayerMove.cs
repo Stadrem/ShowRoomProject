@@ -34,31 +34,12 @@ public class K_PlayerMove : MonoBehaviourPun
     void Update()
     {
         if (!photonView.IsMine) return;
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            SetAvatar(bodys[0]);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SetAvatar(bodys[1]);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SetAvatar(bodys[2]);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SetAvatar(bodys[3]);
-        }
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (currState == PlayerState.Move) ChangeState(PlayerState.Click);
             else if (currState == PlayerState.Click) ChangeState(PlayerState.Move);
-        }
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            lockmode = !lockmode;
-            SetCursorLock();
+            //lockmode = !lockmode;
+            //SetCursorLock();
         }
     }
 
