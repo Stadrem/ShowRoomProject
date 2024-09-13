@@ -206,7 +206,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 33749
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -277,6 +277,12 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!198 &542329844 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 714421279396823436, guid: 488bb96c15c2e654fbe45699412e7258,
+    type: 3}
+  m_PrefabInstance: {fileID: 39790240355238194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &704649228 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4209346976472784096, guid: 2f9bbf669f44b5146bb24a6e72395bf1,
@@ -537,6 +543,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 714421278986007160, guid: 488bb96c15c2e654fbe45699412e7258,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 714421279396823436, guid: 488bb96c15c2e654fbe45699412e7258,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 714421279768622345, guid: 488bb96c15c2e654fbe45699412e7258,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 786042000579182548, guid: 488bb96c15c2e654fbe45699412e7258,
         type: 3}
       propertyPath: m_Name
@@ -554,6 +575,11 @@ PrefabInstance:
       objectReference: {fileID: 251598469}
     - target: {fileID: 4076364310508822247, guid: 488bb96c15c2e654fbe45699412e7258,
         type: 3}
+      propertyPath: fireWorks
+      value: 
+      objectReference: {fileID: 542329844}
+    - target: {fileID: 4076364310508822247, guid: 488bb96c15c2e654fbe45699412e7258,
+        type: 3}
       propertyPath: debugCheck
       value: 
       objectReference: {fileID: 1769874483}
@@ -562,6 +588,31 @@ PrefabInstance:
       propertyPath: debugCheck2
       value: 
       objectReference: {fileID: 823494809}
+    - target: {fileID: 4209389795046588377, guid: 488bb96c15c2e654fbe45699412e7258,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230320430031882354, guid: 488bb96c15c2e654fbe45699412e7258,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230320430031882354, guid: 488bb96c15c2e654fbe45699412e7258,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230320430031882354, guid: 488bb96c15c2e654fbe45699412e7258,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7576619147809597093, guid: 488bb96c15c2e654fbe45699412e7258,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -810,6 +861,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SecondCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6577767128194225060, guid: 08929d4e61b075c42b64f67ccf4ea12c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6789429772865099171, guid: 08929d4e61b075c42b64f67ccf4ea12c,
         type: 3}
