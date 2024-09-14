@@ -26,6 +26,8 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
 
     public GameObject iconMicON;
 
+    public GameObject GuideUi;
+
     public PhotonPlayerBase ppb;
 
     public PhotonView pv;
@@ -64,11 +66,21 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
         //만약 V키를 누르면 음성 활성화함
         if (Input.GetKeyDown(KeyCode.V))
         {
-            //iconMicON이 활성화되어 있으면 비활성화하고, 비활성화되어 있으면 활성화. iconMicOFF도 반대로 동작.
-            bool isActive = iconMicON.activeSelf;
-            iconMicON.SetActive(!isActive);
-            iconMicOFF.SetActive(isActive);
+            MicUiButton();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && GuideUi.activeSelf)
+        {
+            GuideUi.SetActive(false);
+        }
+    }
+
+    public void MicUiButton()
+    {
+        //iconMicON이 활성화되어 있으면 비활성화하고, 비활성화되어 있으면 활성화. iconMicOFF도 반대로 동작.
+        bool isActive = iconMicON.activeSelf;
+        iconMicON.SetActive(!isActive);
+        iconMicOFF.SetActive(isActive);
     }
 
     public void GameExit()
@@ -140,6 +152,12 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
     public void DropSelectButton()
     {
         pv.GetComponentInChildren<PlayerMovePhoton>().RPC_SelectButton((int)avatarDropdown.value);
+    }
+
+    public void GuideUiButton()
+    {
+        print("활성");
+        GuideUi.SetActive(!GuideUi.activeSelf);
     }
 
     /*

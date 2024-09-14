@@ -280,6 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUiSet: {fileID: 2025819870799633961}
   iconRec: {fileID: 4915713689600682688}
+  changeEffect: {fileID: 0}
 --- !u!1001 &7509804482400689298
 PrefabInstance:
   m_ObjectHideFlags: 0
