@@ -76,7 +76,7 @@ public class K_EventMethodRef : MonoBehaviour
     {
         GetRefriData();
     }
-    FlexibleColorPicker 
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
