@@ -32,6 +32,8 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
 
     public PhotonView pv;
 
+    public GameObject QuizPanel;
+
 
     private void Awake()
     {
@@ -189,5 +191,11 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
         ppb = GameObject.Find("PhotonPlayerBase").GetComponent<PhotonPlayerBase>();
 
         pv = ppb.pv;
+    }
+
+    public void QuizStartTriggerEnter()
+    {
+        QuizPanel.SetActive(true);
+        QuizSet.instance.QuizStart();
     }
 }
