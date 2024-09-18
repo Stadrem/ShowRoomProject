@@ -55,9 +55,6 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-
-        QuizStartTriggerEnter();
-
         StartPlate();
 
         joinCodeText.text = AccountDate.instance.joinCode;

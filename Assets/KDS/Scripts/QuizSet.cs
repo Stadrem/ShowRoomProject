@@ -32,6 +32,11 @@ public class QuizSet : MonoBehaviour
     public GameObject failPopup;
     public GameObject wrongAnswerPopup;
     public GameObject okAnswerPopup;
+    public TMP_Text quizNum;
+
+    public GameObject victory;
+
+    int currentScore = 0;
 
     string currentAnswer = "";
 
@@ -82,9 +87,18 @@ public class QuizSet : MonoBehaviour
     {
         wrongAnswerPopup.SetActive(true);
 
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(2.0f);
 
         wrongAnswerPopup.SetActive(false);
+    }
+
+    IEnumerator OkAnswer()
+    {
+        okAnswerPopup.SetActive(true);
+
+        yield return new WaitForSeconds(2.0f);
+
+        okAnswerPopup.SetActive(false);
     }
 
     public QuizArray[] SelectQuiz = new QuizArray[3];
@@ -95,7 +109,7 @@ public class QuizSet : MonoBehaviour
         int[] quizNumArray = new int[3];
 
         // 0~5의 숫자를 리스트로 만듦
-        List<int> availableNumbers = new List<int> { 0, 1, 2, 3, 4, 5 };
+        List<int> availableNumbers = new List<int> { 0, 1, 2, 3, 4};
 
         // 랜덤 객체 생성
         System.Random random = new System.Random();
@@ -112,6 +126,8 @@ public class QuizSet : MonoBehaviour
             // 사용한 숫자를 리스트에서 제거하여 중복 방지
             availableNumbers.RemoveAt(randomIndex);
 
+            Debug.Log(quizNumArray[i]);
+
             SelectQuiz[i].quizInfo.quiz = quizArray[quizNumArray[i]].quizInfo.quiz;
             SelectQuiz[i].quizInfo.hint = quizArray[quizNumArray[i]].quizInfo.hint;
             SelectQuiz[i].quizInfo.answer = quizArray[quizNumArray[i]].quizInfo.answer;
@@ -119,16 +135,33 @@ public class QuizSet : MonoBehaviour
 
         quizTimerStart = true;
 
-        text_q.text = SelectQuiz[0].quizInfo.quiz;
-        text_hint.text = SelectQuiz[0].quizInfo.hint;
-        currentAnswer = SelectQuiz[0].quizInfo.answer;
+        text_q.text = SelectQuiz[currentScore].quizInfo.quiz;
+        text_hint.text = SelectQuiz[currentScore].quizInfo.hint;
+        currentAnswer = SelectQuiz[currentScore].quizInfo.answer;
     }
 
     public void QuizAnswerEnter()
     {
         if(InputField_answer.text == currentAnswer)
         {
+            StartCoroutine(OkAnswer());
+            if(currentScore == 2)
+            {
+                quizTimerStart = false;
 
+                victory.SetActive(true);
+            }
+            else
+            {
+                currentScore++;
+                slider_time.value = 1;
+                quizNum.text = currentScore.ToString();
+
+                text_q.text = SelectQuiz[currentScore].quizInfo.quiz;
+                text_hint.text = SelectQuiz[currentScore].quizInfo.hint;
+                currentAnswer = SelectQuiz[currentScore].quizInfo.answer;
+                InputField_answer.text = "";
+            }
         }
         else
         {
