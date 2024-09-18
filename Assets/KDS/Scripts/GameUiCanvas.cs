@@ -55,11 +55,15 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+
+        QuizStartTriggerEnter();
+
         StartPlate();
 
         joinCodeText.text = AccountDate.instance.joinCode;
 
         StartCoroutine(StartDelay());
+
     }
 
     // Update is called once per frame
@@ -92,7 +96,7 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
 
     public void StartPlate()
     {
-        Dictionary<int, Photon.Realtime.Player> tt = PhotonNetwork.CurrentRoom.Players;
+        Dictionary<int, Photon.Realtime.Player> tt = PhotonNetwork.CurrentRoom.Players; 
 
         foreach(var c in tt)
         {
