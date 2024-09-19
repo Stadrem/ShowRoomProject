@@ -32,7 +32,9 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
 
     public PhotonView pv;
 
-    public GameObject QuizPanel;
+    public GameObject quizPanel;
+
+    public bool openCheck = false;
 
 
     private void Awake()
@@ -67,7 +69,7 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
     void Update()
     {
         //만약 V키를 누르면 음성 활성화함
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V) && openCheck == false)
         {
             MicUiButton();
         }
@@ -196,7 +198,11 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
 
     public void QuizStartTriggerEnter()
     {
-        QuizPanel.SetActive(true);
-        QuizSet.instance.QuizStart();
+        if(openCheck == false)
+        {
+            openCheck = true;
+            quizPanel.SetActive(true);
+            QuizSet.instance.QuizStart();
+        }
     }
 }

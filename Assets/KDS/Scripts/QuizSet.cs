@@ -62,7 +62,7 @@ public class QuizSet : MonoBehaviour
     {
         if (quizTimerStart)
         {
-            slider_time.value = Mathf.Clamp(slider_time.value - 0.05f * Time.deltaTime, 0, 1);
+            slider_time.value = Mathf.Clamp(slider_time.value - 0.02f * Time.deltaTime, 0, 1);
         }
 
         if(slider_time.value <= 0.01f)
@@ -105,39 +105,44 @@ public class QuizSet : MonoBehaviour
 
     public void QuizStart()
     {
-        // 배열 선언
-        int[] quizNumArray = new int[3];
-
-        // 0~5의 숫자를 리스트로 만듦
-        List<int> availableNumbers = new List<int> { 0, 1, 2, 3, 4};
-
-        // 랜덤 객체 생성
-        System.Random random = new System.Random();
-
-        // 중복되지 않는 숫자를 배열에 채워 넣음
-        for (int i = 0; i < quizNumArray.Length; i++)
+        if (currentScore != 2)
         {
-            // 랜덤한 인덱스를 선택
-            int randomIndex = random.Next(availableNumbers.Count);
+            // 배열 선언
+            int[] quizNumArray = new int[3];
 
-            // 선택된 숫자를 배열에 넣음
-            quizNumArray[i] = availableNumbers[randomIndex];
+            // 0~5의 숫자를 리스트로 만듦
+            List<int> availableNumbers = new List<int> { 0, 1, 2, 3, 4 };
 
-            // 사용한 숫자를 리스트에서 제거하여 중복 방지
-            availableNumbers.RemoveAt(randomIndex);
+            // 랜덤 객체 생성
+            System.Random random = new System.Random();
 
-            Debug.Log(quizNumArray[i]);
+            // 중복되지 않는 숫자를 배열에 채워 넣음
+            for (int i = 0; i < quizNumArray.Length; i++)
+            {
+                // 랜덤한 인덱스를 선택
+                int randomIndex = random.Next(availableNumbers.Count);
 
-            SelectQuiz[i].quizInfo.quiz = quizArray[quizNumArray[i]].quizInfo.quiz;
-            SelectQuiz[i].quizInfo.hint = quizArray[quizNumArray[i]].quizInfo.hint;
-            SelectQuiz[i].quizInfo.answer = quizArray[quizNumArray[i]].quizInfo.answer;
+                // 선택된 숫자를 배열에 넣음
+                quizNumArray[i] = availableNumbers[randomIndex];
+
+                // 사용한 숫자를 리스트에서 제거하여 중복 방지
+                availableNumbers.RemoveAt(randomIndex);
+
+                Debug.Log(quizNumArray[i]);
+
+                SelectQuiz[i].quizInfo.quiz = quizArray[quizNumArray[i]].quizInfo.quiz;
+                SelectQuiz[i].quizInfo.hint = quizArray[quizNumArray[i]].quizInfo.hint;
+                SelectQuiz[i].quizInfo.answer = quizArray[quizNumArray[i]].quizInfo.answer;
+            }
+
+            quizNum.text = 1.ToString();
+
+            quizTimerStart = true;
+
+            text_q.text = SelectQuiz[0].quizInfo.quiz;
+            text_hint.text = SelectQuiz[0].quizInfo.hint;
+            currentAnswer = SelectQuiz[0].quizInfo.answer;
         }
-
-        quizTimerStart = true;
-
-        text_q.text = SelectQuiz[currentScore].quizInfo.quiz;
-        text_hint.text = SelectQuiz[currentScore].quizInfo.hint;
-        currentAnswer = SelectQuiz[currentScore].quizInfo.answer;
     }
 
     public void QuizAnswerEnter()
@@ -155,7 +160,8 @@ public class QuizSet : MonoBehaviour
             {
                 currentScore++;
                 slider_time.value = 1;
-                quizNum.text = currentScore.ToString();
+                int tempScore = currentScore + 1;
+                quizNum.text = tempScore.ToString();
 
                 text_q.text = SelectQuiz[currentScore].quizInfo.quiz;
                 text_hint.text = SelectQuiz[currentScore].quizInfo.hint;

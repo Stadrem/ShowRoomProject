@@ -10,6 +10,7 @@ public class ButtonClose : MonoBehaviour
 
     public void WindowClose()
     {
+        GameUiCanvas.instance.openCheck = false;
         closePrefab.SetActive(false);
     }
 }
