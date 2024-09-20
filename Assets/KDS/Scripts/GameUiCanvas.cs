@@ -32,6 +32,10 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
 
     public PhotonView pv;
 
+    public GameObject quizPanel;
+
+    public bool openCheck = false;
+
 
     private void Awake()
     {
@@ -58,13 +62,14 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
         joinCodeText.text = AccountDate.instance.joinCode;
 
         StartCoroutine(StartDelay());
+
     }
 
     // Update is called once per frame
     void Update()
     {
         //만약 V키를 누르면 음성 활성화함
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V) && openCheck == false)
         {
             MicUiButton();
         }
@@ -90,7 +95,7 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
 
     public void StartPlate()
     {
-        Dictionary<int, Photon.Realtime.Player> tt = PhotonNetwork.CurrentRoom.Players;
+        Dictionary<int, Photon.Realtime.Player> tt = PhotonNetwork.CurrentRoom.Players; 
 
         foreach(var c in tt)
         {
@@ -189,5 +194,15 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
         ppb = GameObject.Find("PhotonPlayerBase").GetComponent<PhotonPlayerBase>();
 
         pv = ppb.pv;
+    }
+
+    public void QuizStartTriggerEnter()
+    {
+        if(openCheck == false)
+        {
+            openCheck = true;
+            quizPanel.SetActive(true);
+            QuizSet.instance.QuizStart();
+        }
     }
 }
