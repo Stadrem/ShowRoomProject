@@ -110,6 +110,8 @@ public class HttpManager : MonoBehaviour
                 {
                     ParseUserInfo(webRequest.downloadHandler);
 
+                    cm.StartLogin();
+                    /*
                     if (debugCheck.isOn == true)
                     {
                         cm.StartLogin();
@@ -118,6 +120,7 @@ public class HttpManager : MonoBehaviour
                     {
                         PhotonNetwork.LoadLevel(2);
                     }
+                    */
                 }
                 else
                 {

@@ -142,8 +142,8 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         //성공적으로 방에 참여했음을 알려줌
         print(MethodInfo.GetCurrentMethod().Name + " is Call");
 
-        //방에 입장한 친구들은 모두 1번 씬으로 이동
-        PhotonNetwork.LoadLevel(1);
+        //방에 입장한 친구들은 모두 2번 씬으로 이동
+        PhotonNetwork.LoadLevel(2);
 
         //GameUiCanvas.GetInstance().MakeNamePlate(AccountDate.GetInstance().currentInfo.userName);
     }
