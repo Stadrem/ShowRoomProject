@@ -1650,7 +1650,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC720\uC800: \uCC44\uD305\uCC3D\uC785\uB2C8\uB2E4.\n\uC720\uC800: This
     Chatting Panel.\n\uC720\uC800: \uBC14\uB974\uACE0 \uACE0\uC6B4\uB9D0 \uC4F0\uAE30\n\uC720\uC800:
-    \uC5EC\uAE34 \uC5B4\uB514 \uB098\uB294 \uB204\uAD6C"
+    \uC5EC\uAE34 \uC5B4\uB514\uC5D0\uC694?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}

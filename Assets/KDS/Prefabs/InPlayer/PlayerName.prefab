@@ -89,7 +89,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1614333388667151049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,8 +922,8 @@ MonoBehaviour:
     \uAC83\uC744 \uC2A4\uCE58\uC6B4\uB2E4 \uAC83\uC744 \uC6B0\uB7EC\uB7EC \uC6B0\uB7EC\uB7EC
     \uBCC4\uC774 \uAD34\uB85C\uC6CC\uD588\uB2E4"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 496e664843252354e923f93e1f9e4d75, type: 2}
-  m_sharedMaterial: {fileID: 7357917155085942884, guid: 496e664843252354e923f93e1f9e4d75,
+  m_fontAsset: {fileID: 11400000, guid: e04e2067004456143876f9e8f7e45f92, type: 2}
+  m_sharedMaterial: {fileID: 6257907888057468313, guid: e04e2067004456143876f9e8f7e45f92,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -954,7 +954,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
