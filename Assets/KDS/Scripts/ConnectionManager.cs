@@ -20,6 +20,16 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
     public GameObject secondCanvas;
     public TMP_InputField joinCodeText;
 
+    GameObject tempA;
+    GameObject tempB;
+    GameObject tempC;
+
+    private void Start()
+    {
+        tempA = Resources.Load<GameObject>("MainScene/GameUiSet");
+
+    }
+
     public void StartLogin()
     {
         //접속을 위한 설정
@@ -144,6 +154,7 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
 
         //방에 입장한 친구들은 모두 2번 씬으로 이동
         PhotonNetwork.LoadLevel(2);
+        Instantiate(tempA);
 
         //GameUiCanvas.GetInstance().MakeNamePlate(AccountDate.GetInstance().currentInfo.userName);
     }
