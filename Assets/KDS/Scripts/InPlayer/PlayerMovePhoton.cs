@@ -114,7 +114,7 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
 
         myAnim = GetComponentInChildren<Animator>();
 
-        changeEffect.Play();
+        changeEffect.Play();    
     }
 
     public void RPC_TalkPopUp(string value)
