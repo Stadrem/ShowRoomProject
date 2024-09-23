@@ -11,6 +11,9 @@ public class K_CamRot : MonoBehaviourPun
     float my;
     float mx;
     public K_PlayerMove playerMove;
+
+    private float initialY;
+
     private void Start()
     {
         //if(cam && transform.childCount == 0 && photonView.IsMine)
@@ -19,6 +22,8 @@ public class K_CamRot : MonoBehaviourPun
         //    Camera.main.transform.localPosition = Vector3.zero;
         //    Camera.main.transform.localRotation = Quaternion.identity;
         //}
+        // 초기 Y 값을 Start에서 한 번만 저장
+        initialY = transform.localEulerAngles.y;
     }
     void Update()
     {
@@ -40,6 +45,6 @@ public class K_CamRot : MonoBehaviourPun
             mx += Input.GetAxis("Mouse X") * Time.deltaTime * rotSpeed;
             //transform.localEulerAngles += new Vector3(0, mx * Time.deltaTime* rotSpeed, 0);
         }
-        transform.localEulerAngles = new Vector3(my, mx, 0);
+        transform.localEulerAngles = new Vector3(my, initialY + mx, 0);
     }
 }

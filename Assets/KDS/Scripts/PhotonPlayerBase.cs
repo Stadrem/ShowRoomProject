@@ -43,14 +43,18 @@ public class PhotonPlayerBase : MonoBehaviour
             //Vector2 randomPos = Random.insideUnitCircle * 0.1f;
             //Vector3 initPosition = new Vector3(randomPos.x, 0.0f, randomPos.y);
             Vector3 initPosition = playerSpawnPos.position;
-            Debug.Log("변수 생성");
+            Quaternion initRotation = gameObject.transform.rotation;
 
             //포톤 네트워크 전용 생성기
-            player = PhotonNetwork.Instantiate("Player", initPosition, Quaternion.Euler(0, 90, 0));
+            player = PhotonNetwork.Instantiate("Player", initPosition, initRotation);
 
             pv = player.GetComponent<PhotonView>();
 
             Debug.Log("플레이어 생성완료");
+
+            player.transform.rotation = Quaternion.Euler(0, 90, 0);
+
+            Debug.Log(player.transform.rotation + "    " + player.transform.position);
         }
     }
 }
