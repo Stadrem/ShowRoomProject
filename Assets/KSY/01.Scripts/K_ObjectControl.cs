@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,9 +11,14 @@ public class K_ObjectControl : MonoBehaviour
     public GameObject specUI;
     public GameObject rf1;
     public GameObject rf2;
+
+    public int animState_r1 = -1;
+    public int animState_r2 = -1;
+
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+
     }
 
     void Update()
@@ -22,8 +28,33 @@ public class K_ObjectControl : MonoBehaviour
             specUI.SetActive(true);
         }
         if(player != null)
-        myUI.transform.forward = player.transform.forward;
-        if(player == null) player = GameObject.FindWithTag("Player");
+        {
+            myUI.transform.forward = player.transform.forward;
+            PhotonView photonView = player.GetPhotonView();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+
+            
+        }
+        if (rf1.activeSelf)
+        {
+            rf1.GetComponent<Animator>().SetFloat("OPENCONTROL", animState_r1, 0.1f, Time.deltaTime);
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                GetAnimFloat(1);
+            }
+        }
+        else if (rf2.activeSelf)
+        {
+            rf2.GetComponent<Animator>().SetFloat("OPENCONTROL", animState_r2, 0.1f, Time.deltaTime);
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                GetAnimFloat(2);
+            }
+        }
+        if (player == null) player = GameObject.FindWithTag("Player");
         if (inPlayer)
         {
             if (Input.GetKeyDown(KeyCode.Q))
@@ -65,4 +96,28 @@ public class K_ObjectControl : MonoBehaviour
             inPlayer = false;
         }
     }
+
+    public void GetAnimFloat(int rf_num)
+    {
+        if(rf_num == 1)
+        {
+            animState_r1++;
+            if(animState_r1 > 1)
+            {
+                animState_r1 = -1;
+                rf1.GetComponent<Animator>().SetFloat("OPENCONTROL", -1);
+            }
+        }
+        if(rf_num == 2)
+        {
+            animState_r2++;
+            if (animState_r2 > 1)
+            {
+                animState_r2 = -1;
+                rf2.GetComponent<Animator>().SetFloat("OPENCONTROL", -1);
+            }
+        }
+
+    }
+
 }
