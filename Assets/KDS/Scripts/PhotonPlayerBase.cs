@@ -50,6 +50,8 @@ public class PhotonPlayerBase : MonoBehaviour
 
             pv = player.GetComponent<PhotonView>();
 
+            AccountDate.GetInstance().player = player;
+
             Debug.Log("플레이어 생성완료");
 
             player.transform.rotation = Quaternion.Euler(0, 90, 0);
