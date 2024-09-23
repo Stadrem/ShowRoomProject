@@ -8,6 +8,8 @@ using UnityEngine.Networking;
 
 public class AccountDate : MonoBehaviour
 {
+    public GameObject player;
+
     //싱글톤 생성
     public static AccountDate instance;
 
