@@ -1618,7 +1618,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 810, y: 180}
+  m_SizeDelta: {x: 810, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &4122983704780156564
 CanvasRenderer:
@@ -1648,9 +1648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC720\uC800: \uCC44\uD305\uCC3D\uC785\uB2C8\uB2E4.\n\uC720\uC800: This
-    Chatting Panel.\n\uC720\uC800: \uBC14\uB974\uACE0 \uACE0\uC6B4\uB9D0 \uC4F0\uAE30\n\uC720\uC800:
-    \uC5EC\uAE34 \uC5B4\uB514\uC5D0\uC694?"
+  m_text: "\uC720\uC800: \uCC44\uD305\uCC3D\uC785\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -6932,7 +6930,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 54, y: 133}
-  m_SizeDelta: {x: 850, y: 200}
+  m_SizeDelta: {x: 850, y: 130}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &2227576870936914606
 CanvasRenderer:
@@ -6956,7 +6954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.16862746}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -11277,7 +11275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
