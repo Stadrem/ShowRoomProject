@@ -1354,7 +1354,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 2.5
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -1375,6 +1375,8 @@ MonoBehaviour:
   specUI: {fileID: 1817732260}
   rf1: {fileID: 1429229781}
   rf2: {fileID: 729203515}
+  animState_r1: -1
+  animState_r2: -1
 --- !u!1 &485230867 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3225959511443494117, guid: a20df68874abc4c42bfeb9ef5081d7e1,
@@ -7293,7 +7295,7 @@ PrefabInstance:
     - target: {fileID: 6001416435855495357, guid: ee599684e06927944ab6242f42555a45,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6341772920606149127, guid: ee599684e06927944ab6242f42555a45,
         type: 3}
@@ -8014,7 +8016,7 @@ PrefabInstance:
     - target: {fileID: 8485274683905027275, guid: 6268bcab77b75214190b167fe2a58425,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9118119029842015857, guid: 6268bcab77b75214190b167fe2a58425,
         type: 3}
