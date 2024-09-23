@@ -153,7 +153,7 @@ public class K_EventMethodRef : MonoBehaviour
         info.contentType = "application/json";
         if (ToAI)
         {
-            info.url = "http://meta-ai.iptime.org:8282/ask";
+            info.url = "http://metaai.iptime.org:8282/ask";
             info.token = "";
             info.body = JsonUtility.ToJson(chatAI);
             print("AI와 통신 중");

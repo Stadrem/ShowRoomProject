@@ -11,7 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/Main.unity
     guid: 10eb8646a6006334ebc1de0577fa7116
-  - enabled: 1
-    path: Assets/KSY/00.Scenes/basemap_KSY.unity
-    guid: 5c6d43a4e9a8ef64bbe9f3fbd17070ff
   m_configObjects: {}
