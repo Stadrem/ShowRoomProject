@@ -29,7 +29,7 @@ public class K_RefrigeraterUI : MonoBehaviour
     //freezerCapacity;
     //energyEfficiencyRating;
     //powerConsumption;
-    void SetData(string productName)
+    public void SetData(string productName)
     {
         RefrigeratorData data = new RefrigeratorData();
         if(this.data.dic.TryGetValue(productName, out data))

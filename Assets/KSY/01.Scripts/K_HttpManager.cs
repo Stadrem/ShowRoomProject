@@ -89,7 +89,7 @@ public class K_HttpManager : MonoBehaviour
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(info.url))
         {
-            //webRequest.SetRequestHeader("Authorization", "Bearer " + info.token);
+            webRequest.SetRequestHeader("Authorization", "Bearer " + info.token);
             //print("token : " + info.token);
             // 서버에 요청 보내기
             yield return webRequest.SendWebRequest(); // 응답이 오고 난 이후에 시행되게 함.

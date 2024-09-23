@@ -95,6 +95,7 @@ public class K_EventMethodRef : MonoBehaviour
     {
         K_HttpInfo info = new K_HttpInfo();
         info.url = "http://125.132.216.190:12450/api/refrigerators";
+        info.token = AccountDate.GetInstance().response.accessToken;
         info.onComplete = (downloadHandler) =>
         {
             string jsonData = "{ \"data\" : " + downloadHandler.text + "}";
