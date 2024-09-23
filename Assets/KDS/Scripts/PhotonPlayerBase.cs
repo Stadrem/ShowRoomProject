@@ -9,7 +9,15 @@ public class PhotonPlayerBase : MonoBehaviour
 
     public PhotonView pv;
 
+    Transform playerSpawnPos;
+
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        playerSpawnPos = GameObject.Find("PlayerSpawnPos").transform;
+    }
+
     void Start()
     {
         StartCoroutine(SpawnPlayer());
@@ -32,16 +40,21 @@ public class PhotonPlayerBase : MonoBehaviour
         {
 
             //약간 무작위 공간에 생성
-            Vector2 randomPos = Random.insideUnitCircle * 3.0f;
-            Vector3 initPosition = new Vector3(randomPos.x, 0.0f, randomPos.y);
-            Debug.Log("변수 생성");
+            //Vector2 randomPos = Random.insideUnitCircle * 0.1f;
+            //Vector3 initPosition = new Vector3(randomPos.x, 0.0f, randomPos.y);
+            Vector3 initPosition = playerSpawnPos.position;
+            Quaternion initRotation = gameObject.transform.rotation;
 
             //포톤 네트워크 전용 생성기
-            player = PhotonNetwork.Instantiate("Player", initPosition, Quaternion.identity);
+            player = PhotonNetwork.Instantiate("Player", initPosition, initRotation);
 
             pv = player.GetComponent<PhotonView>();
 
             Debug.Log("플레이어 생성완료");
+
+            player.transform.rotation = Quaternion.Euler(0, 90, 0);
+
+            Debug.Log(player.transform.rotation + "    " + player.transform.position);
         }
     }
 }
