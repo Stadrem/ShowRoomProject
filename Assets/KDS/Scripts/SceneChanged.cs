@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanged : MonoBehaviour
 {
+    private bool isFirstSceneLoad = true;
+
     void Awake()
     {
         SceneManager.activeSceneChanged += OnSceneChanged;
@@ -16,6 +18,12 @@ public class SceneChanged : MonoBehaviour
 
     private void OnSceneChanged(Scene previousScene, Scene newScene)
     {
+        if (isFirstSceneLoad)
+        {
+            isFirstSceneLoad = false;
+            return; // 첫 씬 로드 이벤트 무시
+        }
+
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(true);
