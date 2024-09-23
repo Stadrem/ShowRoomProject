@@ -43,9 +43,6 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
         {
             // 인스턴스 설정
             instance = this;
-
-            // 씬 전환 시 객체 파괴 방지
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
