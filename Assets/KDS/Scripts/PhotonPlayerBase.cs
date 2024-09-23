@@ -32,7 +32,7 @@ public class PhotonPlayerBase : MonoBehaviour
         {
 
             //약간 무작위 공간에 생성
-            Vector2 randomPos = Random.insideUnitCircle * 3.0f;
+            Vector2 randomPos = Random.insideUnitCircle * 0.1f;
             Vector3 initPosition = new Vector3(randomPos.x, 0.0f, randomPos.y);
             Debug.Log("변수 생성");
 

@@ -7030,7 +7030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f3b374f8478a6489fe780b585b2c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  webURL: http://125.132.216.190:12450/swagger-ui/index.html
+  webURL: https://www.samsung.com/sec/refrigerators/french-door-rf90dg91114e-d2c/RF90DG9111S9/
 --- !u!1 &2092698418 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 129977550234810152, guid: a20df68874abc4c42bfeb9ef5081d7e1,
