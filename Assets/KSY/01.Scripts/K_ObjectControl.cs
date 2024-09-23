@@ -12,8 +12,8 @@ public class K_ObjectControl : MonoBehaviour
     public GameObject rf1;
     public GameObject rf2;
 
-    public int animState_r1 = -1;
-    public int animState_r2 = -1;
+    public int animState_r1 = 0;
+    public int animState_r2 = 0;
 
     void Start()
     {
@@ -102,19 +102,19 @@ public class K_ObjectControl : MonoBehaviour
         if(rf_num == 1)
         {
             animState_r1++;
-            if(animState_r1 > 1)
+            if(animState_r1 > 2)
             {
-                animState_r1 = -1;
-                rf1.GetComponent<Animator>().SetFloat("OPENCONTROL", -1);
+                animState_r1 = 0;
+                rf1.GetComponent<Animator>().SetFloat("OPENCONTROL", 0);
             }
         }
         if(rf_num == 2)
         {
             animState_r2++;
-            if (animState_r2 > 1)
+            if (animState_r2 > 2)
             {
-                animState_r2 = -1;
-                rf2.GetComponent<Animator>().SetFloat("OPENCONTROL", -1);
+                animState_r2 = 0;
+                rf2.GetComponent<Animator>().SetFloat("OPENCONTROL", 0);
             }
         }
 
