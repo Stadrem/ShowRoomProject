@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 public class ChatBotInput
 {
     public string question;
-    public string member_id;
+    public string user_id;
     public string area_size;
     public string housemate_num;
 }
@@ -16,11 +16,9 @@ public class ChatBotInput
 [System.Serializable]
 public class ChatBotAns
 {
-    public int id;
-    public string createdAt;
-    public string member_id;
-    public string member_name;
     public string answer;
+    public string createdAt;
+    public string userId;
     public string area_size;
     public string housemate_num;
 }
@@ -124,7 +122,7 @@ public class K_EventMethodRef : MonoBehaviour
         if (AccountDate.GetInstance().response.userId == null || AccountDate.GetInstance().response.userId == "")
         {
             print("userId가 null이거나 빔.");
-            chat.member_id = "0";
+            chat.user_id = "0";
             chat.area_size = "8평";
             chat.housemate_num = "13";
             chatAI.user_id = "0";
@@ -138,9 +136,9 @@ public class K_EventMethodRef : MonoBehaviour
             chatAI.user_id = "0";
             chatAI.area_size = "8평";
             chatAI.housemate_num = "13";
-            chat.member_id = "0";
-            chat.area_size = "8평";
-            chat.housemate_num = "13";
+            chat.user_id = AccountDate.GetInstance().response.userId;
+            chat.area_size = "";
+            chat.housemate_num = "";
             print("흠");
         }
         chat.question = input.text;
@@ -150,7 +148,7 @@ public class K_EventMethodRef : MonoBehaviour
         input.interactable = false;
         
         
-        Debug.Log(info.body);
+        
         info.contentType = "application/json";
         if (ToAI)
         {
@@ -164,6 +162,7 @@ public class K_EventMethodRef : MonoBehaviour
             info.body = JsonUtility.ToJson(chat);
             info.url = "http://125.132.216.190:12450/api/talks";
             info.token = AccountDate.GetInstance().response.accessToken;
+            Debug.Log(info.body);
         }
         info.onComplete = (downloadHandler) => {
             print(downloadHandler.text);

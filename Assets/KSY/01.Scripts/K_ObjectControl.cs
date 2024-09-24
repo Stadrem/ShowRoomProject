@@ -32,12 +32,7 @@ public class K_ObjectControl : MonoBehaviour
             myUI.transform.forward = player.transform.forward;
             PhotonView photonView = player.GetPhotonView();
         }
-        
-        if (Input.GetKeyDown(KeyCode.R))
-        {
 
-            
-        }
         if (rf1.activeSelf)
         {
             rf1.GetComponent<Animator>().SetFloat("OPENCONTROL", animState_r1, 0.1f, Time.deltaTime);
