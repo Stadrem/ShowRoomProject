@@ -26,7 +26,9 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
 
     public GameObject iconMicON;
 
-    public GameObject GuideUi;
+    public GameObject guideUi;
+
+    public GameObject escUi;
 
     public PhotonPlayerBase ppb;
 
@@ -65,15 +67,21 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Escape) && guideUi.activeSelf == false)
+        {
+            escUi.SetActive(!escUi.activeSelf);
+        }
+
         //만약 V키를 누르면 음성 활성화함
         if (Input.GetKeyDown(KeyCode.V) && openCheck == false)
         {
             MicUiButton();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && GuideUi.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape) && guideUi.activeSelf)
         {
-            GuideUi.SetActive(false);
+            guideUi.SetActive(false);
         }
     }
 
@@ -158,8 +166,7 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
 
     public void GuideUiButton()
     {
-        print("활성");
-        GuideUi.SetActive(!GuideUi.activeSelf);
+        guideUi.SetActive(!guideUi.activeSelf);
     }
 
     /*

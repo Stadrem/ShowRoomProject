@@ -15,7 +15,10 @@ public class Billboard : MonoBehaviour
     {
         mainCamera = Camera.main;
         pv = GetComponentInParent<PhotonView>();
-        nameText.text = pv.Owner.NickName;
+        if(pv != null)
+        {
+            nameText.text = pv.Owner.NickName;
+        }
     }
 
     void LateUpdate()
