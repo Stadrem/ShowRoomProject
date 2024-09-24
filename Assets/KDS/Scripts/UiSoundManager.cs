@@ -10,6 +10,8 @@ public class UiSoundManager : MonoBehaviour
     public AudioClip notification;
     public AudioClip keyboard;
 
+    public K_PlayerMove playerMove;
+
     AudioSource audioSource;
 
     private void Awake()
@@ -21,7 +23,7 @@ public class UiSoundManager : MonoBehaviour
             instance = this;
 
             //씬 전환해도 유지하는 코드
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         //이미 instance에 무언가 값이 들어있다면?
         else
@@ -39,9 +41,19 @@ public class UiSoundManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKeyDown && !Input.GetButtonDown("Fire1"))
+        if(SceneChanged.instance.isSecondScene == false)
         {
-            KeyClick();
+            if (Input.anyKeyDown && !Input.GetButtonDown("Fire1"))
+            {
+                KeyClick();
+            }
+        }
+        else
+        {
+            if (Input.anyKeyDown && !Input.GetButtonDown("Fire1") && playerMove.currState == K_PlayerMove.PlayerState.Click)
+            {
+                KeyClick();
+            }
         }
     }
 

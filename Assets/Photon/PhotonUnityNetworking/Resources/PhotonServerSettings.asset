@@ -16,29 +16,35 @@ MonoBehaviour:
     AppIdRealtime: 3966a750-a778-4900-bbc3-7c887755ec56
     AppIdFusion: 
     AppIdChat: 
-    AppIdVoice: 
+    AppIdVoice: 72dd28cd-b2e9-45d5-9dfd-5a4d41067f30
     AppVersion: 1.0
     UseNameServer: 1
-    FixedRegion: 
+    FixedRegion: kr
     Server: 
-    Port: 7777
+    Port: 0
     ProxyServer: 
     Protocol: 0
     EnableProtocolFallback: 1
     AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  DevRegion: 
+  DevRegion: kr
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
+  - CantHearYou
+  - ChangeColour
   - ClickRpc
   - DestroyRpc
+  - HeresWhy
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - SelectButton
+  - TalkPopUp
+  - TalkAnim
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

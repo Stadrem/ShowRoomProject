@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using Photon.Pun.Demo.SlotRacer.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -88,6 +89,8 @@ public class K_HttpManager : MonoBehaviour
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(info.url))
         {
+            webRequest.SetRequestHeader("Authorization", "Bearer " + info.token);
+            //print("token : " + info.token);
             // 서버에 요청 보내기
             yield return webRequest.SendWebRequest(); // 응답이 오고 난 이후에 시행되게 함.
 
@@ -123,8 +126,20 @@ public class K_HttpManager : MonoBehaviour
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Post(info.url, info.body, info.contentType))
         {
-            webRequest.SetRequestHeader("Bearer", info.token);
+            //Dictionary<string, string> token = new Dictionary<string, string>();
+            //token.Add("Bearer", info.token);
 
+            webRequest.timeout = 60;
+            //webRequest.SetRequestHeader("Authorization", token.ToString());
+            if (info.token != "")
+            {
+                webRequest.SetRequestHeader("Authorization", "Bearer " + info.token);
+                print("token : " + info.token);
+            }
+            else if (info.token == "")
+            {
+                print("ai와 통신");
+            }
             // 서버에 요청 보내기
             yield return webRequest.SendWebRequest(); // 응답이 오고 난 이후에 시행되게 함.
 

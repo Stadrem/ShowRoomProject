@@ -5,45 +5,20 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Reflection;
 using System;
+using UnityEngine.UI;
+using TMPro;
 
 public class ConnectionManager : MonoBehaviourPunCallbacks
 {
-    public static ConnectionManager instance;
-
-    public string setRoom = "main";
+    public string setRoom = "";
 
     public int playerCount = 5;
 
     string userName;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            // 인스턴스 설정
-            instance = this;
-
-            // 씬 전환 시 객체 파괴 방지
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            // 이미 인스턴스가 존재하면 현재 객체를 파괴
-            Destroy(gameObject);
-        }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Screen.SetResolution(640, 480, false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    public GameObject firstCanvas;
+    public GameObject secondCanvas;
+    public TMP_InputField joinCodeText;
 
     public void StartLogin()
     {
@@ -55,11 +30,9 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         //접속을 서버에 요청
         PhotonNetwork.ConnectUsingSettings();
 
-        HttpManager.GetInstance().serverLodingOn();
+        HttpManager.GetInstance().Alert("서버 접속 요청 중", 30.0f);
 
         print("닉네임 설정 : " + PhotonNetwork.NickName);
-
-        HttpManager.GetInstance().Alert("서버 접속 요청 중", 1.0f);
     }
 
     public override void OnConnected()
@@ -85,7 +58,9 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         //Master 서버에 접속이 완료 되었음을 알려줌
         print(MethodInfo.GetCurrentMethod().Name + " is Call");
 
-        HttpManager.GetInstance().serverLodingOff();
+        HttpManager.GetInstance().Alert("쇼룸에 오신 것을 환영합니다!", 2.0f);
+
+        HttpManager.GetInstance().fireWorks.Play();
 
         //서버의 로비로 들어간다.
         PhotonNetwork.JoinLobby();
@@ -98,23 +73,49 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         //서버 로비에 들어갔음을 알려줌
         print(MethodInfo.GetCurrentMethod().Name + " is Call");
 
-        CreateRoom();
+        firstCanvas.SetActive(false);
+        secondCanvas.SetActive(true);
+
+        //CreateRoom();
     }
 
     public void CreateRoom()
     {
-        //나의 룸을 만든다.
-        RoomOptions roomOpt = new RoomOptions();
-        roomOpt.MaxPlayers = playerCount;
-        roomOpt.IsOpen = true;
-        roomOpt.IsVisible = true;
+        setRoom = joinCodeText.text;
 
-        PhotonNetwork.CreateRoom(setRoom, roomOpt, TypedLobby.Default);
+        if (setRoom == "")
+        {
+            HttpManager.GetInstance().Alert("초대 코드를 입력해주세요.", 2.0f);
+        }
+        else
+        {
+            //나의 룸을 만든다.
+            RoomOptions roomOpt = new RoomOptions();
+            roomOpt.MaxPlayers = playerCount;
+            roomOpt.IsOpen = true;
+            roomOpt.IsVisible = true;
+
+            AccountDate.GetInstance().joinCode = setRoom;
+
+            PhotonNetwork.CreateRoom(setRoom, roomOpt, TypedLobby.Default);
+        }
+
     }
 
     public void JoinRoom()
     {
-        PhotonNetwork.JoinRoom(setRoom);
+        setRoom = joinCodeText.text;
+
+        if (setRoom == "")
+        {
+            HttpManager.GetInstance().Alert("초대 코드를 입력해주세요.", 2.0f);
+        }
+        else
+        {
+            AccountDate.GetInstance().joinCode = setRoom;
+
+            PhotonNetwork.JoinRoom(setRoom);
+        }
     }
 
     public override void OnCreatedRoom()
@@ -141,8 +142,8 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         //성공적으로 방에 참여했음을 알려줌
         print(MethodInfo.GetCurrentMethod().Name + " is Call");
 
-        //방에 입장한 친구들은 모두 1번 씬으로 이동
-        PhotonNetwork.LoadLevel(1);
+        //방에 입장한 친구들은 모두 2번 씬으로 이동
+        PhotonNetwork.LoadLevel(2);
 
         //GameUiCanvas.GetInstance().MakeNamePlate(AccountDate.GetInstance().currentInfo.userName);
     }
@@ -153,25 +154,10 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
 
         //룸에 입장이 실패 원인을 출력
         Debug.LogError("Disconnected from Room - " + message);
-    }
 
-    //룸에 다른 플레이어가 입장했을 때의 콜백 함수
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        base.OnPlayerEnteredRoom(newPlayer);
-
-        string playerMsg = $"{newPlayer.NickName}님이 입장하셨습니다.";
-
-        GameUiCanvas.instance.StartPlate();
-    }
-
-    //룸에 있던 다른 플레이어가 퇴장했을 때의 콜백 함수
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        base.OnPlayerLeftRoom(otherPlayer);
-
-        string playerMsg = $"{otherPlayer.NickName}님이 퇴장하셨습니다.";
-
-        GameUiCanvas.instance.StartPlate();
+        if(message == "Game does not exist")
+        {
+            HttpManager.GetInstance().Alert("방이 없습니다.", 2.0f);
+        }
     }
 }

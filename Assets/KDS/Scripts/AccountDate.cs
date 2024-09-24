@@ -8,6 +8,8 @@ using UnityEngine.Networking;
 
 public class AccountDate : MonoBehaviour
 {
+    public GameObject player;
+
     //싱글톤 생성
     public static AccountDate instance;
 
@@ -97,22 +99,13 @@ public class AccountDate : MonoBehaviour
         response.accessTokenValidTime = accessTokenValidTime;
         response.refreshToken = refreshToken;
         response.refreshTokenValidTime = refreshTokenValidTime;
-
-        print("토큰 입력 완료 : " + response.accessToken);
     }
 
-    [System.Serializable]
-    public struct UserLoginInfo
+    public void InAccount(string userName)
     {
-        public string userId;
-        public string userName;
+        response.userName = userName;
     }
 
-    public UserLoginInfo currentInfo = new UserLoginInfo();
-
-    private void Start()
-    {
-        
-    }
+    //방 코드 저장
+    public string joinCode; 
 }
-

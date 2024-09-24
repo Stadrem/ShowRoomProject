@@ -33,15 +33,19 @@ public class HttpInfo
 public class HttpManager : MonoBehaviour
 {
     public GameObject alertFullset;
-    public GameObject serverFullset;
     public TextMeshProUGUI alertText;
 
     public Toggle debugCheck;
+    public Toggle debugCheck2;
 
     public FirstCanvasManager fcm;
 
+    public ConnectionManager cm;
+
     //싱글톤 생성
     static HttpManager instance;
+
+    public ParticleSystem fireWorks;
 
     // 싱글톤 인스턴스를 반환하는 메소드
     public static HttpManager GetInstance()
@@ -80,44 +84,55 @@ public class HttpManager : MonoBehaviour
 
     public IEnumerator Login(HttpInfo info)
     {
-        // GET 요청 생성
-        using (UnityWebRequest webRequest = new UnityWebRequest(info.url, "POST"))
+        if (debugCheck2.isOn == true)
         {
-            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(info.body);
-            webRequest.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            webRequest.downloadHandler = new DownloadHandlerBuffer();
-            webRequest.SetRequestHeader("Content-Type", info.contentType);
+            string name = "유저" + UnityEngine.Random.Range(0, 100);
 
-            Alert("로그인중...", 4.0f);
-            // 요청 전송 및 응답 대기
-            yield return webRequest.SendWebRequest();
+            AccountDate.GetInstance().InAccount(name);
 
-            if (webRequest.result == UnityWebRequest.Result.Success)
+            cm.StartLogin();
+        }
+        else
+        {
+            // GET 요청 생성
+            using (UnityWebRequest webRequest = new UnityWebRequest(info.url, "POST"))
             {
-                ParseUserInfo(webRequest.downloadHandler);
+                byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(info.body);
+                webRequest.uploadHandler = new UploadHandlerRaw(bodyRaw);
+                webRequest.downloadHandler = new DownloadHandlerBuffer();
+                webRequest.SetRequestHeader("Content-Type", info.contentType);
 
-                Debug.Log("Login successful: " + webRequest.downloadHandler.text);
-                Alert("로그인 성공!", 1.0f);
+                Alert("로그인중...", 99.0f);
+                // 요청 전송 및 응답 대기
+                yield return webRequest.SendWebRequest();
 
-                if(debugCheck.isOn == true)
+                if (webRequest.result == UnityWebRequest.Result.Success)
                 {
-                    ConnectionManager.instance.StartLogin();
+                    ParseUserInfo(webRequest.downloadHandler);
+
+                    cm.StartLogin();
+                    /*
+                    if (debugCheck.isOn == true)
+                    {
+                        cm.StartLogin();
+                    }
+                    else
+                    {
+                        PhotonNetwork.LoadLevel(2);
+                    }
+                    */
                 }
                 else
                 {
-                    PhotonNetwork.LoadLevel(2);
-                }
-            }
-            else
-            {
-                Debug.Log("Login failed: " + webRequest.error);
-                if(webRequest.error == "HTTP/1.1 409 Conflict")
-                {
-                    Alert("비밀번호가 틀렸습니다.", 2.0f);
-                }
-                else
-                {
-                    Alert("아이디 혹은 비밀번호가 틀렸습니다.", 2.0f);
+                    Debug.Log("Login failed: " + webRequest.error);
+                    if (webRequest.error == "HTTP/1.1 409 Conflict")
+                    {
+                        Alert("비밀번호가 틀렸습니다.", 2.0f);
+                    }
+                    else
+                    {
+                        Alert("아이디 혹은 비밀번호가 틀렸습니다.", 2.0f);
+                    }
                 }
             }
         }
@@ -140,7 +155,8 @@ public class HttpManager : MonoBehaviour
             if (webRequest.result == UnityWebRequest.Result.Success)
             {
                 Debug.Log("Registration successful: " + webRequest.downloadHandler.text);
-                Alert("회원 가입 성공", 2.0f);
+                Alert("회원 가입 성공!", 2.0f);
+                fireWorks.Play();
 
                 fcm.LoginPopUp();
             }
@@ -159,17 +175,14 @@ public class HttpManager : MonoBehaviour
         }
     }
 
-    // 응답 데이터를 UserInfo 구조체로 변환하는 예시
+    // 로그인시 반환 받은 토큰 및 계정 정보를 받아내는 함수
     void ParseUserInfo(DownloadHandler downloadHandler)
     {
         string json = downloadHandler.text;
-        print(downloadHandler.text);
+
         AccountSet accountSet = JsonUtility.FromJson<AccountSet>(json);
 
         AccountDate.GetInstance().InAccount(accountSet.response.userId, accountSet.response.userName, accountSet.response.grantType, accountSet.response.accessToken, accountSet.response.accessTokenValidTime, accountSet.response.refreshToken, accountSet.response.refreshTokenValidTime);
-
-        //AccountDate.instance.InAccount("testUserId", "testUserName");
-        // 필요한 다른 필드들도 출력 가능
     }
 
     public void Alert(string text, float time)
@@ -188,17 +201,6 @@ public class HttpManager : MonoBehaviour
 
         alertFullset.SetActive(false);
     }
-
-    public void serverLodingOn()
-    {
-        serverFullset.SetActive(true);
-    }
-
-    public void serverLodingOff()
-    {
-        serverFullset.SetActive(false);
-    }
-
 
     /*
     //GET : 서버에게 데이터를 조회 요청

@@ -72,7 +72,7 @@ public class FirstCanvasManager : MonoBehaviour
         // 전송할 데이터를 JSON 형식으로 변환하여 설정
         info.body = JsonUtility.ToJson(userInfo);
 
-        print(info.body);
+        print("회원가입 전송 데이터 : " + info.body);
 
         // 콘텐츠 타입 설정
         info.contentType = "application/json";
@@ -104,7 +104,7 @@ public class FirstCanvasManager : MonoBehaviour
         // 전송할 데이터를 JSON 형식으로 변환하여 설정
         info.body = JsonUtility.ToJson(accountInfo);
 
-        print(info.body);
+        print("로그인 전송 데이터 : " + info.body);
 
         // 콘텐츠 타입 설정
         info.contentType = "application/json";

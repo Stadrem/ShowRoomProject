@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/KDS/Scenes/KDS.unity
     guid: b2a57bf0b10dfa542ae682222cd29bcd
   - enabled: 1
-    path: Assets/KSY/00.Scenes/KSY_Test_Proto.unity
-    guid: 72fbe26eda2f63a4f8a12a4fa77af136
+    path: Assets/Scene/Main.unity
+    guid: 10eb8646a6006334ebc1de0577fa7116
   - enabled: 1
-    path: Assets/KSY/00.Scenes/basemap_KSY.unity
-    guid: 5c6d43a4e9a8ef64bbe9f3fbd17070ff
+    path: Assets/KSY/00.Scenes/basemap_KSY_0922.unity
+    guid: 634c9e9c137fcb846975a8f36e4f6ad7
   m_configObjects: {}

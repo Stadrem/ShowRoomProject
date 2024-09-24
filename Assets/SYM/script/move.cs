@@ -27,9 +27,12 @@ public class FirstPerson_PlayerMove : MonoBehaviour
     }
 
     private void Update()
+    
     {
+        
         Turn();
         Move();
+        GetComponent<Rigidbody>().velocity =Vector3.zero;
     }
 
     private void Turn()

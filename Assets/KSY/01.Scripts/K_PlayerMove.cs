@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class K_PlayerMove : MonoBehaviour
+[RequireComponent(typeof(PhotonView))]
+public class K_PlayerMove : MonoBehaviourPun
 {
     public enum PlayerState
     {
@@ -31,36 +33,19 @@ public class K_PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            SetAvatar(bodys[0]);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SetAvatar(bodys[1]);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SetAvatar(bodys[2]);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SetAvatar(bodys[3]);
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            if (myBody.childCount > 0) Destroy(myBody.GetChild(0).gameObject);
-            print(myBody.childCount);
-        }
+        if (!photonView.IsMine) return;
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            lockmode = !lockmode;
-            SetCursorLock();
+            if (currState == PlayerState.Move) ChangeState(PlayerState.Click);
+            else if (currState == PlayerState.Click) ChangeState(PlayerState.Move);
+            //lockmode = !lockmode;
+            //SetCursorLock();
         }
     }
 
     private void FixedUpdate()
     {
+        if (!photonView.IsMine) return;
         switch (currState)
         {
             case PlayerState.Move:
@@ -78,9 +63,11 @@ public class K_PlayerMove : MonoBehaviour
         switch (currState)
         {
             case PlayerState.Move:
+                Cursor.lockState = CursorLockMode.Locked;
                 break;
             case PlayerState.Click:
-            myAnim.SetBool("Move", false);
+                if(myAnim!=null) myAnim.SetBool("Move", false);
+                Cursor.lockState = CursorLockMode.Confined;
                 break;
             default:
                 break;
@@ -89,6 +76,7 @@ public class K_PlayerMove : MonoBehaviour
 
     void Move()
     {
+        
         v = Input.GetAxisRaw("Vertical");
         h = Input.GetAxisRaw("Horizontal");
         dir = new Vector3(h, 0, v);
@@ -123,5 +111,10 @@ public class K_PlayerMove : MonoBehaviour
         GameObject go = Instantiate(bodyObject, myBody);
         go.transform.localPosition = Vector3.zero;
         myAnim = GetComponentInChildren<Animator>();
+    }
+
+    public void ChangeToMove()
+    {
+        ChangeState(PlayerState.Move);
     }
 }

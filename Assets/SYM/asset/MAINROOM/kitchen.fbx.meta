@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: c84df4ecb563d3742b99e5d71f65c228
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3300k
+    second: {fileID: 2100000, guid: c79dc485fe78b0943a3db3ebd2eeafe6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Merged_materials
+    second: {fileID: 2100000, guid: 70772be2700aff54f8d59129cd48d9da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Polka.001
+    second: {fileID: 2100000, guid: 67186060a94f16040a814319abc151d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material
+    second: {fileID: 2100000, guid: 16b8701d035529b4a87a963b94f6ed62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0166
+    second: {fileID: 2100000, guid: 20a57ef24cbf0564f8b62a8b24ea5b6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0167
+    second: {fileID: 2100000, guid: bcdb1fe9126e86743972626c86228a5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0169
+    second: {fileID: 2100000, guid: 000c4293e95f6164d9033edf80f36b05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0171
+    second: {fileID: 2100000, guid: bba844e4dad971e4fb2f3369ce64582b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0175
+    second: {fileID: 2100000, guid: 57176457dcdea284a830dbed5abfb1f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0176
+    second: {fileID: 2100000, guid: 0cf3854d75709a545b2cca17ead642e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0177
+    second: {fileID: 2100000, guid: a13ceb753455e90459f44c72232b9399, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0186
+    second: {fileID: 2100000, guid: 291257bbbbe1c684f9e1b4eb83488670, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0187
+    second: {fileID: 2100000, guid: e03e463886627194fba9abf8555df1e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0188
+    second: {fileID: 2100000, guid: 3a7ad1784c19cdc428b97dc529f5e35c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0189
+    second: {fileID: 2100000, guid: 4c4beb566dda70e47808c19da887a066, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0202
+    second: {fileID: 2100000, guid: 4f585b7eef2fe4141bbe26d9491fea36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0203
+    second: {fileID: 2100000, guid: 5b3e1b5f83d430e42bb56dd36ecd5941, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0204
+    second: {fileID: 2100000, guid: a7cb862f2d59abb4eae29387fe2db456, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0213
+    second: {fileID: 2100000, guid: a94ca774916097c4a9b10127aa6cef19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0214
+    second: {fileID: 2100000, guid: 71afe3d37a87c814490ad8d891f2ad48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0215
+    second: {fileID: 2100000, guid: a100f5d62ed13414daecad6841c63163, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0218
+    second: {fileID: 2100000, guid: 98383a17d2aed2a4c923b6e3ba89c319, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0225
+    second: {fileID: 2100000, guid: 7eadda1a22dfdbb4084f86e3bdc665d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0226
+    second: {fileID: 2100000, guid: 8a01ee45d7a83a84d9b227b51bc75d10, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0231
+    second: {fileID: 2100000, guid: fc7c0e0c5a693fe498f06fe0436bf333, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0232
+    second: {fileID: 2100000, guid: 88c0f59b713c028478d17bca02b09378, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0233
+    second: {fileID: 2100000, guid: bfecf8fac68719b4fb3a77a3297e38e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0234
+    second: {fileID: 2100000, guid: 2f2acbfa42259294f9525cc7c55d8a75, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0235
+    second: {fileID: 2100000, guid: 583a2c6fe9c30c64da26e753d29580ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0236
+    second: {fileID: 2100000, guid: 02698e0c914eb444daaebeffa9527575, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0237
+    second: {fileID: 2100000, guid: a241280062a8f364bab617ea705cde37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0238
+    second: {fileID: 2100000, guid: f51ed53af037e864e94809ca980fe660, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0243
+    second: {fileID: 2100000, guid: bcd8fe4e0bafe8c4ebfa2e1b042879b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0246
+    second: {fileID: 2100000, guid: 2ed1a2e02d2ba004ca58b6d0494634af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py0247
+    second: {fileID: 2100000, guid: 5655a006be6f7d243b59615d8f46e900, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyAM134_14_065_Label
+    second: {fileID: 2100000, guid: 06132ecd77b3e98428c002320085143b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyAM134_14_Cover
+    second: {fileID: 2100000, guid: a03a4d519b389af4b8fe989b54abc2f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyAM134_14_Material__741
+    second: {fileID: 2100000, guid: 67526977354a4f644a2eb19f48e2c4a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyAM134_14_Material__742
+    second: {fileID: 2100000, guid: be8a4039706e5274a92921bb8860e98d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyAM134_14_olive
+    second: {fileID: 2100000, guid: 3068484dfa6b84449a35e6fe9d8d756f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyFasad_1
+    second: {fileID: 2100000, guid: 1b62bb3b747a2ca48aaec905867bf897, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyMaterial_2
+    second: {fileID: 2100000, guid: e65262cbb62354c40b1eb13b0f45064d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyMaterial_3
+    second: {fileID: 2100000, guid: 8181b41dcc67063438da20f918530f11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyMaterial_4
+    second: {fileID: 2100000, guid: 8f3385b49e8a9824993ba8802cec6c6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyMaterial_5
+    second: {fileID: 2100000, guid: 7b700e68b46aa49498f3abed598a747f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyMaterial_7
+    second: {fileID: 2100000, guid: 30f59d7d9bb548c46a4322fdbfc36fd3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyMaterial_8
+    second: {fileID: 2100000, guid: 1f120d3356e668547b684dd41cf9b6bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: py_0
+    second: {fileID: 2100000, guid: c2ea7427499c24b4ba3b8986176ae0d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pybiscuit_bateau
+    second: {fileID: 2100000, guid: 3174bd38e570c294b89392ed45d47db2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pybiscuit_gelatine_abricot
+    second: {fileID: 2100000, guid: f44b59db24a1bc944b40bf04409b8a47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pybiscuit_gelatine_chocolat
+    second: {fileID: 2100000, guid: 049703b494ac8944f9524d94377f9583, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pybiscuit_gelatine_citron
+    second: {fileID: 2100000, guid: ba38e64517dece04ebff5098e51e0c5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pybiscuit_gelatine_fraise
+    second: {fileID: 2100000, guid: 4cb898a315e0d99499031378b0f188e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pybiscuit_ourson
+    second: {fileID: 2100000, guid: dae59e6c6358e8940a1ffbd8d89d243a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pybox_10
+    second: {fileID: 2100000, guid: e21dc29d30ea1354e8bec440ecfbeac3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pycoffee
+    second: {fileID: 2100000, guid: 70dd5fb18d3cc7545b5f8afc36e23af4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pycoffee_background
+    second: {fileID: 2100000, guid: 9449bab76761df64a95d55044542eb9a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pycookie
+    second: {fileID: 2100000, guid: af2ff74c3b5c1a84c83ba527b4ac5c28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pylaiton
+    second: {fileID: 2100000, guid: 54ebce1bed54c56459a5a2775d1ea484, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pym2q11105
+    second: {fileID: 2100000, guid: a6a7040f4327cc843bc199d18c67b317, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pym2q11108
+    second: {fileID: 2100000, guid: 5d6093b216f0bd341b672bbdeae54812, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pym2q11112
+    second: {fileID: 2100000, guid: 0a446c46c014257448cd2ad86840a46c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pym2q11113
+    second: {fileID: 2100000, guid: 17a34ea97995bbb49bf12466a5a05355, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pym2q11114
+    second: {fileID: 2100000, guid: 1ca78fe5236c2974694e7e35e6690c4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pymetal_brushed_n_polished_GGX
+    second: {fileID: 2100000, guid: d803c384eb92d0d4b80bb3e0f01a13db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyolive_oil
+    second: {fileID: 2100000, guid: e05aebcd16b116b439e855e0842f85df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pypepper
+    second: {fileID: 2100000, guid: 8658ba53bee49e74983148fb51dc7cfb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pypims_biscuit
+    second: {fileID: 2100000, guid: b81c7ac018f88ee4382c7863a286beb7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pypims_chocolat
+    second: {fileID: 2100000, guid: 855e76f2145c2ac42b6d597cb4d2f0e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyplastic_bk_m
+    second: {fileID: 2100000, guid: 19ea08fa9b694aa4f90b4c4da5997546, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyporcelain_white
+    second: {fileID: 2100000, guid: 508fb770313699d4ea6e656f64b33267, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pysteel
+    second: {fileID: 2100000, guid: 99437a835cd82e44082fa717e7e21aac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pysticker_olive_oil_c
+    second: {fileID: 2100000, guid: 36baede05f0af1b4fb3426c39acc9b00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyverre
+    second: {fileID: 2100000, guid: 1f2f3b2dd95d17040ba25c234696636f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyvray_00asdsd005
+    second: {fileID: 2100000, guid: cf02fb186880104418e029b3dbaf7178, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyvray_00asdsd016
+    second: {fileID: 2100000, guid: 2af119b1b7f05704d9eb94e2de372b3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyvray_00asdsd023_2
+    second: {fileID: 2100000, guid: 4e22b74102da40f4f95773c177bab4a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyvray_00asdsd023_22
+    second: {fileID: 2100000, guid: bb88a37c2cfc4d1459579d572b33dd4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyvray_00asdsd053
+    second: {fileID: 2100000, guid: c7ad48ac18ce21148bf2f569a5cdd936, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyvray_00asdsd054
+    second: {fileID: 2100000, guid: fca42472a6213504181680e178d6f08b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyvray_00asdsd055
+    second: {fileID: 2100000, guid: 6a12dea7b44a83f48a539c6fce5e258c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyvray_00asdsd059
+    second: {fileID: 2100000, guid: 75eb2683a73216948b5c145fecf05d89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyvray_00asdsd078
+    second: {fileID: 2100000, guid: c163df2edbcc8f94fa943a3996151af4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyvray_00asdsd080
+    second: {fileID: 2100000, guid: 48582307ea66b624a9293c85d4412838, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyvray_00f
+    second: {fileID: 2100000, guid: 6694725d492dbec4ab76f2238ac5b646, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyx10102
+    second: {fileID: 2100000, guid: 2c0ab7f1f7ff2704494f2db923343461, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyx10168
+    second: {fileID: 2100000, guid: 3d04510c0a33b5648aa66a8fcadafcbc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyx10169
+    second: {fileID: 2100000, guid: 34af450b9ced91c479814c52fe7aab2f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyx10170
+    second: {fileID: 2100000, guid: 23500661ccc1094449854d7a239b782e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pyx10171
+    second: {fileID: 2100000, guid: 4b675900e6cab8c4c8c23fccc5cc0e6c, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
