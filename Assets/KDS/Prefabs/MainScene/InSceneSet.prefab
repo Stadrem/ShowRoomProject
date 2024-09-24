@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5802bf4b5a920a4ab52e2fddea26a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSecondScene: 0
 --- !u!1001 &337771513935614269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78,7 +79,7 @@ PrefabInstance:
     - target: {fileID: 8774211901019898116, guid: ad2936df0d6a4c34983633a94bcb73ef,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 8774211901019898116, guid: ad2936df0d6a4c34983633a94bcb73ef,
         type: 3}

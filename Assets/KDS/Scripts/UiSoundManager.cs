@@ -10,7 +10,7 @@ public class UiSoundManager : MonoBehaviour
     public AudioClip notification;
     public AudioClip keyboard;
 
-    K_PlayerMove playerMove;
+    public K_PlayerMove playerMove;
 
     AudioSource audioSource;
 
@@ -37,15 +37,23 @@ public class UiSoundManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-
-        playerMove = AccountDate.GetInstance().player.GetComponent<K_PlayerMove>();
     }
 
     private void Update()
     {
-        if (Input.anyKeyDown && !Input.GetButtonDown("Fire1") && playerMove.currState == K_PlayerMove.PlayerState.Click)
+        if(SceneChanged.instance.isSecondScene == false)
         {
-            KeyClick();
+            if (Input.anyKeyDown && !Input.GetButtonDown("Fire1"))
+            {
+                KeyClick();
+            }
+        }
+        else
+        {
+            if (Input.anyKeyDown && !Input.GetButtonDown("Fire1") && playerMove.currState == K_PlayerMove.PlayerState.Click)
+            {
+                KeyClick();
+            }
         }
     }
 

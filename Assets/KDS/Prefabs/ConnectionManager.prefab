@@ -46,3 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setRoom: main
   playerCount: 5
+  firstCanvas: {fileID: 0}
+  secondCanvas: {fileID: 0}
+  joinCodeText: {fileID: 0}
