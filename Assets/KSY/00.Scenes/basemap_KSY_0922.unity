@@ -1332,7 +1332,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 9
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -1696,7 +1696,7 @@ GameObject:
   - component: {fileID: 688560212}
   m_Layer: 0
   m_Name: VirtualCam_Player
-  m_TagString: Untagged
+  m_TagString: MainVirtualCam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1710,12 +1710,12 @@ Transform:
   m_GameObject: {fileID: 688560210}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0114462655, y: -0.7165294, z: 0.0118824225, w: -0.69736177}
-  m_LocalPosition: {x: -0.10614109, y: -0.46548557, z: 1.5646293}
+  m_LocalPosition: {x: -0.10614109, y: 1.2415144, z: 1.6806293}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1107946842}
-  m_Father: {fileID: 2073712586}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &688560212
 MonoBehaviour:
@@ -5908,7 +5908,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 1
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -7507,12 +7507,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   webURL: https://www.samsung.com/sec/refrigerators/french-door-rf90dg91114e-d2c/RF90DG9111S9/
---- !u!4 &2073712586 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3442134925804095918, guid: 3289af6d1c0574b4fba6031ed90b2938,
-    type: 3}
-  m_PrefabInstance: {fileID: 2215161929137021563}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2092698418 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 129977550234810152, guid: a20df68874abc4c42bfeb9ef5081d7e1,
@@ -8185,11 +8179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3442134925804095918, guid: 3289af6d1c0574b4fba6031ed90b2938,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 688560211}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3289af6d1c0574b4fba6031ed90b2938, type: 3}
 --- !u!1001 &2233281966914210712
@@ -8630,6 +8620,7 @@ SceneRoots:
   - {fileID: 339208903}
   - {fileID: 436258736}
   - {fileID: 1244013480}
+  - {fileID: 688560211}
   - {fileID: 2215161929137021563}
   - {fileID: 626251028}
   - {fileID: 2038404309}
