@@ -135,6 +135,7 @@ MonoBehaviour:
   debugCheck2: {fileID: 0}
   fcm: {fileID: 0}
   cm: {fileID: 0}
+  fireWorks: {fileID: 714421279396823436}
 --- !u!1 &2749486521519316000
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7696586704155626776
 RectTransform:
   m_ObjectHideFlags: 0
@@ -647,14 +648,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5230320430031882354}
     m_Modifications:
+    - target: {fileID: 6345698633707439847, guid: 6a7b26737f4a19a40b5f385c66dc96a9,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6892425034794192409, guid: 6a7b26737f4a19a40b5f385c66dc96a9,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7750853976492821318, guid: 6a7b26737f4a19a40b5f385c66dc96a9,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7750853976492821319, guid: 6a7b26737f4a19a40b5f385c66dc96a9,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750853977139984562, guid: 6a7b26737f4a19a40b5f385c66dc96a9,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7750853977139984562, guid: 6a7b26737f4a19a40b5f385c66dc96a9,
@@ -730,6 +746,11 @@ PrefabInstance:
     - target: {fileID: 7750853977312398388, guid: 6a7b26737f4a19a40b5f385c66dc96a9,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750853977312398391, guid: 6a7b26737f4a19a40b5f385c66dc96a9,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
