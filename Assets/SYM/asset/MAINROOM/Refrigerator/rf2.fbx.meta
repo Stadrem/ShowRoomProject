@@ -3,7 +3,77 @@ guid: c2d4a24ae4dbdd541b9f9e8fe67f5351
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base_paint.001
+    second: {fileID: 2100000, guid: 7f83203199685e94693efcdc91d1add8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chrome.001
+    second: {fileID: 2100000, guid: 3b45372b2dd45764f841b1d72cc33c22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: 48d1137d5abea914d80b701cb15cac91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass.001
+    second: {fileID: 2100000, guid: 05aebffd66a06914989158080d012b0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Logo.001
+    second: {fileID: 2100000, guid: 003325a2550c9db4b9b475ead57a8f1e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: e3ff82df8bb363a41945c08e6cefeb43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base
+    second: {fileID: 2100000, guid: f57928a00720a3540b241929d74fa28e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: f
+    second: {fileID: 2100000, guid: 5c5a05d0b75c35346ae478eed2d6d853, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light.001
+    second: {fileID: 2100000, guid: 6ef448f7076a8c1428ebc2ee849a98c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: top
+    second: {fileID: 2100000, guid: 0c147e190d95bb042bad707fc69ab1db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white_plastic.001
+    second: {fileID: 2100000, guid: 935ba7d278db26b408daf53157ab50f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\uCE7C\uB77C__\uBA54\uC778_.001"
+    second: {fileID: 2100000, guid: cbae175dfea679e43af3fc397d8a8e6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\uCE7C\uB77C__\uC5D0\uBA54\uB784\uB4DC_.001"
+    second: {fileID: 2100000, guid: 3f60b947beebd604f8d0e5a891d4a5ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\uCE7C\uB77C__\uD654\uC774\uD2B8_.001"
+    second: {fileID: 2100000, guid: 461656b54e34c8844b326cd7d6cb74ba, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

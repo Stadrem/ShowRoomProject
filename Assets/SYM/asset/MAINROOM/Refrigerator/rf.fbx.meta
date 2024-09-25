@@ -37,6 +37,21 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: FrontDoor_001
+    second: {fileID: 2100000, guid: cfd16d513efa14b4883558ab8f8313a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FrontDoor_002
+    second: {fileID: 2100000, guid: 57cb9b6d952313e4ba086fe1d5fac879, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FrontDoor_003
+    second: {fileID: 2100000, guid: 9f15bc0ffdd55404eb5329836ccab7fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Glass
     second: {fileID: 2100000, guid: 9b2107a47ae413e46abece862a6ec67a, type: 2}
   - first:

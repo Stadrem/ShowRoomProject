@@ -166,30 +166,9 @@ public class GameUiCanvas : MonoBehaviourPunCallbacks
 
     public void GuideUiButton()
     {
-        guideUi.SetActive(!guideUi.activeSelf);
+        guideUi.SetActive(true);
+        escUi.SetActive(false);
     }
-
-    /*
-    public void RPC_SelectButton()
-    {
-        if (pv.IsMine)
-        {
-            pv.RPC("SelectButton", RpcTarget.All, (int)avatarDropdown.value);
-        }
-    }
-
-    [PunRPC]
-    public void SelectButton(int value) // SelectButton을 누름으로써 값 테스트.    
-    { 
-        Debug.Log("Dropdown Value: " + value);
-
-        //아바타 설정있는 스크립트 불러오기 -> 캐릭터에 붙어있는 스크립트
-        K_PlayerMove kpm = ppb.player.GetComponent<K_PlayerMove>();
-
-        //아바타 변경 함수
-        kpm.SetAvatar(kpm.bodys[value]);
-    }
-    */
 
     IEnumerator StartDelay()
     {
