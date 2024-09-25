@@ -23,6 +23,7 @@ public class matTest : MonoBehaviour
                 ResetPreviousRenderer();  // 이전 오브젝트의 아웃라인 제거
                 currentRenderer = renderer;  // 현재 렌더러 업데이트
                 ApplyOutlineMaterial(renderer);  // 새 오브젝트에 아웃라인 적용
+                currentRenderer.gameObject.transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
             }
             if (Input.GetKeyDown(KeyCode.E)) 
             {
@@ -75,6 +76,7 @@ public class matTest : MonoBehaviour
             // 원본 메테리얼 배열로 복원
             currentRenderer.materials = originalMaterials[currentRenderer];
             originalMaterials.Remove(currentRenderer);
+            currentRenderer.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         }
         currentRenderer = null;  // 현재 렌더러 초기화
     }

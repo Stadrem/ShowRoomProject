@@ -24,6 +24,14 @@ public class ChatManager : MonoBehaviourPun, IOnEventCallback
         PhotonNetwork.NetworkingClient.AddCallbackTarget(this);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            input_chat.ActivateInputField();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
