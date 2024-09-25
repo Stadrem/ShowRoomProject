@@ -11,9 +11,11 @@ public class FirstCanvasManager : MonoBehaviour
 {
     public TMP_InputField texttId;
     public TMP_InputField textPassword;
+    public TMP_InputField textPassword2;
     public TMP_InputField textName;
     public TMP_InputField textArea;
     public TextMeshProUGUI textFamilly;
+    public TMP_Dropdown dropFamilly;
 
     public TMP_InputField logintId;
     public TMP_InputField loginPassword;
@@ -31,10 +33,15 @@ public class FirstCanvasManager : MonoBehaviour
 
     public void JoinFinishClick()
     {
-        if(string.IsNullOrEmpty(texttId.text) || string.IsNullOrEmpty(textPassword.text) || string.IsNullOrEmpty(textName.text) || string.IsNullOrEmpty(textArea.text)) 
+        if(string.IsNullOrEmpty(texttId.text) || string.IsNullOrEmpty(textPassword.text) || string.IsNullOrEmpty(textPassword2.text) || string.IsNullOrEmpty(textName.text) || string.IsNullOrEmpty(textArea.text)) 
         {
-            print("칸이 비었음");
             HttpManager.GetInstance().Alert("빈칸을 채워주세요.", 2.0f);
+            return;
+        }
+
+        if(textPassword.text != textPassword2.text)
+        {
+            HttpManager.GetInstance().Alert("비밀번호가 동일하지 않습니다.", 2.0f);
             return;
         }
 
@@ -133,8 +140,10 @@ public class FirstCanvasManager : MonoBehaviour
     {
         texttId.text = "";
         textPassword.text = "";
+        textPassword2.text = "";
         textName.text = "";
         textArea.text = "";
+        dropFamilly.value = 0;
 
         joinFullset.SetActive(false);
         loginFullset.SetActive(true);
