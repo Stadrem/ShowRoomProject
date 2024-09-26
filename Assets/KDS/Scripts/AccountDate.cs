@@ -9,6 +9,15 @@ using UnityEngine.Networking;
 public class AccountDate : MonoBehaviour
 {
     public GameObject player;
+    K_PlayerMove pm;
+    public void SetPlayerMove(K_PlayerMove playerMove)
+    {
+        pm = playerMove;
+    }
+    public void SetPlayerState(K_PlayerMove.PlayerState playerState)
+    {
+        pm.ChangeState(playerState);
+    }
 
     //싱글톤 생성
     public static AccountDate instance;

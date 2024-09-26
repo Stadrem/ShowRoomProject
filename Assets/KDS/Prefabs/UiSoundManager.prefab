@@ -144,3 +144,8 @@ MonoBehaviour:
   click: {fileID: 8300000, guid: 6af9b69c9eb9c4c4fa0b7b4fef590a33, type: 3}
   notification: {fileID: 8300000, guid: 6f1bc95c2c2482147a7c932e1cb15b5d, type: 3}
   keyboard: {fileID: 8300000, guid: e80df78b3ee898b40ac16f9b34c654c9, type: 3}
+  quizVictory: {fileID: 8300000, guid: 41424e49d6dd60447be3a5d9049cb992, type: 3}
+  button: {fileID: 8300000, guid: f8041057bfafded4e865ccefa2675b13, type: 3}
+  fail: {fileID: 8300000, guid: f50172a3557da1140918464bca310eb4, type: 3}
+  playerMove: {fileID: 0}
+  audioSource: {fileID: 8594561380467467244}

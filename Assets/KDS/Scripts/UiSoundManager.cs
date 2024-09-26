@@ -9,10 +9,13 @@ public class UiSoundManager : MonoBehaviour
     public AudioClip click;
     public AudioClip notification;
     public AudioClip keyboard;
+    public AudioClip quizVictory;
+    public AudioClip button;
+    public AudioClip fail;
 
     public K_PlayerMove playerMove;
 
-    AudioSource audioSource;
+    public AudioSource audioSource;
 
     private void Awake()
     {
@@ -33,12 +36,6 @@ public class UiSoundManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
-
     private void Update()
     {
         if(SceneChanged.instance.isSecondScene == false)
@@ -57,11 +54,6 @@ public class UiSoundManager : MonoBehaviour
         }
     }
 
-    void PlaySound(AudioClip audios, float volume)
-    {
-        audioSource.PlayOneShot(audios, volume);
-    }
-
     public void AudioClick()
     {
         PlaySound(click, 0.2f);
@@ -72,8 +64,29 @@ public class UiSoundManager : MonoBehaviour
         PlaySound(notification, 0.6f);
     }
 
+    public void QuizSound()
+    {
+        PlaySound(quizVictory, 0.5f);
+    }
+
     public void KeyClick()
     {
         PlaySound(keyboard, 0.25f);
+    }
+
+    public void ButtonClick()
+    {
+        PlaySound(button, 0.5f);
+    }
+
+    public void FailClick()
+    {
+        PlaySound(fail, 0.5f);
+    }
+
+    void PlaySound(AudioClip audios, float volume)
+    {
+        float tempVolume = audioSource.volume * volume;
+        audioSource.PlayOneShot(audios, tempVolume);
     }
 }

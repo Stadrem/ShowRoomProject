@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,6 +43,8 @@ public class QuizSet : MonoBehaviour
 
     bool quizTimerStart = false;
 
+    public AudioSource quizAudio;
+
     [System.Serializable]
     public struct QuizArray
     {
@@ -68,11 +71,14 @@ public class QuizSet : MonoBehaviour
         if(slider_time.value <= 0.01f)
         {
             failPopup.SetActive(true);
-            StartCoroutine(failTimer());
+            StartCoroutine(FailTimer());
         }
     }
-    IEnumerator failTimer()
+
+    IEnumerator FailTimer()
     {
+        UiSoundManager.instance.FailClick();
+
         quizTimerStart = false;
 
         slider_time.value = 1;
@@ -85,6 +91,8 @@ public class QuizSet : MonoBehaviour
 
     IEnumerator WrongAnswer()
     {
+        UiSoundManager.instance.FailClick();
+
         wrongAnswerPopup.SetActive(true);
 
         yield return new WaitForSeconds(2.0f);
@@ -94,6 +102,8 @@ public class QuizSet : MonoBehaviour
 
     IEnumerator OkAnswer()
     {
+        UiSoundManager.instance.ButtonClick();
+
         okAnswerPopup.SetActive(true);
 
         yield return new WaitForSeconds(2.0f);
@@ -107,6 +117,8 @@ public class QuizSet : MonoBehaviour
     {
         if (currentScore != 2)
         {
+            quizAudio.Play();
+
             // 배열 선언
             int[] quizNumArray = new int[3];
 
@@ -128,8 +140,6 @@ public class QuizSet : MonoBehaviour
                 // 사용한 숫자를 리스트에서 제거하여 중복 방지
                 availableNumbers.RemoveAt(randomIndex);
 
-                Debug.Log(quizNumArray[i]);
-
                 SelectQuiz[i].quizInfo.quiz = quizArray[quizNumArray[i]].quizInfo.quiz;
                 SelectQuiz[i].quizInfo.hint = quizArray[quizNumArray[i]].quizInfo.hint;
                 SelectQuiz[i].quizInfo.answer = quizArray[quizNumArray[i]].quizInfo.answer;
@@ -150,11 +160,16 @@ public class QuizSet : MonoBehaviour
         if(InputField_answer.text == currentAnswer)
         {
             StartCoroutine(OkAnswer());
+
             if(currentScore == 2)
             {
+                quizAudio.Stop();
+
                 quizTimerStart = false;
 
                 victory.SetActive(true);
+
+                UiSoundManager.instance.QuizSound();
             }
             else
             {
@@ -174,5 +189,10 @@ public class QuizSet : MonoBehaviour
             StartCoroutine(WrongAnswer());
             InputField_answer.text = "";
         }
+    }
+
+    private void OnDisable()
+    {
+        quizAudio.Stop();
     }
 }

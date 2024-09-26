@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1399491476564140178}
   - component: {fileID: 1399491476564140179}
   - component: {fileID: 1399491476564140176}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Vertical Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4984,7 +4984,7 @@ GameObject:
   - component: {fileID: 1399491476850481372}
   - component: {fileID: 1399491476850481362}
   - component: {fileID: 1399491476850481363}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Buff_03a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4999,7 +4999,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399491476850481373}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5019,14 +5019,14 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 5
   simulationSpeed: 5
-  stopAction: 2
+  stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -9817,7 +9817,7 @@ GameObject:
   - component: {fileID: 7219715104306976345}
   - component: {fileID: 699285169088159718}
   - component: {fileID: 2888882261058119986}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Orbiting Wind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9847,7 +9847,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4519665656894341131}
   serializedVersion: 8
-  lengthInSec: 2
+  lengthInSec: 3
   simulationSpeed: 4
   stopAction: 0
   cullingMode: 0
@@ -9856,7 +9856,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -14648,7 +14648,7 @@ GameObject:
   - component: {fileID: 7235012350808751589}
   - component: {fileID: 7235012350808751611}
   - component: {fileID: 7235012350808751588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14687,7 +14687,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

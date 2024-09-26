@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 public class ChatBotInput
 {
     public string question;
-    public string member_id;
+    public string user_id;
     public string area_size;
     public string housemate_num;
 }
@@ -16,11 +16,9 @@ public class ChatBotInput
 [System.Serializable]
 public class ChatBotAns
 {
-    public int id;
-    public string createdAt;
-    public string member_id;
-    public string member_name;
     public string answer;
+    public string createdAt;
+    public string userId;
     public string area_size;
     public string housemate_num;
 }
@@ -71,7 +69,10 @@ public class K_EventMethodRef : MonoBehaviour
     public TMP_Dropdown items;
 
     public bool ToAI = true;
-    
+
+    string rf1 = "RS84B5081SA";
+    string rf2 = "RF90DG9111S9";
+
     void Start()
     {
         GetRefriData();
@@ -124,7 +125,7 @@ public class K_EventMethodRef : MonoBehaviour
         if (AccountDate.GetInstance().response.userId == null || AccountDate.GetInstance().response.userId == "")
         {
             print("userId가 null이거나 빔.");
-            chat.member_id = "0";
+            chat.user_id = "0";
             chat.area_size = "8평";
             chat.housemate_num = "13";
             chatAI.user_id = "0";
@@ -138,9 +139,9 @@ public class K_EventMethodRef : MonoBehaviour
             chatAI.user_id = "0";
             chatAI.area_size = "8평";
             chatAI.housemate_num = "13";
-            chat.member_id = "0";
-            chat.area_size = "8평";
-            chat.housemate_num = "13";
+            chat.user_id = AccountDate.GetInstance().response.userId;
+            chat.area_size = "30평";
+            chat.housemate_num = "4";
             print("흠");
         }
         chat.question = input.text;
@@ -149,12 +150,10 @@ public class K_EventMethodRef : MonoBehaviour
         output.text = "처리중입니다...";
         input.interactable = false;
         
-        
-        Debug.Log(info.body);
         info.contentType = "application/json";
         if (ToAI)
         {
-            info.url = "http://metaai.iptime.org:8282/ask";
+            info.url = "http://metaai2.iptime.org:8282/ask";
             info.token = "";
             info.body = JsonUtility.ToJson(chatAI);
             print("AI와 통신 중");
@@ -164,6 +163,7 @@ public class K_EventMethodRef : MonoBehaviour
             info.body = JsonUtility.ToJson(chat);
             info.url = "http://125.132.216.190:12450/api/talks";
             info.token = AccountDate.GetInstance().response.accessToken;
+            Debug.Log(info.body);
         }
         info.onComplete = (downloadHandler) => {
             print(downloadHandler.text);
@@ -172,13 +172,25 @@ public class K_EventMethodRef : MonoBehaviour
                 ans = JsonUtility.FromJson<ChatBotAns>(downloadHandler.text);
                 print(ans.answer);
                 ans.answer = ans.answer.Replace("**", "  ");
-                output.text = ans.answer;
+                if (C_TextPrint != null) StopCoroutine(C_TextPrint);
+                C_TextPrint = StartCoroutine(TextPrint(output, ans.answer, 0.05f));
+                
+                if (ans.answer.Contains(rf1))
+                {
+                    K_UIManager.GetInstance().objectControl.SetObject(1);
+                }
+                else if (ans.answer.Contains(rf2))
+                {
+                    K_UIManager.GetInstance().objectControl.SetObject(2);
+                }
+                //output.text = ans.answer;
             }
             else if (ToAI)
             {
                 ansAI = JsonUtility.FromJson<ChatBotAns_AI>(downloadHandler.text);
                 print(ansAI.answer);
                 ansAI.answer = ansAI.answer.Replace("**", "  ");
+                
                 output.text = ansAI.answer;
             }
             
@@ -194,6 +206,39 @@ public class K_EventMethodRef : MonoBehaviour
         };
         StartCoroutine(K_HttpManager.GetInstance().Post(info));
     }
+    Coroutine C_TextPrint;
+    IEnumerator TextPrint(TMP_Text output, string input, float delay)
+    {
+        output.text = "";
+        foreach (char c in input)
+        {
+            if(c == '\n')
+            {
+                output.text += System.Environment.NewLine;
+            }
+            else
+            {
+                output.text += c;
+            }
+            yield return new WaitForSeconds(delay);
+        }
+        if (C_TextPrint != null) C_TextPrint = null;
+    }
+    //IEnumerator TextPrint(TMP_Text output, string input, float delay)
+    //{
+    //    int count = 0;
+    //    output.text = "";
+    //    while (count != input.Length)
+    //    {
+    //        if (count < input.Length)
+    //        {
+    //            output.text += input[count];
+    //            count++;
+    //        }
+    //        yield return new WaitForSeconds(delay);
+    //    }
+    //    if (C_TextPrint != null) C_TextPrint = null;
+    //}
 
     public void InActive(GameObject gameObject)
     {

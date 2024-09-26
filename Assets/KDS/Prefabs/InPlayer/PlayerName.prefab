@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7770425554491661211}
   - component: {fileID: 1614333388667151049}
   - component: {fileID: 8369103261458858683}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: PlayerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 198883198275880949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 670731297691490323}
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &1614333388667151049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,13 +134,14 @@ GameObject:
   - component: {fileID: 900859872177093840}
   - component: {fileID: 2296951246992169170}
   - component: {fileID: 1195468816555934289}
-  m_Layer: 5
+  - component: {fileID: 39872807971804460}
+  m_Layer: 6
   m_Name: talkPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &670731297691490323
 RectTransform:
   m_ObjectHideFlags: 0
@@ -220,6 +221,102 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!82 &39872807971804460
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511875571732319084}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 96db1173b5cefbc4ca0f9bd5d4cf3ebb, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2430063292389139738
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +329,7 @@ GameObject:
   - component: {fileID: 6711808221053613647}
   - component: {fileID: 6472166036975566249}
   - component: {fileID: 5586589475596950134}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: BackCircle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +420,7 @@ GameObject:
   - component: {fileID: 2749855421697703838}
   - component: {fileID: 1218124623008479678}
   - component: {fileID: 7764220643604028064}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: icon_Rec
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +508,7 @@ GameObject:
   - component: {fileID: 7833915593377748812}
   - component: {fileID: 7533705145610835221}
   - component: {fileID: 8613419170313600083}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Back001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +583,7 @@ GameObject:
   - component: {fileID: 4925393075563485183}
   - component: {fileID: 962568529335018105}
   - component: {fileID: 3325462527285546520}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,7 +658,7 @@ GameObject:
   - component: {fileID: 3949962172414868697}
   - component: {fileID: 5289490612865491034}
   - component: {fileID: 4674259705766002905}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: talkBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -638,7 +735,7 @@ GameObject:
   - component: {fileID: 2560404622852576344}
   - component: {fileID: 6147957805107564043}
   - component: {fileID: 864034623297615962}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: BackCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -727,7 +824,7 @@ GameObject:
   - component: {fileID: 8941069082212982925}
   - component: {fileID: 2191010845713766109}
   - component: {fileID: 2448511477274401933}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: text_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -781,10 +878,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAE40\uAE40\uAE40\uAE40\uAE40"
+  m_text: "\uAC00\uB098\uB2E4\uB77C\uB9C8"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 496e664843252354e923f93e1f9e4d75, type: 2}
-  m_sharedMaterial: {fileID: 7357917155085942884, guid: 496e664843252354e923f93e1f9e4d75,
+  m_fontAsset: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029, type: 2}
+  m_sharedMaterial: {fileID: -6661855658047998243, guid: 8aecd68783abb954987fcb7eeb519029,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -815,7 +912,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -862,7 +959,7 @@ GameObject:
   - component: {fileID: 4664089590604640259}
   - component: {fileID: 3151926541698036651}
   - component: {fileID: 7297139725596591976}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: text_Chat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -885,7 +982,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.018}
+  m_AnchoredPosition: {x: 0, y: 0.06}
   m_SizeDelta: {x: 10.77, y: 5.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3151926541698036651
@@ -918,9 +1015,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uB098\uD55C\uD14C \uD558\uB298\uC744 \uBD80\uB044\uB7FC\uC774 \uAE38\uC744
     \uC774\uB294 \uC8FC\uC5B4\uC9C4 \uC6B0\uB7EC\uB7EC \uC78E\uC0C8\uC5D0 \uC2A4\uCE58\uC6B4\uB2E4
-    \uAC83\uC744 \uBCC4\uC744 \uBC24\uC5D0\uB3C4 \uBC24\uC5D0\uB3C4 \uAD34\uB85C\uC6CC\uD588\uB2E4
-    \uAC83\uC744 \uC2A4\uCE58\uC6B4\uB2E4 \uAC83\uC744 \uC6B0\uB7EC\uB7EC \uC6B0\uB7EC\uB7EC
-    \uBCC4\uC774 \uAD34\uB85C\uC6CC\uD588\uB2E4"
+    \uAC83\uC744 \uBCC4\uC744 \uBC24\uC5D0\uB3C4 \uAD34\uB85C\uC6CC\uD588\uB2E4. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e04e2067004456143876f9e8f7e45f92, type: 2}
   m_sharedMaterial: {fileID: 6257907888057468313, guid: e04e2067004456143876f9e8f7e45f92,
@@ -956,7 +1051,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1001,7 +1096,7 @@ GameObject:
   - component: {fileID: 3530992289128980176}
   - component: {fileID: 7022149275285705264}
   - component: {fileID: 3190999829414278583}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Back002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
