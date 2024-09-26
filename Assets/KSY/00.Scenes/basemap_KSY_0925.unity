@@ -1221,6 +1221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cba604adaf1db4c9ac3673a4d086f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rf1: {fileID: 6246228926439869774}
+  rf2: {fileID: 919132149353205568}
 --- !u!1001 &259794512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2612,7 +2614,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 720221185}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2124454064}
+        m_TargetAssemblyTypeName: K_UIManager, Assembly-CSharp
+        m_MethodName: ClickedButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &720221185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4446,7 +4460,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 841357799}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2124454064}
+        m_TargetAssemblyTypeName: K_UIManager, Assembly-CSharp
+        m_MethodName: ClickedButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &841357799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6145,7 +6171,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1100309411}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2124454064}
+        m_TargetAssemblyTypeName: K_UIManager, Assembly-CSharp
+        m_MethodName: ClickedButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1100309411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10588,6 +10626,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  selectedMat: {fileID: 0}
   colors:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
