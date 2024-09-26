@@ -33,14 +33,18 @@ public class FirstCanvasManager : MonoBehaviour
 
     public void JoinFinishClick()
     {
-        if(string.IsNullOrEmpty(texttId.text) || string.IsNullOrEmpty(textPassword.text) || string.IsNullOrEmpty(textPassword2.text) || string.IsNullOrEmpty(textName.text) || string.IsNullOrEmpty(textArea.text)) 
+        UiSoundManager.instance.AudioClick();
+
+        if (string.IsNullOrEmpty(texttId.text) || string.IsNullOrEmpty(textPassword.text) || string.IsNullOrEmpty(textPassword2.text) || string.IsNullOrEmpty(textName.text) || string.IsNullOrEmpty(textArea.text)) 
         {
-            HttpManager.GetInstance().Alert("빈칸을 채워주세요.", 2.0f);
+            UiSoundManager.instance.FailClick();
+            HttpManager.GetInstance().Alert("빈 칸을 채워주세요.", 2.0f);
             return;
         }
 
         if(textPassword.text != textPassword2.text)
         {
+            UiSoundManager.instance.FailClick();
             HttpManager.GetInstance().Alert("비밀번호가 동일하지 않습니다.", 2.0f);
             return;
         }
@@ -50,9 +54,12 @@ public class FirstCanvasManager : MonoBehaviour
 
     public void LoginClick()
     {
+        UiSoundManager.instance.AudioClick();
+
         if (string.IsNullOrEmpty(logintId.text) || string.IsNullOrEmpty(loginPassword.text))
         {
             print("칸이 비었음");
+            UiSoundManager.instance.FailClick();
             HttpManager.GetInstance().Alert("아이디 및 비밀번호를 입력해주세요.", 2.0f);
             return;
         }
@@ -78,8 +85,6 @@ public class FirstCanvasManager : MonoBehaviour
 
         // 전송할 데이터를 JSON 형식으로 변환하여 설정
         info.body = JsonUtility.ToJson(userInfo);
-
-        print("회원가입 전송 데이터 : " + info.body);
 
         // 콘텐츠 타입 설정
         info.contentType = "application/json";
@@ -111,8 +116,6 @@ public class FirstCanvasManager : MonoBehaviour
         // 전송할 데이터를 JSON 형식으로 변환하여 설정
         info.body = JsonUtility.ToJson(accountInfo);
 
-        print("로그인 전송 데이터 : " + info.body);
-
         // 콘텐츠 타입 설정
         info.contentType = "application/json";
 
@@ -129,6 +132,8 @@ public class FirstCanvasManager : MonoBehaviour
 
     public void JoinPopUp()
     {
+        UiSoundManager.instance.AudioClick();
+
         logintId.text = "";
         loginPassword.text = "";
 
@@ -138,11 +143,14 @@ public class FirstCanvasManager : MonoBehaviour
 
     public void LowClick()
     {
+        UiSoundManager.instance.FailClick();
         HttpManager.GetInstance().Alert("준비중입니다.", 1.0f);
     }
 
     public void LoginPopUp()
     {
+        UiSoundManager.instance.AudioClick();
+
         texttId.text = "";
         textPassword.text = "";
         textPassword2.text = "";

@@ -128,10 +128,22 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
     [PunRPC]
     void TalkPopUp(string receiveMessage)
     {
-        StopCoroutine(ChatPopUp(receiveMessage));
+        StopCoroutine("ChatPopUp");
         StartCoroutine(ChatPopUp(receiveMessage));
 
-        myAnim.SetTrigger("Talk");
+
+        if (receiveMessage.Contains("안녕") || receiveMessage.Contains("하이") || receiveMessage.Contains("반가워") || receiveMessage.Contains("ㅎㅇ"))
+        {
+            myAnim.SetTrigger("Hello");
+        }
+        else if (receiveMessage.Contains("하하") || receiveMessage.Contains("웃") || receiveMessage.Contains("ㅋㅋ") || receiveMessage.Contains("ㅎㅎ"))
+        {
+            myAnim.SetTrigger("Laugh");
+        }
+        else
+        {
+            myAnim.SetTrigger("Talk");
+        }
     }
 
     public void RPC_TalkAnim()
