@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,6 +43,8 @@ public class QuizSet : MonoBehaviour
 
     bool quizTimerStart = false;
 
+    public AudioSource quizAudio;
+
     [System.Serializable]
     public struct QuizArray
     {
@@ -68,11 +71,14 @@ public class QuizSet : MonoBehaviour
         if(slider_time.value <= 0.01f)
         {
             failPopup.SetActive(true);
-            StartCoroutine(failTimer());
+            StartCoroutine(FailTimer());
         }
     }
-    IEnumerator failTimer()
+
+    IEnumerator FailTimer()
     {
+        UiSoundManager.instance.FailClick();
+
         quizTimerStart = false;
 
         slider_time.value = 1;
@@ -85,6 +91,8 @@ public class QuizSet : MonoBehaviour
 
     IEnumerator WrongAnswer()
     {
+        UiSoundManager.instance.FailClick();
+
         wrongAnswerPopup.SetActive(true);
 
         yield return new WaitForSeconds(2.0f);
@@ -107,6 +115,8 @@ public class QuizSet : MonoBehaviour
     {
         if (currentScore != 2)
         {
+            quizAudio.Play();
+
             // 배열 선언
             int[] quizNumArray = new int[3];
 
@@ -152,12 +162,17 @@ public class QuizSet : MonoBehaviour
             StartCoroutine(OkAnswer());
             if(currentScore == 2)
             {
+                quizAudio.Stop();
+
                 quizTimerStart = false;
 
                 victory.SetActive(true);
+
+                UiSoundManager.instance.QuizSound();
             }
             else
             {
+                UiSoundManager.instance.ButtonClick();
                 currentScore++;
                 slider_time.value = 1;
                 int tempScore = currentScore + 1;
@@ -174,5 +189,10 @@ public class QuizSet : MonoBehaviour
             StartCoroutine(WrongAnswer());
             InputField_answer.text = "";
         }
+    }
+
+    private void OnDisable()
+    {
+        quizAudio.Stop();
     }
 }

@@ -413,6 +413,33 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2448511477274401933, guid: caef7ebb193eaad4f95514075c918da0,
+        type: 3}
+      propertyPath: m_text
+      value: "\uAC00\uB098\uB2E4\uB77C\uB9C8"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448511477274401933, guid: caef7ebb193eaad4f95514075c918da0,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8aecd68783abb954987fcb7eeb519029,
+        type: 2}
+    - target: {fileID: 2448511477274401933, guid: caef7ebb193eaad4f95514075c918da0,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448511477274401933, guid: caef7ebb193eaad4f95514075c918da0,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6661855658047998243, guid: 8aecd68783abb954987fcb7eeb519029,
+        type: 2}
+    - target: {fileID: 2448511477274401933, guid: caef7ebb193eaad4f95514075c918da0,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4664089590604640259, guid: caef7ebb193eaad4f95514075c918da0,
         type: 3}
       propertyPath: m_AnchoredPosition.y

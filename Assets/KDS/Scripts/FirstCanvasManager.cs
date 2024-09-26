@@ -35,12 +35,14 @@ public class FirstCanvasManager : MonoBehaviour
     {
         if(string.IsNullOrEmpty(texttId.text) || string.IsNullOrEmpty(textPassword.text) || string.IsNullOrEmpty(textPassword2.text) || string.IsNullOrEmpty(textName.text) || string.IsNullOrEmpty(textArea.text)) 
         {
-            HttpManager.GetInstance().Alert("빈칸을 채워주세요.", 2.0f);
+            UiSoundManager.instance.FailClick();
+            HttpManager.GetInstance().Alert("빈 칸을 채워주세요.", 2.0f);
             return;
         }
 
         if(textPassword.text != textPassword2.text)
         {
+            UiSoundManager.instance.FailClick();
             HttpManager.GetInstance().Alert("비밀번호가 동일하지 않습니다.", 2.0f);
             return;
         }
@@ -53,6 +55,7 @@ public class FirstCanvasManager : MonoBehaviour
         if (string.IsNullOrEmpty(logintId.text) || string.IsNullOrEmpty(loginPassword.text))
         {
             print("칸이 비었음");
+            UiSoundManager.instance.FailClick();
             HttpManager.GetInstance().Alert("아이디 및 비밀번호를 입력해주세요.", 2.0f);
             return;
         }
@@ -138,6 +141,7 @@ public class FirstCanvasManager : MonoBehaviour
 
     public void LowClick()
     {
+        UiSoundManager.instance.FailClick();
         HttpManager.GetInstance().Alert("준비중입니다.", 1.0f);
     }
 
