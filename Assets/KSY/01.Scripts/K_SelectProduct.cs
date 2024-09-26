@@ -88,14 +88,16 @@ public class K_SelectProduct : MonoBehaviour
         if (isRf1)
         {
             moving = StartCoroutine(C_MoveLeft(go_img_rf2,go_img_rf1));
-            Active2();
+            K_UIManager.GetInstance().objectControl.SetObjectInSelect(2);
+            //Active2();
             isRf1 = false;
         }
         else if (!isRf1)
         {
             isRf1 = true;
             moving = StartCoroutine(C_MoveLeft(go_img_rf1, go_img_rf2));
-            Active1();
+            //Active1();
+            K_UIManager.GetInstance().objectControl.SetObjectInSelect(1);
         }
     }
     public void MoveRight()

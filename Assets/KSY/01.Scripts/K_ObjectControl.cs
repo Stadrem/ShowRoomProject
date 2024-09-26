@@ -86,6 +86,23 @@ public class K_ObjectControl : MonoBehaviour
         }
     }
 
+    public void SetObjectInSelect(int num)
+    {
+        if (num == 1)
+        {
+            rf2.SetActive(false);
+            rf1.SetActive(true);
+            K_UIManager.GetInstance().SetData(rf1_ProductName);
+            K_UIManager.GetInstance().SetUrl(true);
+        }
+        else if (num == 2)
+        {
+            rf1.SetActive(false);
+            rf2.SetActive(true);
+            K_UIManager.GetInstance().SetData(rf2_ProductName);
+            K_UIManager.GetInstance().SetUrl(false);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
