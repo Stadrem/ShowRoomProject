@@ -133,7 +133,7 @@ public class H_UIController : MonoBehaviour
             image.color = Btn_colorI.GetComponent<Image>().color;
         }
 
-        //switch (gbi)
+        //switch (gbi) 
         //{
         //    case 0:
         //        image.color = Btn_colorG.GetComponent<Image>().color;
