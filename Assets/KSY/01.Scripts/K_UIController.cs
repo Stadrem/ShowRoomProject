@@ -20,6 +20,7 @@ public class K_UIController : MonoBehaviour
         selected.normalColor = selected.selectedColor;
         btn_Panels[0].Select();
         btn_Panels[0].onClick.Invoke();
+        gameObject.SetActive(false);
     }
 
 

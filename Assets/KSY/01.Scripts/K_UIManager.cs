@@ -2,6 +2,7 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +24,9 @@ public class K_UIManager : MonoBehaviour
     public Image[] buttonsImage = new Image[3];
     public GameObject[] bg_Buttons = new GameObject[3];
     int previousIdx = -1;
+
+    public TMP_Text[] txt_Data;
+    public K_ScriptableObjTest data;
 
     void Awake()
     {
@@ -118,5 +122,28 @@ public class K_UIManager : MonoBehaviour
         img_Aim.SetActive(true);
         ui_ObjGuide.SetActive(true);
         AccountDate.GetInstance().SetPlayerState(K_PlayerMove.PlayerState.Move);
+    }
+
+    public void SetData(string productName)
+    {
+        RefrigeratorData data = new RefrigeratorData();
+        if (this.data.dic.TryGetValue(productName, out data))
+        {
+            txt_Data[0].text = data.productName;
+            txt_Data[1].text = data.productType;
+            txt_Data[2].text = data.installationType;
+            txt_Data[3].text = data.dimensions.ToString().Replace("×", "*");
+            txt_Data[4].text = data.weight.ToString();
+            txt_Data[5].text = data.totalCapacity.ToString();
+            txt_Data[6].text = data.fridgeCapacity.ToString();
+            txt_Data[7].text = data.freezerCapacity.ToString();
+            txt_Data[8].text = data.energyEfficiencyRating;
+            txt_Data[9].text = data.powerConsumption.ToString();
+            print("제품명 : " + data.productName + " 입니다.");
+        }
+        else
+        {
+            Debug.LogError("제품명이 맞지 않습니다.");
+        }
     }
 }
