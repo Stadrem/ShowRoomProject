@@ -12953,6 +12953,7 @@ GameObject:
   - component: {fileID: 8231830961296573387}
   - component: {fileID: 1291845609847816771}
   - component: {fileID: 8919981332703800069}
+  - component: {fileID: 8919981332703800070}
   m_Layer: 15
   m_Name: UI_PreView
   m_TagString: Untagged
@@ -19318,6 +19319,27 @@ MonoBehaviour:
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0
+--- !u!95 &8919981332703800070
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084479810743948400}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e268124bbe643c24c9bdb5b2096a2356, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &9017247185734651332
 GameObject:
   m_ObjectHideFlags: 0
