@@ -12,6 +12,24 @@ public class K_UIManager : MonoBehaviour
 
     public K_ObjectControl objectControl;
     public K_SelectProduct selectProduct;
+    public string[] urls = new string[2] 
+    { 
+        "https://www.samsung.com/sec/refrigerators/side-by-side-rs84b508115-d2c/RS84B5081SA/", 
+        "https://www.samsung.com/sec/refrigerators/french-door-rf90dg91114e-d2c/RF90DG9111S9/" 
+    };
+    public string url = "https://www.samsung.com/sec/refrigerators/side-by-side-rs84b508115-d2c/RS84B5081SA/";
+    public void SetUrl(bool isRf1)
+    {
+        if(isRf1)
+        {
+            url = urls[0];
+        }
+        else if (!isRf1)
+        {
+            url = urls[1];
+        }
+        
+    }
 
     public GameObject img_Aim;
     public GameObject ui_ObjGuide;

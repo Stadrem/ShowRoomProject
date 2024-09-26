@@ -746,9 +746,9 @@ RectTransform:
   - {fileID: 901379307}
   m_Father: {fileID: 2128675000}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 750, y: -100}
   m_SizeDelta: {x: 220, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &136507637
@@ -5144,9 +5144,9 @@ RectTransform:
   - {fileID: 1959549502}
   m_Father: {fileID: 2128675000}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 510, y: -100}
   m_SizeDelta: {x: 220, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &871646381
@@ -11175,7 +11175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f3b374f8478a6489fe780b585b2c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  webURL: https://www.samsung.com/sec/refrigerators/french-door-rf90dg91114e-d2c/RF90DG9111S9/
 --- !u!1 &2092698418 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 129977550234810152, guid: a20df68874abc4c42bfeb9ef5081d7e1,
@@ -11476,6 +11475,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectControl: {fileID: 436258738}
   selectProduct: {fileID: 244034890}
+  urls:
+  - https://www.samsung.com/sec/refrigerators/side-by-side-rs84b508115-d2c/RS84B5081SA/
+  - https://www.samsung.com/sec/refrigerators/french-door-rf90dg91114e-d2c/RF90DG9111S9/
+  url: https://www.samsung.com/sec/refrigerators/side-by-side-rs84b508115-d2c/RS84B5081SA/
   img_Aim: {fileID: 144721832}
   ui_ObjGuide: {fileID: 1877578680}
   rf1_MeshRenderer: {fileID: 4245343559482717938}
@@ -12637,9 +12640,9 @@ RectTransform:
   - {fileID: 7256038943467744201}
   m_Father: {fileID: 2128675000}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 270, y: -100}
   m_SizeDelta: {x: 220, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!224 &1543359713050080323
@@ -12956,7 +12959,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2134519999258286774
 RectTransform:
   m_ObjectHideFlags: 0
