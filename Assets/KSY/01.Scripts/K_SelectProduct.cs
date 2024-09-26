@@ -49,6 +49,18 @@ public class K_SelectProduct : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        moving = null;
+        if (isRf1)
+        {
+            SetPos(true);
+        }
+        else if (!isRf1)
+        {
+            SetPos(false);
+        }
+    }
     public void SetPos(bool isRf1)
     {
         if (isRf1)
