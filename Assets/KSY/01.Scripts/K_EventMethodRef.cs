@@ -170,7 +170,7 @@ public class K_EventMethodRef : MonoBehaviour
                 print(ans.answer);
                 ans.answer = ans.answer.Replace("**", "  ");
                 if (C_TextPrint != null) StopCoroutine(C_TextPrint);
-                C_TextPrint = StartCoroutine(TextPrint(output, ans.answer, 0.125f));
+                C_TextPrint = StartCoroutine(TextPrint(output, ans.answer, 0.05f));
                 //output.text = ans.answer;
             }
             else if (ToAI)
@@ -197,18 +197,36 @@ public class K_EventMethodRef : MonoBehaviour
     Coroutine C_TextPrint;
     IEnumerator TextPrint(TMP_Text output, string input, float delay)
     {
-        int count = 0;
-        while(count != input.Length)
+        output.text = "";
+        foreach (char c in input)
         {
-            if(count < input.Length)
+            if(c == '\n')
             {
-                output.text += input[count].ToString();
-                count++;
+                output.text += System.Environment.NewLine;
+            }
+            else
+            {
+                output.text += c;
             }
             yield return new WaitForSeconds(delay);
         }
         if (C_TextPrint != null) C_TextPrint = null;
     }
+    //IEnumerator TextPrint(TMP_Text output, string input, float delay)
+    //{
+    //    int count = 0;
+    //    output.text = "";
+    //    while (count != input.Length)
+    //    {
+    //        if (count < input.Length)
+    //        {
+    //            output.text += input[count];
+    //            count++;
+    //        }
+    //        yield return new WaitForSeconds(delay);
+    //    }
+    //    if (C_TextPrint != null) C_TextPrint = null;
+    //}
 
     public void InActive(GameObject gameObject)
     {
