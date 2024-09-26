@@ -136,6 +136,11 @@ public class FirstCanvasManager : MonoBehaviour
         loginFullset.SetActive(false);
     }
 
+    public void LowClick()
+    {
+        HttpManager.GetInstance().Alert("준비중입니다.", 1.0f);
+    }
+
     public void LoginPopUp()
     {
         texttId.text = "";
