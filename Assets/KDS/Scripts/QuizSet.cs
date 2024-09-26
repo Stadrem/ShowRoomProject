@@ -102,6 +102,8 @@ public class QuizSet : MonoBehaviour
 
     IEnumerator OkAnswer()
     {
+        UiSoundManager.instance.ButtonClick();
+
         okAnswerPopup.SetActive(true);
 
         yield return new WaitForSeconds(2.0f);
@@ -160,6 +162,7 @@ public class QuizSet : MonoBehaviour
         if(InputField_answer.text == currentAnswer)
         {
             StartCoroutine(OkAnswer());
+
             if(currentScore == 2)
             {
                 quizAudio.Stop();
@@ -172,7 +175,6 @@ public class QuizSet : MonoBehaviour
             }
             else
             {
-                UiSoundManager.instance.ButtonClick();
                 currentScore++;
                 slider_time.value = 1;
                 int tempScore = currentScore + 1;

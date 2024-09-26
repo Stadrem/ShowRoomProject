@@ -733,11 +733,6 @@ PrefabInstance:
       objectReference: {fileID: 251598469}
     - target: {fileID: 4076364310508822247, guid: 488bb96c15c2e654fbe45699412e7258,
         type: 3}
-      propertyPath: debugCheck
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4076364310508822247, guid: 488bb96c15c2e654fbe45699412e7258,
-        type: 3}
       propertyPath: debugCheck2
       value: 
       objectReference: {fileID: 823494809}
@@ -872,11 +867,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FirstCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 567397112679582039, guid: 7f7520d9beab83441b46d2a1d50835dd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1669177012948171610, guid: 7f7520d9beab83441b46d2a1d50835dd,
         type: 3}

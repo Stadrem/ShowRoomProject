@@ -33,7 +33,9 @@ public class FirstCanvasManager : MonoBehaviour
 
     public void JoinFinishClick()
     {
-        if(string.IsNullOrEmpty(texttId.text) || string.IsNullOrEmpty(textPassword.text) || string.IsNullOrEmpty(textPassword2.text) || string.IsNullOrEmpty(textName.text) || string.IsNullOrEmpty(textArea.text)) 
+        UiSoundManager.instance.AudioClick();
+
+        if (string.IsNullOrEmpty(texttId.text) || string.IsNullOrEmpty(textPassword.text) || string.IsNullOrEmpty(textPassword2.text) || string.IsNullOrEmpty(textName.text) || string.IsNullOrEmpty(textArea.text)) 
         {
             UiSoundManager.instance.FailClick();
             HttpManager.GetInstance().Alert("빈 칸을 채워주세요.", 2.0f);
@@ -52,6 +54,8 @@ public class FirstCanvasManager : MonoBehaviour
 
     public void LoginClick()
     {
+        UiSoundManager.instance.AudioClick();
+
         if (string.IsNullOrEmpty(logintId.text) || string.IsNullOrEmpty(loginPassword.text))
         {
             print("칸이 비었음");
@@ -132,6 +136,8 @@ public class FirstCanvasManager : MonoBehaviour
 
     public void JoinPopUp()
     {
+        UiSoundManager.instance.AudioClick();
+
         logintId.text = "";
         loginPassword.text = "";
 
@@ -147,6 +153,8 @@ public class FirstCanvasManager : MonoBehaviour
 
     public void LoginPopUp()
     {
+        UiSoundManager.instance.AudioClick();
+
         texttId.text = "";
         textPassword.text = "";
         textPassword2.text = "";

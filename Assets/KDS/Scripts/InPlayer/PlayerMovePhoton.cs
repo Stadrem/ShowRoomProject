@@ -128,7 +128,7 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
     [PunRPC]
     void TalkPopUp(string receiveMessage)
     {
-        StopCoroutine(ChatPopUp(receiveMessage));
+        StopCoroutine("ChatPopUp");
         StartCoroutine(ChatPopUp(receiveMessage));
 
         myAnim.SetTrigger("Talk");
