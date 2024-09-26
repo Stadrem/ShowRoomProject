@@ -147,8 +147,6 @@ public class K_EventMethodRef : MonoBehaviour
         output.text = "처리중입니다...";
         input.interactable = false;
         
-        
-        
         info.contentType = "application/json";
         if (ToAI)
         {
@@ -171,13 +169,16 @@ public class K_EventMethodRef : MonoBehaviour
                 ans = JsonUtility.FromJson<ChatBotAns>(downloadHandler.text);
                 print(ans.answer);
                 ans.answer = ans.answer.Replace("**", "  ");
-                output.text = ans.answer;
+                if (C_TextPrint != null) StopCoroutine(C_TextPrint);
+                C_TextPrint = StartCoroutine(TextPrint(output, ans.answer, 0.05f));
+                //output.text = ans.answer;
             }
             else if (ToAI)
             {
                 ansAI = JsonUtility.FromJson<ChatBotAns_AI>(downloadHandler.text);
                 print(ansAI.answer);
                 ansAI.answer = ansAI.answer.Replace("**", "  ");
+                
                 output.text = ansAI.answer;
             }
             
@@ -193,6 +194,39 @@ public class K_EventMethodRef : MonoBehaviour
         };
         StartCoroutine(K_HttpManager.GetInstance().Post(info));
     }
+    Coroutine C_TextPrint;
+    IEnumerator TextPrint(TMP_Text output, string input, float delay)
+    {
+        output.text = "";
+        foreach (char c in input)
+        {
+            if(c == '\n')
+            {
+                output.text += System.Environment.NewLine;
+            }
+            else
+            {
+                output.text += c;
+            }
+            yield return new WaitForSeconds(delay);
+        }
+        if (C_TextPrint != null) C_TextPrint = null;
+    }
+    //IEnumerator TextPrint(TMP_Text output, string input, float delay)
+    //{
+    //    int count = 0;
+    //    output.text = "";
+    //    while (count != input.Length)
+    //    {
+    //        if (count < input.Length)
+    //        {
+    //            output.text += input[count];
+    //            count++;
+    //        }
+    //        yield return new WaitForSeconds(delay);
+    //    }
+    //    if (C_TextPrint != null) C_TextPrint = null;
+    //}
 
     public void InActive(GameObject gameObject)
     {

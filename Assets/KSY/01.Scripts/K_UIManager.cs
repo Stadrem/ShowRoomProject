@@ -9,21 +9,20 @@ using UnityEngine.UI;
 public class K_UIManager : MonoBehaviour
 {
     private static K_UIManager instance;
-    public GameObject player;
-    public PhotonView playerPV;
+
     public GameObject img_Aim;
     public GameObject ui_ObjGuide;
-    public GameObject currentUI;
 
     public SkinnedMeshRenderer rf1_MeshRenderer;
     public SkinnedMeshRenderer rf2_MeshRenderer;
     public Material[] mat_Rf1_Doors = new Material[3];
     public Material[] mat_Rf2_Doors = new Material[4];
-    public Dictionary<Material, Color> dic_DoorsColor = new Dictionary<Material, Color>();
+    public Material selectedMat;
+    public Dictionary<Material, int> dic_DoorsColor = new Dictionary<Material, int>();
     public Color[] colors = new Color[3];
     public Image[] buttonsImage = new Image[3];
     public GameObject[] bg_Buttons = new GameObject[3];
-    int previousIdx = -1;
+    int previousIdx = 0;
 
     public TMP_Text[] txt_Data;
     public K_ScriptableObjTest data;
@@ -34,6 +33,22 @@ public class K_UIManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
+    public void SetSelectedMat(int rf, int idx)
+    {
+        if(rf == 1)
+        {
+            selectedMat = mat_Rf1_Doors[idx];
+        }
+        else if(rf == 2)
+        {
+            selectedMat = mat_Rf2_Doors[idx];
+        }
+        if (dic_DoorsColor.TryGetValue(selectedMat, out int value))
+        {
+            IndicateSelectedColor(value);
+        }
+    }
+
     public void IndicateSelectedColor(int num)
     {
         if(previousIdx != -1)
@@ -41,6 +56,18 @@ public class K_UIManager : MonoBehaviour
             bg_Buttons[previousIdx].SetActive(false);
         }
         bg_Buttons[num].SetActive(true);
+        previousIdx = num;
+    }
+
+    public void ClickedButton(int num)
+    {
+        IndicateSelectedColor(num);
+        if (selectedMat != null)
+        {
+            selectedMat.color = colors[num];
+            dic_DoorsColor.Remove(selectedMat);
+            dic_DoorsColor.Add(selectedMat, num);
+        }
     }
 
     private void Start()
@@ -64,12 +91,12 @@ public class K_UIManager : MonoBehaviour
         foreach(var c in mat_Rf1_Doors)
         {
             c.color = colors[0];
-            dic_DoorsColor.Add(c, c.color);
+            dic_DoorsColor.Add(c, 0);
         }
         foreach (var c in mat_Rf2_Doors)
         {
             c.color = colors[0];
-            dic_DoorsColor.Add(c, c.color);
+            dic_DoorsColor.Add(c, 0);
         }
     }
 
@@ -78,22 +105,20 @@ public class K_UIManager : MonoBehaviour
         
     }
 
-    public void OpenUI()
-    {
-        currentUI.SetActive(true);
-    }
 
     // 카메라 포커스 함수. 각 UIController에서 호출
     public void OnCamFocusIn(GameObject virtualCam)
     {
         var cvc = virtualCam.GetComponent<CinemachineVirtualCamera>();
         cvc.Priority = 11;
+        Camera.main.cullingMask = Camera.main.cullingMask & ~(1 << LayerMask.NameToLayer("Player"));
     }
 
     public void OnCamFocusOut(GameObject virtualCam)
     {
         var cvc = virtualCam.GetComponent<CinemachineVirtualCamera>();
         cvc.Priority = 9;
+        Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Player");
     }
 
     public static K_UIManager GetInstance()
@@ -105,10 +130,6 @@ public class K_UIManager : MonoBehaviour
         return instance;
     }
 
-    public void FindPlayer()
-    {
-        player = AccountDate.GetInstance().player;
-    }
 
     public void Enabled_UI()
     {
@@ -146,4 +167,9 @@ public class K_UIManager : MonoBehaviour
             Debug.LogError("제품명이 맞지 않습니다.");
         }
     }
+
+
+
+
+
 }

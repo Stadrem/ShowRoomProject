@@ -17,26 +17,25 @@ public class K_ObjectControl : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        player = AccountDate.GetInstance().player;
+        if (specUI.activeSelf) specUI.SetActive(false);
     }
 
     void Update()
     {
-        if(player != null)
-        {
-            myUI.transform.forward = player.transform.forward;
-            PhotonView photonView = player.GetPhotonView();
-        }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            specUI.SetActive(true);
-            if (rf1.activeSelf)
+            if (!specUI.activeSelf)
             {
-                K_UIManager.GetInstance().SetData(rf1_ProductName);
-            }
-            else if (rf2.activeSelf)
-            {
-                K_UIManager.GetInstance().SetData(rf2_ProductName);
+                specUI.SetActive(true);
+                if (rf1.activeSelf)
+                {
+                    K_UIManager.GetInstance().SetData(rf1_ProductName);
+                }
+                else if (rf2.activeSelf)
+                {
+                    K_UIManager.GetInstance().SetData(rf2_ProductName);
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.Q))
@@ -68,8 +67,6 @@ public class K_ObjectControl : MonoBehaviour
                 rf2.GetComponent<Animator>().SetTrigger("Door");
             }
         }
-        if (player == null) player = GameObject.FindWithTag("Player");
-        
     }
 
     private void OnTriggerEnter(Collider other)
