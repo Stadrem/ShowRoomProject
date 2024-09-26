@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class K_ObjectControl : MonoBehaviour
@@ -42,15 +43,11 @@ public class K_ObjectControl : MonoBehaviour
         {
             if (rf1.activeSelf)
             {
-                rf1.SetActive(false);
-                rf2.SetActive(true);
-                K_UIManager.GetInstance().SetData(rf2_ProductName);
+                SetObject(2);
             }
             else if (rf2.activeSelf)
             {
-                rf2.SetActive(false);
-                rf1.SetActive(true);
-                K_UIManager.GetInstance().SetData(rf1_ProductName);
+                SetObject(1);
             }
         }
         if (rf1.activeSelf)
@@ -68,6 +65,25 @@ public class K_ObjectControl : MonoBehaviour
             }
         }
     }
+    
+    public void SetObject(int num)
+    {
+        if(num == 1)
+        {
+            rf2.SetActive(false);
+            rf1.SetActive(true);
+            K_UIManager.GetInstance().SetData(rf1_ProductName);
+            K_UIManager.GetInstance().selectProduct.SetPos(true);
+        }
+        else if(num == 2)
+        {
+            rf1.SetActive(false);
+            rf2.SetActive(true);
+            K_UIManager.GetInstance().SetData(rf2_ProductName);
+            K_UIManager.GetInstance().selectProduct.SetPos(false);
+        }
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {

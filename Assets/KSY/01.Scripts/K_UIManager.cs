@@ -10,6 +10,9 @@ public class K_UIManager : MonoBehaviour
 {
     private static K_UIManager instance;
 
+    public K_ObjectControl objectControl;
+    public K_SelectProduct selectProduct;
+
     public GameObject img_Aim;
     public GameObject ui_ObjGuide;
 

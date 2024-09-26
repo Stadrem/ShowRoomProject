@@ -48,4 +48,96 @@ public class K_SelectProduct : MonoBehaviour
             
         }
     }
+
+    public void SetPos(bool isRf1)
+    {
+        if (isRf1)
+        {
+            this.isRf1 = true;
+            go_img_rf1.localPosition = Vector3.zero;
+            go_img_rf2.localPosition = Vector3.right * 700;
+        }
+        else if(!isRf1)
+        {
+            this.isRf1 = false;
+            go_img_rf2.localPosition = Vector3.zero;
+            go_img_rf1.localPosition = Vector3.right * 700;
+        }
+    }
+
+    public RectTransform go_img_rf1;
+    public RectTransform go_img_rf2;
+    public float speed = 10f;
+    bool isRf1 = true;
+    Coroutine moving = null;
+    public void MoveLeft()
+    {
+        if (moving != null) return;
+        if (isRf1)
+        {
+            moving = StartCoroutine(C_MoveLeft(go_img_rf2,go_img_rf1));
+            Active2();
+            isRf1 = false;
+        }
+        else if (!isRf1)
+        {
+            isRf1 = true;
+            moving = StartCoroutine(C_MoveLeft(go_img_rf1, go_img_rf2));
+            Active1();
+        }
+    }
+    public void MoveRight()
+    {
+        if (moving != null) return;
+        if (isRf1)
+        {
+            moving = StartCoroutine(C_MoveRight(go_img_rf2, go_img_rf1));
+            Active2();
+            isRf1 = false;
+        }
+        else if (!isRf1)
+        {
+            isRf1 = true;
+            moving = StartCoroutine(C_MoveRight(go_img_rf1, go_img_rf2));
+            Active1();
+        }
+    }
+
+    IEnumerator C_MoveLeft(RectTransform go, RectTransform go2)
+    {
+        go.localPosition = new Vector3(700, 0, 0);
+        while(go.localPosition.x >0)
+        {
+            go.localPosition += -Vector3.right * Time.deltaTime * speed;
+            go2.localPosition += -Vector3.right * Time.deltaTime * speed;
+            yield return null;
+        }
+        go.localPosition = Vector3.zero;
+        moving = null;
+    }
+    IEnumerator C_MoveRight(RectTransform go, RectTransform go2)
+    {
+        go.localPosition = new Vector3(-700, 0, 0);
+        while (go.localPosition.x < 0)
+        {
+            go.localPosition += Vector3.right * Time.deltaTime * speed;
+            go2.localPosition += Vector3.right * Time.deltaTime * speed;
+            yield return null;
+        }
+        go.localPosition = Vector3.zero;
+        moving = null;
+    }
+
+    public void Active1()
+    {
+        rf1.SetActive(true);
+        rf2.SetActive(false);
+    }
+
+    public void Active2()
+    {
+        rf1.SetActive(false);
+        rf2.SetActive(true);
+    }
+
 }

@@ -69,7 +69,10 @@ public class K_EventMethodRef : MonoBehaviour
     public TMP_Dropdown items;
 
     public bool ToAI = true;
-    
+
+    string rf1 = "RS84B5081SA";
+    string rf2 = "RF90DG9111S9";
+
     void Start()
     {
         GetRefriData();
@@ -137,8 +140,8 @@ public class K_EventMethodRef : MonoBehaviour
             chatAI.area_size = "8평";
             chatAI.housemate_num = "13";
             chat.user_id = AccountDate.GetInstance().response.userId;
-            chat.area_size = "";
-            chat.housemate_num = "";
+            chat.area_size = "30평";
+            chat.housemate_num = "4";
             print("흠");
         }
         chat.question = input.text;
@@ -171,6 +174,15 @@ public class K_EventMethodRef : MonoBehaviour
                 ans.answer = ans.answer.Replace("**", "  ");
                 if (C_TextPrint != null) StopCoroutine(C_TextPrint);
                 C_TextPrint = StartCoroutine(TextPrint(output, ans.answer, 0.05f));
+                
+                if (ans.answer.Contains(rf1))
+                {
+                    K_UIManager.GetInstance().objectControl.SetObject(1);
+                }
+                else if (ans.answer.Contains(rf2))
+                {
+                    K_UIManager.GetInstance().objectControl.SetObject(2);
+                }
                 //output.text = ans.answer;
             }
             else if (ToAI)
