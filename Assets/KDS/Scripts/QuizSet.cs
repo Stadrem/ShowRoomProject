@@ -115,6 +115,8 @@ public class QuizSet : MonoBehaviour
 
     public void QuizStart()
     {
+        AccountDate.GetInstance().SetPlayerState(K_PlayerMove.PlayerState.Click);
+
         if (currentScore != 2)
         {
             quizAudio.Play();
@@ -194,5 +196,7 @@ public class QuizSet : MonoBehaviour
     private void OnDisable()
     {
         quizAudio.Stop();
+
+        AccountDate.GetInstance().SetPlayerState(K_PlayerMove.PlayerState.Move);
     }
 }

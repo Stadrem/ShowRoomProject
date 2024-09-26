@@ -64,10 +64,12 @@ public class K_PlayerMove : MonoBehaviourPun
         {
             case PlayerState.Move:
                 Cursor.lockState = CursorLockMode.Locked;
+                K_UIManager.GetInstance().img_Aim.SetActive(true);
                 break;
             case PlayerState.Click:
                 if(myAnim!=null) myAnim.SetBool("Move", false);
                 Cursor.lockState = CursorLockMode.Confined;
+                K_UIManager.GetInstance().img_Aim.SetActive(false);
                 break;
             default:
                 break;

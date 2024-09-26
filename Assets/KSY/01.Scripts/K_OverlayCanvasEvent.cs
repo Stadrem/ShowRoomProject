@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class K_OverlayCanvasEvent : MonoBehaviour
 {
-    public string webURL;
     void Start()
     {
         
@@ -17,7 +16,7 @@ public class K_OverlayCanvasEvent : MonoBehaviour
 
     public void OpenURLWeb()
     {
-        Application.OpenURL(webURL);
+        Application.OpenURL(K_UIManager.GetInstance().url);
     }
 
 
