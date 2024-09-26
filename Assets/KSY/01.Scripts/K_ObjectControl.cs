@@ -74,6 +74,7 @@ public class K_ObjectControl : MonoBehaviour
             rf1.SetActive(true);
             K_UIManager.GetInstance().SetData(rf1_ProductName);
             K_UIManager.GetInstance().selectProduct.SetPos(true);
+            K_UIManager.GetInstance().SetUrl(true);
         }
         else if(num == 2)
         {
@@ -81,6 +82,7 @@ public class K_ObjectControl : MonoBehaviour
             rf2.SetActive(true);
             K_UIManager.GetInstance().SetData(rf2_ProductName);
             K_UIManager.GetInstance().selectProduct.SetPos(false);
+            K_UIManager.GetInstance().SetUrl(false);
         }
     }
 
