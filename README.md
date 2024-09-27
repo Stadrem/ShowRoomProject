@@ -1,6 +1,6 @@
 <img src="https://img.shields.io/badge/unity-%23000000.svg?&style=for-the-badge&logo=unity&logoColor=white" /> <img src="https://img.shields.io/badge/blender-%23F5792A.svg?&style=for-the-badge&logo=blender&logoColor=white" />
 
-[![Video Label](http://img.youtu.be/fTxsqThQ7gU?si=L49i6vaMZtCwxyqQ/0.jpg)](https://youtu.be/fTxsqThQ7gU?si=L49i6vaMZtCwxyqQ)
+[![Video Label](https://img.youtube.com/vi/fTxsqThQ7gU/0.jpg)](https://youtu.be/fTxsqThQ7gU)
 
 <h1>메타버스 아카데미 3기</h1>
 
