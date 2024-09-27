@@ -721,6 +721,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: HttpManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1980726113254942109, guid: 488bb96c15c2e654fbe45699412e7258,
+        type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1980726113254942109, guid: 488bb96c15c2e654fbe45699412e7258,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4076364310508822247, guid: 488bb96c15c2e654fbe45699412e7258,
         type: 3}
       propertyPath: cm
