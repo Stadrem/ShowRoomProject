@@ -1,5 +1,5 @@
 <img src="https://img.shields.io/badge/unity-%23000000.svg?&style=for-the-badge&logo=unity&logoColor=white" /> <img src="https://img.shields.io/badge/blender-%23F5792A.svg?&style=for-the-badge&logo=blender&logoColor=white" /> 
-<img src="https://img.shields.io/badge/Scss-green?style=flat&logo=photon&logoColor=CC6699"/>
+
 <img src="https://img.shields.io/badge/Photon-004480?style=for-the-badge&logo=photon&logoColor=white"/>
 
 [![Video Label](https://img.youtube.com/vi/fTxsqThQ7gU/0.jpg)](https://youtu.be/fTxsqThQ7gU)
