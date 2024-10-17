@@ -96,29 +96,7 @@ public class HttpManager_Main : MonoBehaviour
 
             // 서버에게 응답이 왔다.
             DoneRequest(webRequest, info);
-
-            //// 만약에 결과가 정상이라면
-            //if(webRequest.result == UnityWebRequest.Result.Success)
-            //{
-            //    // 우리가 원하는 데이터를 처리
-            //    //print(webRequest.downloadHandler.text);
-            //    //File.WriteAllBytes(Application.dataPath + "/image.jpg", webRequest.downloadHandler.data);
-
-            //    // 응답 온 데이터를 요청한 클래스로 보내자.
-            //    if(info.onComplete != null)
-            //    {
-            //        info.onComplete(webRequest.downloadHandler);
-            //    }
-            //}
-            //// 그렇지 않다면(Error라면)
-            //else
-            //{
-            //    // Error에 대한 이유를 출력.
-            //    Debug.LogError("Net Error : " + webRequest.error);
-            //}
-
         }
-
     }
 
     // 서버에게 내가 보내는 데이터를 생성해줘
@@ -145,7 +123,6 @@ public class HttpManager_Main : MonoBehaviour
 
             // 서버에게 응답이 왔다.
             DoneRequest(webRequest, info);
-
         }
     }
 
@@ -161,8 +138,6 @@ public class HttpManager_Main : MonoBehaviour
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
         formData.Add(new MultipartFormFileSection("file", data, "image2.jpg", info.contentType));
 
-
-        //using (UnityWebRequest webRequest = UnityWebRequest.Post(info.url, info.body, info.contentType))
         using (UnityWebRequest webRequest = UnityWebRequest.Post(info.url, formData))
         {
             // 서버에 요청 보내기
@@ -170,23 +145,6 @@ public class HttpManager_Main : MonoBehaviour
 
             // 서버에게 응답이 왔다.
             DoneRequest(webRequest, info);
-
-            //// 만약에 결과가 정상이라면
-            //if (webRequest.result == UnityWebRequest.Result.Success)
-            //{
-            //    // 응답 온 데이터를 요청한 클래스로 보내자.
-            //    if (info.onComplete != null)
-            //    {
-            //        info.onComplete(webRequest.downloadHandler);
-            //    }
-            //}
-            //// 그렇지 않다면(Error라면)
-            //else
-            //{
-            //    // Error에 대한 이유를 출력.
-            //    Debug.LogError("Net Error : " + webRequest.error);
-            //}
-
         }
     }
 
