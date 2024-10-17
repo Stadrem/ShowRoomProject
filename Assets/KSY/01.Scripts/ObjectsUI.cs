@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class K_Object : MonoBehaviour
+public class ObjectsUI : MonoBehaviour
 {
     Transform myUIPos;
     Transform player;

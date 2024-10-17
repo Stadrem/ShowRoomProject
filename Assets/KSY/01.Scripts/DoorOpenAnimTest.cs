@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class K_DoorOpenAnimTest : MonoBehaviour
+public class DoorOpenAnimTest : MonoBehaviour
 {
     public bool isOpen = false;
     Vector3 openRot = new Vector3(0, 155, 0);

@@ -11,14 +11,14 @@ public class GuideUi : MonoBehaviour
 
     private void OnDisable()
     {
-        AccountDate.GetInstance().SetPlayerState(K_PlayerMove.PlayerState.Move);
+        AccountDate.GetInstance().SetPlayerState(PlayerMove.PlayerState.Move);
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     IEnumerator delay()
     {
         yield return new WaitForSeconds(0.1f);
-        AccountDate.GetInstance().SetPlayerState(K_PlayerMove.PlayerState.Click);
+        AccountDate.GetInstance().SetPlayerState(PlayerMove.PlayerState.Click);
         Cursor.lockState = CursorLockMode.Confined;
     }
 

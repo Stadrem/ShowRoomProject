@@ -13,7 +13,7 @@ public class UiSoundManager : MonoBehaviour
     public AudioClip button;
     public AudioClip fail;
 
-    public K_PlayerMove playerMove;
+    public PlayerMove playerMove;
 
     public AudioSource audioSource;
 
@@ -47,7 +47,7 @@ public class UiSoundManager : MonoBehaviour
         }
         else
         {
-            if (Input.anyKeyDown && !Input.GetButtonDown("Fire1") && playerMove.currState == K_PlayerMove.PlayerState.Click)
+            if (Input.anyKeyDown && !Input.GetButtonDown("Fire1") && playerMove.currState == PlayerMove.PlayerState.Click)
             {
                 KeyClick();
             }

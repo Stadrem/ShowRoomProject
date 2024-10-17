@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class PlayerMovePhoton : MonoBehaviour, IPunObservable
 {
-    K_PlayerMove kpm;
+    PlayerMove kpm;
     PhotonView pv;
     public PlayerUiSet playerUiSet;
 
@@ -34,7 +34,7 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
     // Start is called before the first frame update
     void Start()
     {
-        kpm = GetComponent<K_PlayerMove>();
+        kpm = GetComponent<PlayerMove>();
         pv = GetComponent<PhotonView>();
         player = gameObject;
         voiceView = GetComponent<PhotonVoiceView>();
@@ -107,7 +107,7 @@ public class PlayerMovePhoton : MonoBehaviour, IPunObservable
         Debug.Log("Dropdown Value: " + value);
 
         //아바타 설정있는 스크립트 불러오기 -> 캐릭터에 붙어있는 스크립트
-        K_PlayerMove kpm = player.GetComponent<K_PlayerMove>();
+        PlayerMove kpm = player.GetComponent<PlayerMove>();
 
         //아바타 변경 함수
         kpm.SetAvatar(kpm.bodys[value]);

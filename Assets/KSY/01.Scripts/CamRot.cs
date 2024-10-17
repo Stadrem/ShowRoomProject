@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class K_CamRot : MonoBehaviourPun
+public class CamRot : MonoBehaviourPun
 {
     public bool cam;
     public float rotSpeed;
     float my;
     float mx;
-    public K_PlayerMove playerMove;
+    public PlayerMove playerMove;
     GameObject virtualCamPlayer;
 
     private float initialY;
@@ -34,7 +34,7 @@ public class K_CamRot : MonoBehaviourPun
             virtualCamPlayer.transform.position = transform.position;
             virtualCamPlayer.transform.rotation = transform.rotation;
         }
-        if (playerMove.currState == K_PlayerMove.PlayerState.Click) return;
+        if (playerMove.currState == PlayerMove.PlayerState.Click) return;
         if (!photonView.IsMine) return;
         if (cam)
         {

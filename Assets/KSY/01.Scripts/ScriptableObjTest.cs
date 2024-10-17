@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ProductData", menuName = "Custom/Data")]
-public class K_ScriptableObjTest : ScriptableObject
+public class ScriptableObjTest : ScriptableObject
 {
     public Dictionary<string, RefrigeratorData> dic = new Dictionary<string, RefrigeratorData>();
 

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-using static K_EventMethodRef;
+using static EventMethodRef;
 
-public class K_ChatBotData : MonoBehaviour
+public class ChatBotData : MonoBehaviour
 {
     
 

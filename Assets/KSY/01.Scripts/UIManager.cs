@@ -6,12 +6,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class K_UIManager : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
-    private static K_UIManager instance;
+    private static UIManager instance;
 
-    public K_ObjectControl objectControl;
-    public K_SelectProduct selectProduct;
+    public ObjectControl objectControl;
+    public SelectProduct selectProduct;
     public string[] urls = new string[2] 
     { 
         "https://www.samsung.com/sec/refrigerators/side-by-side-rs84b508115-d2c/RS84B5081SA/", 
@@ -46,7 +46,7 @@ public class K_UIManager : MonoBehaviour
     int previousIdx = 0;
 
     public TMP_Text[] txt_Data;
-    public K_ScriptableObjTest data;
+    public ScriptableObjTest data;
 
     void Awake()
     {
@@ -142,11 +142,11 @@ public class K_UIManager : MonoBehaviour
         Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Player");
     }
 
-    public static K_UIManager GetInstance()
+    public static UIManager GetInstance()
     {
         if(instance == null)
         {
-            new GameObject("UIManager", typeof(K_UIManager));
+            new GameObject("UIManager", typeof(UIManager));
         }
         return instance;
     }
@@ -156,14 +156,14 @@ public class K_UIManager : MonoBehaviour
     {
         img_Aim.SetActive(false);
         ui_ObjGuide.SetActive(false);
-        AccountDate.GetInstance().SetPlayerState(K_PlayerMove.PlayerState.Click);
+        AccountDate.GetInstance().SetPlayerState(PlayerMove.PlayerState.Click);
     }
 
     public void Disabled_UI()
     {
         img_Aim.SetActive(true);
         ui_ObjGuide.SetActive(true);
-        AccountDate.GetInstance().SetPlayerState(K_PlayerMove.PlayerState.Move);
+        AccountDate.GetInstance().SetPlayerState(PlayerMove.PlayerState.Move);
     }
 
     public void SetData(string productName)

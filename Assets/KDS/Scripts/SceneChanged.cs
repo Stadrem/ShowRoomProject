@@ -53,6 +53,6 @@ public class SceneChanged : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
 
-        UiSoundManager.instance.playerMove = AccountDate.GetInstance().player.GetComponent<K_PlayerMove>();
+        UiSoundManager.instance.playerMove = AccountDate.GetInstance().player.GetComponent<PlayerMove>();
     }
 }

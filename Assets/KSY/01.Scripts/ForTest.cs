@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class K_ForTest : MonoBehaviour
+public class ForTest : MonoBehaviour
 {
     void Start()
     {
@@ -13,7 +13,7 @@ public class K_ForTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            K_UIManager.GetInstance();
+            UIManager.GetInstance();
         }
     }
 }

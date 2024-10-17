@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class K_UIController : MonoBehaviour
+public class UIController : MonoBehaviour
 {
     public Button[] btn_Panels;
     public GameObject[] panels;
@@ -37,15 +37,15 @@ public class K_UIController : MonoBehaviour
 
     private void OnEnable()
     {
-        K_UIManager.GetInstance().Enabled_UI();
-        K_UIManager.GetInstance().OnCamFocusIn(virtualCam);
+        UIManager.GetInstance().Enabled_UI();
+        UIManager.GetInstance().OnCamFocusIn(virtualCam);
         GameUiCanvas.instance.gameObject.SetActive(false);
     }
 
     private void OnDisable()
     {
-        K_UIManager.GetInstance().Disabled_UI();
-        K_UIManager.GetInstance().OnCamFocusOut(virtualCam);
+        UIManager.GetInstance().Disabled_UI();
+        UIManager.GetInstance().OnCamFocusOut(virtualCam);
         GameUiCanvas.instance.gameObject.SetActive(true);
     }
 

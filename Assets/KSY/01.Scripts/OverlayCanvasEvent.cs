@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class K_OverlayCanvasEvent : MonoBehaviour
+public class OverlayCanvasEvent : MonoBehaviour
 {
     void Start()
     {
@@ -16,7 +16,7 @@ public class K_OverlayCanvasEvent : MonoBehaviour
 
     public void OpenURLWeb()
     {
-        Application.OpenURL(K_UIManager.GetInstance().url);
+        Application.OpenURL(UIManager.GetInstance().url);
     }
 
 

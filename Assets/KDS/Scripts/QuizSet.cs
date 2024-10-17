@@ -115,7 +115,7 @@ public class QuizSet : MonoBehaviour
 
     public void QuizStart()
     {
-        AccountDate.GetInstance().SetPlayerState(K_PlayerMove.PlayerState.Click);
+        AccountDate.GetInstance().SetPlayerState(PlayerMove.PlayerState.Click);
 
         if (currentScore != 2)
         {
@@ -197,6 +197,6 @@ public class QuizSet : MonoBehaviour
     {
         quizAudio.Stop();
 
-        AccountDate.GetInstance().SetPlayerState(K_PlayerMove.PlayerState.Move);
+        AccountDate.GetInstance().SetPlayerState(PlayerMove.PlayerState.Move);
     }
 }

@@ -9,12 +9,12 @@ using UnityEngine.Networking;
 public class AccountDate : MonoBehaviour
 {
     public GameObject player;
-    K_PlayerMove pm;
-    public void SetPlayerMove(K_PlayerMove playerMove)
+    PlayerMove pm;
+    public void SetPlayerMove(PlayerMove playerMove)
     {
         pm = playerMove;
     }
-    public void SetPlayerState(K_PlayerMove.PlayerState playerState)
+    public void SetPlayerState(PlayerMove.PlayerState playerState)
     {
         pm.ChangeState(playerState);
     }

@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class K_SelectProduct : MonoBehaviour
+public class SelectProduct : MonoBehaviour
 {
     public GameObject rf1;
     public GameObject rf2;
-
+    public RectTransform go_img_rf1;
+    public RectTransform go_img_rf2;
+    public float speed = 10f;
+    bool isRf1 = true;
+    Coroutine moving = null;
     void Start()
     {
         
@@ -22,28 +26,28 @@ public class K_SelectProduct : MonoBehaviour
             {
                 if(hitInfo.transform.name == "Door1")
                 {
-                    if (rf1.activeSelf) K_UIManager.GetInstance().SetSelectedMat(1, 0);
-                    else if(rf2.activeSelf) K_UIManager.GetInstance().SetSelectedMat(2, 0);
+                    if (rf1.activeSelf) UIManager.GetInstance().SetSelectedMat(1, 0);
+                    else if(rf2.activeSelf) UIManager.GetInstance().SetSelectedMat(2, 0);
                 }
                 else if(hitInfo.transform.name == "Door2")
                 {
-                    if (rf1.activeSelf) K_UIManager.GetInstance().SetSelectedMat(1, 1);
-                    else if(rf2.activeSelf) K_UIManager.GetInstance().SetSelectedMat(2, 1);
+                    if (rf1.activeSelf) UIManager.GetInstance().SetSelectedMat(1, 1);
+                    else if(rf2.activeSelf) UIManager.GetInstance().SetSelectedMat(2, 1);
                 }
                 else if (hitInfo.transform.name == "Door3")
                 {
-                    if (rf1.activeSelf) K_UIManager.GetInstance().SetSelectedMat(1, 2);
-                    else if(rf2.activeSelf) K_UIManager.GetInstance().SetSelectedMat(2, 2);
+                    if (rf1.activeSelf) UIManager.GetInstance().SetSelectedMat(1, 2);
+                    else if(rf2.activeSelf) UIManager.GetInstance().SetSelectedMat(2, 2);
                 }
                 else if (hitInfo.transform.name == "Door4")
                 {
-                    if(rf2.activeSelf) K_UIManager.GetInstance().SetSelectedMat(2, 3);
+                    if(rf2.activeSelf) UIManager.GetInstance().SetSelectedMat(2, 3);
                 }
 
             }
             else
             {
-                K_UIManager.GetInstance().selectedMat = null;
+                UIManager.GetInstance().selectedMat = null;
             }
             
         }
@@ -77,27 +81,21 @@ public class K_SelectProduct : MonoBehaviour
         }
     }
 
-    public RectTransform go_img_rf1;
-    public RectTransform go_img_rf2;
-    public float speed = 10f;
-    bool isRf1 = true;
-    Coroutine moving = null;
+    
     public void MoveLeft()
     {
         if (moving != null) return;
         if (isRf1)
         {
             moving = StartCoroutine(C_MoveLeft(go_img_rf2,go_img_rf1));
-            K_UIManager.GetInstance().objectControl.SetObjectInSelect(2);
-            //Active2();
+            UIManager.GetInstance().objectControl.SetObjectInSelect(2);
             isRf1 = false;
         }
         else if (!isRf1)
         {
             isRf1 = true;
             moving = StartCoroutine(C_MoveLeft(go_img_rf1, go_img_rf2));
-            //Active1();
-            K_UIManager.GetInstance().objectControl.SetObjectInSelect(1);
+            UIManager.GetInstance().objectControl.SetObjectInSelect(1);
         }
     }
     public void MoveRight()

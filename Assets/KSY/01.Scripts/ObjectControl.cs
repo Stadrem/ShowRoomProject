@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class K_ObjectControl : MonoBehaviour
+public class ObjectControl : MonoBehaviour
 {
     public GameObject myUI;
     public bool inPlayer;
@@ -31,11 +31,11 @@ public class K_ObjectControl : MonoBehaviour
                 specUI.SetActive(true);
                 if (rf1.activeSelf)
                 {
-                    K_UIManager.GetInstance().SetData(rf1_ProductName);
+                    UIManager.GetInstance().SetData(rf1_ProductName);
                 }
                 else if (rf2.activeSelf)
                 {
-                    K_UIManager.GetInstance().SetData(rf2_ProductName);
+                    UIManager.GetInstance().SetData(rf2_ProductName);
                 }
             }
         }
@@ -72,17 +72,17 @@ public class K_ObjectControl : MonoBehaviour
         {
             rf2.SetActive(false);
             rf1.SetActive(true);
-            K_UIManager.GetInstance().SetData(rf1_ProductName);
-            K_UIManager.GetInstance().selectProduct.SetPos(true);
-            K_UIManager.GetInstance().SetUrl(true);
+            UIManager.GetInstance().SetData(rf1_ProductName);
+            UIManager.GetInstance().selectProduct.SetPos(true);
+            UIManager.GetInstance().SetUrl(true);
         }
         else if(num == 2)
         {
             rf1.SetActive(false);
             rf2.SetActive(true);
-            K_UIManager.GetInstance().SetData(rf2_ProductName);
-            K_UIManager.GetInstance().selectProduct.SetPos(false);
-            K_UIManager.GetInstance().SetUrl(false);
+            UIManager.GetInstance().SetData(rf2_ProductName);
+            UIManager.GetInstance().selectProduct.SetPos(false);
+            UIManager.GetInstance().SetUrl(false);
         }
     }
 
@@ -92,15 +92,15 @@ public class K_ObjectControl : MonoBehaviour
         {
             rf2.SetActive(false);
             rf1.SetActive(true);
-            K_UIManager.GetInstance().SetData(rf1_ProductName);
-            K_UIManager.GetInstance().SetUrl(true);
+            UIManager.GetInstance().SetData(rf1_ProductName);
+            UIManager.GetInstance().SetUrl(true);
         }
         else if (num == 2)
         {
             rf1.SetActive(false);
             rf2.SetActive(true);
-            K_UIManager.GetInstance().SetData(rf2_ProductName);
-            K_UIManager.GetInstance().SetUrl(false);
+            UIManager.GetInstance().SetData(rf2_ProductName);
+            UIManager.GetInstance().SetUrl(false);
         }
     }
 

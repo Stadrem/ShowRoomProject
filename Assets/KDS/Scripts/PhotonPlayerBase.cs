@@ -52,9 +52,9 @@ public class PhotonPlayerBase : MonoBehaviour
 
             AccountDate.GetInstance().player = player;
 
-            print(player.GetComponent<K_PlayerMove>());
+            print(player.GetComponent<PlayerMove>());
 
-            AccountDate.GetInstance().SetPlayerMove(player.GetComponent<K_PlayerMove>());
+            AccountDate.GetInstance().SetPlayerMove(player.GetComponent<PlayerMove>());
 
             Debug.Log("플레이어 생성완료");
 

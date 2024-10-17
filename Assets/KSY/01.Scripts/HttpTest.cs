@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class K_HttpTest : MonoBehaviour
+public class HttpTest : MonoBehaviour
 {
     void Start()
     {
@@ -21,19 +21,19 @@ public class K_HttpTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            K_HttpInfo info = new K_HttpInfo();
+            HttpInfo_Main info = new HttpInfo_Main();
             info.url = "http://mtvs.helloworldlabs.kr:7771/api/string?parameter=안녕하세요";
             info.onComplete = OnComplete;
-            StartCoroutine(K_HttpManager.GetInstance().Get(info));
+            StartCoroutine(HttpManager_Main.GetInstance().Get(info));
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            K_HttpInfo info = new K_HttpInfo();
+            HttpInfo_Main info = new HttpInfo_Main();
             //info.url = "https://jsonplaceholder.typicode.com/albums";
             info.url = "https://ssl.pstatic.net/melona/libs/1506/1506331/b8145c5a724d3f2c9d2b_20240813152032478.jpg";
             info.onComplete = (downloadHandler) => { File.WriteAllBytes(Application.dataPath + "/image2.jpg", downloadHandler.data); };
-            StartCoroutine(K_HttpManager.GetInstance().Get(info));
+            StartCoroutine(HttpManager_Main.GetInstance().Get(info));
         }
 
         //if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -54,12 +54,12 @@ public class K_HttpTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            K_HttpInfo info = new K_HttpInfo();
+            HttpInfo_Main info = new HttpInfo_Main();
             info.url = "http://mtvs.helloworldlabs.kr:7771/api/file";
             info.contentType = "multipart/form-data";
             info.body = "C:\\Users\\Admin\\Downloads\\image.jpg";
             info.onComplete = (downloadHandler) => { File.WriteAllBytes(Application.dataPath + "/image5.jpg", downloadHandler.data); };
-            StartCoroutine(K_HttpManager.GetInstance().UploadFileByFormData(info));
+            StartCoroutine(HttpManager_Main.GetInstance().UploadFileByFormData(info));
         }
         
         //if (Input.GetKeyDown(KeyCode.Alpha5))

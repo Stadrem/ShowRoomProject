@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class K_RefrigeraterUI : MonoBehaviour
+public class RefrigeraterUI : MonoBehaviour
 {
     public TMP_Text[] txt_Data;
-    public K_ScriptableObjTest data;
+    public ScriptableObjTest data;
     void Start()
     {
         

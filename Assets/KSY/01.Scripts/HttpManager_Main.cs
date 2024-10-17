@@ -34,7 +34,7 @@ public struct JsonArray<T>
     public List<T> data;
 }
 
-public class K_HttpInfo
+public class HttpInfo_Main
 {
     public string url = "";
 
@@ -53,17 +53,17 @@ public class K_HttpInfo
     public Action<string> onError;
 }
 
-public class K_HttpManager : MonoBehaviour
+public class HttpManager_Main : MonoBehaviour
 {
-    static K_HttpManager instance;
+    static HttpManager_Main instance;
 
-    public static K_HttpManager GetInstance()
+    public static HttpManager_Main GetInstance()
     {
         if(instance == null)
         {
             GameObject go = new GameObject();
             go.name = "HttpManager";
-            go.AddComponent<K_HttpManager>();
+            go.AddComponent<HttpManager_Main>();
             // go가 만들어지고 go의 Awake가 실행됨.
         }
         return instance;
@@ -85,7 +85,7 @@ public class K_HttpManager : MonoBehaviour
     
     
     // GET : 서버에게 데이터를 조회 요청.
-    public IEnumerator Get(K_HttpInfo info)
+    public IEnumerator Get(HttpInfo_Main info)
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(info.url))
         {
@@ -122,7 +122,7 @@ public class K_HttpManager : MonoBehaviour
     }
 
     // 서버에게 내가 보내는 데이터를 생성해줘
-    public IEnumerator Post(K_HttpInfo info)
+    public IEnumerator Post(HttpInfo_Main info)
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Post(info.url, info.body, info.contentType))
         {
@@ -150,7 +150,7 @@ public class K_HttpManager : MonoBehaviour
     }
 
     // 파일 업로드 (form-data)
-    public IEnumerator UploadFileByFormData(K_HttpInfo info)
+    public IEnumerator UploadFileByFormData(HttpInfo_Main info)
     {
         // info.data에는 파일의 위치
         // info.data에 있는 파일을 byte 배열로 읽어오자.
@@ -191,7 +191,7 @@ public class K_HttpManager : MonoBehaviour
     }
 
     // 파일 업로드
-    public IEnumerator UploadFileByByte(K_HttpInfo info)
+    public IEnumerator UploadFileByByte(HttpInfo_Main info)
     {
         byte[] data = File.ReadAllBytes(info.body);
 
@@ -212,7 +212,7 @@ public class K_HttpManager : MonoBehaviour
         }
     }
     
-    public IEnumerator DownloadSprite(K_HttpInfo info)
+    public IEnumerator DownloadSprite(HttpInfo_Main info)
     {
         using(UnityWebRequest webRequest = UnityWebRequestTexture.GetTexture(info.url))
         {
@@ -222,7 +222,7 @@ public class K_HttpManager : MonoBehaviour
         }
     }
     
-    public IEnumerator DownloadAudio(K_HttpInfo info)
+    public IEnumerator DownloadAudio(HttpInfo_Main info)
     {
         using (UnityWebRequest webRequest = UnityWebRequestMultimedia.GetAudioClip(info.url, AudioType.WAV))
         {
@@ -233,7 +233,7 @@ public class K_HttpManager : MonoBehaviour
     }
 
 
-    void DoneRequest(UnityWebRequest webRequest, K_HttpInfo info)
+    void DoneRequest(UnityWebRequest webRequest, HttpInfo_Main info)
     {
         // 만약에 결과가 정상이라면
         if (webRequest.result == UnityWebRequest.Result.Success)

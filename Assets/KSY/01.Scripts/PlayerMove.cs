@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PhotonView))]
-public class K_PlayerMove : MonoBehaviourPun
+public class PlayerMove : MonoBehaviourPun
 {
     public enum PlayerState
     {
@@ -64,12 +64,12 @@ public class K_PlayerMove : MonoBehaviourPun
         {
             case PlayerState.Move:
                 Cursor.lockState = CursorLockMode.Locked;
-                K_UIManager.GetInstance().img_Aim.SetActive(true);
+                UIManager.GetInstance().img_Aim.SetActive(true);
                 break;
             case PlayerState.Click:
                 if(myAnim!=null) myAnim.SetBool("Move", false);
                 Cursor.lockState = CursorLockMode.Confined;
-                K_UIManager.GetInstance().img_Aim.SetActive(false);
+                UIManager.GetInstance().img_Aim.SetActive(false);
                 break;
             default:
                 break;

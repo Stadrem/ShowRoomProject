@@ -16,7 +16,7 @@ public class UsersInfo
     public string description;
 }
 
-public class K_ProcessData : MonoBehaviour
+public class ProcessData : MonoBehaviour
 {
     int totalPointperID;
     int addPoint;
@@ -25,18 +25,18 @@ public class K_ProcessData : MonoBehaviour
     public GameObject buttonMethod;
     
 
-    static K_ProcessData instance;
+    static ProcessData instance;
 
     UsersInfo infos = new UsersInfo();
 
 
-    public static K_ProcessData GetInstance()
+    public static ProcessData GetInstance()
     {
         if(instance == null)
         {
             GameObject go = new GameObject();
-            go.name = "K_ProcessData";
-            go.AddComponent<K_ProcessData>();
+            go.name = "ProcessData";
+            go.AddComponent<ProcessData>();
         }
         return instance;
     }
@@ -60,7 +60,7 @@ public class K_ProcessData : MonoBehaviour
 
     public void ShowTotalPoints()
     {
-        K_HttpInfo info = new K_HttpInfo();
+        HttpInfo_Main info = new HttpInfo_Main();
         info.url = "http://192.168.1.17:8080/points/all";
         info.onComplete = (downloadHandler) =>
         {
@@ -79,14 +79,14 @@ public class K_ProcessData : MonoBehaviour
             }
             if(action != null) action();
         };
-        StartCoroutine(K_HttpManager.GetInstance().Get(info));
+        StartCoroutine(HttpManager_Main.GetInstance().Get(info));
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha2)) // Get 테스트
         {
-            K_HttpInfo info = new K_HttpInfo();
+            HttpInfo_Main info = new HttpInfo_Main();
             info.url = "http://192.168.1.17:8080/points/all";
             info.onComplete = (downloadHandler) => 
             { 
@@ -103,7 +103,7 @@ public class K_ProcessData : MonoBehaviour
                 }
                 if (action != null) action();
             };
-            StartCoroutine(K_HttpManager.GetInstance().Get(info));
+            StartCoroutine(HttpManager_Main.GetInstance().Get(info));
         }
         //if (Input.GetKeyDown(KeyCode.Alpha4)) // Post 테스트 // 완료. // 이미지 보내기
         //{
@@ -131,14 +131,14 @@ public class K_ProcessData : MonoBehaviour
 
     public void TransferData()
     {
-        K_HttpInfo info = new K_HttpInfo();
+        HttpInfo_Main info = new HttpInfo_Main();
         info.url = "http://192.168.1.17:8080/api/image";
         info.onComplete = OnComplete;
         info.contentType = "image/png";
         //info.body = $"{Application.dataPath}/KSY/Test{GameManager_K.GetInstance().camShotCnt}.png";
         print("보낸 자료 : " + info.body);
         //GameManager_K.GetInstance().PicturePath(info.body);
-        StartCoroutine(K_HttpManager.GetInstance().UploadFileByByte(info));
+        StartCoroutine(HttpManager_Main.GetInstance().UploadFileByByte(info));
         //if(buttonCs != null)
         //{
         //    buttonCs.noteText.text = "분석중입니다.";

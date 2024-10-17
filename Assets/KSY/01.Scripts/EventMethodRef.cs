@@ -57,11 +57,8 @@ public struct RefriArray
     public List<RefrigeratorData> data;
 }
 
-public class K_EventMethodRef : MonoBehaviour
+public class EventMethodRef : MonoBehaviour
 {
-    
-
-
     public ChatBotAns ans;
     public ChatBotAns_AI ansAI;
     public TMP_InputField input;
@@ -90,11 +87,11 @@ public class K_EventMethodRef : MonoBehaviour
             //print("refriArray 1번 : " + refriArray.data[1]);
         }
     }
-    public K_ScriptableObjTest scriptableObj;
+    public ScriptableObjTest scriptableObj;
     public RefriArray refriArray;
     public void GetRefriData()
     {
-        K_HttpInfo info = new K_HttpInfo();
+        HttpInfo_Main info = new HttpInfo_Main();
         info.url = "http://125.132.216.190:12450/api/refrigerators";
         info.token = AccountDate.GetInstance().response.accessToken;
         info.onComplete = (downloadHandler) =>
@@ -109,7 +106,7 @@ public class K_EventMethodRef : MonoBehaviour
             }
             scriptableObj.SetData();
         };
-        StartCoroutine(K_HttpManager.GetInstance().Get(info));
+        StartCoroutine(HttpManager_Main.GetInstance().Get(info));
     }
     
     public void SaveDataToScriptableObj()
@@ -119,7 +116,7 @@ public class K_EventMethodRef : MonoBehaviour
 
     public void TransferInput()
     {
-        K_HttpInfo info = new K_HttpInfo();
+        HttpInfo_Main info = new HttpInfo_Main();
         ChatBotInput chat = new ChatBotInput();
         ChatBotInput_AI chatAI = new ChatBotInput_AI();
         if (AccountDate.GetInstance().response.userId == null || AccountDate.GetInstance().response.userId == "")
@@ -177,13 +174,12 @@ public class K_EventMethodRef : MonoBehaviour
                 
                 if (ans.answer.Contains(rf1))
                 {
-                    K_UIManager.GetInstance().objectControl.SetObject(1);
+                    UIManager.GetInstance().objectControl.SetObject(1);
                 }
                 else if (ans.answer.Contains(rf2))
                 {
-                    K_UIManager.GetInstance().objectControl.SetObject(2);
+                    UIManager.GetInstance().objectControl.SetObject(2);
                 }
-                //output.text = ans.answer;
             }
             else if (ToAI)
             {
@@ -204,7 +200,7 @@ public class K_EventMethodRef : MonoBehaviour
             input.text = "";
             input.interactable = true;
         };
-        StartCoroutine(K_HttpManager.GetInstance().Post(info));
+        StartCoroutine(HttpManager_Main.GetInstance().Post(info));
     }
     Coroutine C_TextPrint;
     IEnumerator TextPrint(TMP_Text output, string input, float delay)
@@ -224,21 +220,7 @@ public class K_EventMethodRef : MonoBehaviour
         }
         if (C_TextPrint != null) C_TextPrint = null;
     }
-    //IEnumerator TextPrint(TMP_Text output, string input, float delay)
-    //{
-    //    int count = 0;
-    //    output.text = "";
-    //    while (count != input.Length)
-    //    {
-    //        if (count < input.Length)
-    //        {
-    //            output.text += input[count];
-    //            count++;
-    //        }
-    //        yield return new WaitForSeconds(delay);
-    //    }
-    //    if (C_TextPrint != null) C_TextPrint = null;
-    //}
+    
 
     public void InActive(GameObject gameObject)
     {
