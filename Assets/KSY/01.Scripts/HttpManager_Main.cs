@@ -37,13 +37,8 @@ public struct JsonArray<T>
 public class HttpInfo_Main
 {
     public string url = "";
-
-    // Body 데이터
-    public string body = "";
-
-    // contentType
-    public string contentType = "";
-
+    public string body = ""; // Body 데이터
+    public string contentType = ""; // contentType
     public string token = "";
 
     // 통신 성공 후 호출되는 함수 담을 변수
@@ -90,11 +85,11 @@ public class HttpManager_Main : MonoBehaviour
         using (UnityWebRequest webRequest = UnityWebRequest.Get(info.url))
         {
             webRequest.SetRequestHeader("Authorization", "Bearer " + info.token);
-            //print("token : " + info.token);
+
             // 서버에 요청 보내기
             yield return webRequest.SendWebRequest(); // 응답이 오고 난 이후에 시행되게 함.
 
-            // 서버에게 응답이 왔다.
+            // 서버에게 응답이 왔다. 후처리 넘김.
             DoneRequest(webRequest, info);
         }
     }
@@ -104,15 +99,10 @@ public class HttpManager_Main : MonoBehaviour
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Post(info.url, info.body, info.contentType))
         {
-            //Dictionary<string, string> token = new Dictionary<string, string>();
-            //token.Add("Bearer", info.token);
-
             webRequest.timeout = 60;
-            //webRequest.SetRequestHeader("Authorization", token.ToString());
             if (info.token != "")
             {
                 webRequest.SetRequestHeader("Authorization", "Bearer " + info.token);
-                print("token : " + info.token);
             }
             else if (info.token == "")
             {
@@ -121,7 +111,7 @@ public class HttpManager_Main : MonoBehaviour
             // 서버에 요청 보내기
             yield return webRequest.SendWebRequest(); // 응답이 오고 난 이후에 시행되게 함.
 
-            // 서버에게 응답이 왔다.
+            // 서버에게 응답이 왔다. 후처리 넘김.
             DoneRequest(webRequest, info);
         }
     }

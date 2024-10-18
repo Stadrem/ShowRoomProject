@@ -78,7 +78,6 @@ public class PlayerMove : MonoBehaviourPun
 
     void Move()
     {
-        
         v = Input.GetAxisRaw("Vertical");
         h = Input.GetAxisRaw("Horizontal");
         dir = new Vector3(h, 0, v);

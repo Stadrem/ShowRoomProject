@@ -54,13 +54,50 @@ public class UIManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
+
+    private void Start()
+    {
+        for(int i =0; i < 3; i++)
+        {
+            colors[i] = buttonsImage[i].color;
+        }
+        InitSaveMats();
+    }
+
+
+    void Update()
+    {
+        
+    }
+
+    void InitSaveMats()
+    {
+        mat_Rf1_Doors[0] = rf1_MeshRenderer.materials[1];
+        mat_Rf1_Doors[1] = rf1_MeshRenderer.materials[2];
+        mat_Rf1_Doors[2] = rf1_MeshRenderer.materials[11];
+        mat_Rf2_Doors[0] = rf2_MeshRenderer.materials[11];
+        mat_Rf2_Doors[1] = rf2_MeshRenderer.materials[5];
+        mat_Rf2_Doors[2] = rf2_MeshRenderer.materials[12];
+        mat_Rf2_Doors[3] = rf2_MeshRenderer.materials[1];
+        foreach (var c in mat_Rf1_Doors)
+        {
+            c.color = colors[0];
+            dic_DoorsColor.Add(c, 0);
+        }
+        foreach (var c in mat_Rf2_Doors)
+        {
+            c.color = colors[0];
+            dic_DoorsColor.Add(c, 0);
+        }
+    }
+
     public void SetSelectedMat(int rf, int idx)
     {
-        if(rf == 1)
+        if (rf == 1)
         {
             selectedMat = mat_Rf1_Doors[idx];
         }
-        else if(rf == 2)
+        else if (rf == 2)
         {
             selectedMat = mat_Rf2_Doors[idx];
         }
@@ -72,7 +109,7 @@ public class UIManager : MonoBehaviour
 
     public void IndicateSelectedColor(int num)
     {
-        if(previousIdx != -1)
+        if (previousIdx != -1)
         {
             bg_Buttons[previousIdx].SetActive(false);
         }
@@ -90,42 +127,6 @@ public class UIManager : MonoBehaviour
             dic_DoorsColor.Add(selectedMat, num);
         }
     }
-
-    private void Start()
-    {
-        for(int i =0; i < 3; i++)
-        {
-            colors[i] = buttonsImage[i].color;
-        }
-        InitSaveMats();
-    }
-
-    void InitSaveMats()
-    {
-        mat_Rf1_Doors[0] = rf1_MeshRenderer.materials[1];
-        mat_Rf1_Doors[1] = rf1_MeshRenderer.materials[2];
-        mat_Rf1_Doors[2] = rf1_MeshRenderer.materials[11];
-        mat_Rf2_Doors[0] = rf2_MeshRenderer.materials[11];
-        mat_Rf2_Doors[1] = rf2_MeshRenderer.materials[5];
-        mat_Rf2_Doors[2] = rf2_MeshRenderer.materials[12];
-        mat_Rf2_Doors[3] = rf2_MeshRenderer.materials[1];
-        foreach(var c in mat_Rf1_Doors)
-        {
-            c.color = colors[0];
-            dic_DoorsColor.Add(c, 0);
-        }
-        foreach (var c in mat_Rf2_Doors)
-        {
-            c.color = colors[0];
-            dic_DoorsColor.Add(c, 0);
-        }
-    }
-
-    void Update()
-    {
-        
-    }
-
 
     // 카메라 포커스 함수. 각 UIController에서 호출
     public void OnCamFocusIn(GameObject virtualCam)
@@ -188,9 +189,4 @@ public class UIManager : MonoBehaviour
             Debug.LogError("제품명이 맞지 않습니다.");
         }
     }
-
-
-
-
-
 }

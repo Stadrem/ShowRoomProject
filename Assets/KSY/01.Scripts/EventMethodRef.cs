@@ -97,9 +97,7 @@ public class EventMethodRef : MonoBehaviour
         info.onComplete = (downloadHandler) =>
         {
             string jsonData = "{ \"data\" : " + downloadHandler.text + "}";
-            print(downloadHandler.text);
             refriArray = JsonUtility.FromJson<RefriArray>(jsonData);
-            print("refriArray 0번 : " + refriArray.data[0].productName);
             foreach(var c in refriArray.data)
             {
                 scriptableObj.dic.Add(c.productName, c);
@@ -189,8 +187,6 @@ public class EventMethodRef : MonoBehaviour
                 
                 output.text = ansAI.answer;
             }
-            
-            
             input.text = "";
             input.interactable = true;
         };
